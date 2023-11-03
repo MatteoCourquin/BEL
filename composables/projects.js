@@ -1,3 +1,1 @@
-export const useProjects = () => {
-  return useState('projects', () => []);
-}
+export const useProjects = () => useState('projects', () => []);
