@@ -3,7 +3,7 @@ const { $client } = useNuxtApp();
 
 const fetchData = async ($client, language) => {
   try {
-    const { data, pending, error, refresh } = await useAsyncData('projects', () => $client.getEntries())
+    const { data } = await useAsyncData('projects', () => $client.getEntries())
 
     return data._rawValue.items.map((item) => ({
       title: item.fields.title,
@@ -13,9 +13,7 @@ const fetchData = async ($client, language) => {
     return [];
   }
 };
-
 const projects = useProjects();
-
 fetchData($client).then((data) => {
   projects.value = data;
 });
@@ -24,7 +22,7 @@ fetchData($client).then((data) => {
 <template>
   <div>
     <h1>Test BEL</h1>
-    <p>fix bug</p>
+    <p class="text-blue-400">fix bug</p>
     <div class="card-wrapper">
       <p class="red-text">{{ useProjects() }}</p>
     </div>
@@ -35,8 +33,9 @@ fetchData($client).then((data) => {
 </template>
 
 <style scoped lang="scss">
-.card-wrapper{
-  background: lightblue;  
+.card-wrapper {
+  background: lightblue;
+
   .red-text {
     color: red;
   }

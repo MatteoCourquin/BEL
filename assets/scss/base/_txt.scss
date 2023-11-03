@@ -1,0 +1,81 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-loos-bold;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: clamp(2rem, 4vw, 4rem);
+}
+h2 {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+}
+h3 {
+  font-size: clamp(2rem, 5vw, 5rem);
+}
+h4 {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+}
+p {
+  font-family: $font-loos-thin;
+}
+
+.font-loos-bold {
+  font-family: $font-loos-bold !important;
+}
+.font-loos-semiBold {
+  font-family: $font-loos-semiBold !important;
+}
+.font-loos-regular {
+  font-family: $font-loos-regular !important;
+}
+.font-loos-thin {
+  font-family: $font-loos-thin !important;
+}
+
+.description {
+  font-size: clamp(1rem, 2vw, 1.8rem);
+}
+.link {
+  font-family: $font-loos-thin;
+  font-size: 20px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0px;
+    transition: width 0.3s;
+  }
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+.link_underline {
+  text-decoration: underline;
+  &::after {
+    display: none;
+  }
+}
+.link_black {
+  color: $color-black;
+  &::after {
+    background: $color-black;
+  }
+}
+.link_white {
+  color: $color-white;
+  &::after {
+    background: $color-white;
+  }
+}
