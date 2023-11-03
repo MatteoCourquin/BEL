@@ -14,16 +14,22 @@ module.exports = {
         black: "#333",
         white: "#fff",
         gold: "#a7904a",
+        gray: '#DBE1EA'
       },
-      // padding: {
-      //   paddingMain: "clamp(20px, 10vw, 100px)"
-      // },
-      // margin: {
-      //   marginMain: "clamp(20px, 10vw, 100px)"
-      // },
+      padding: {
+        "x-default": "clamp(20px, 10vw, 100px)",
+        "y-default": "clamp(20px, 10vh, 100px)"
+      },
+      margin: {
+        "x-default": "clamp(20px, 10vw, 100px)",
+        "y-default": "clamp(20px, 10vh, 100px)"
+      },
       borderRadius: {
         small: "8px",
         medium: "14px"
+      },
+      maxWidth: {
+        default: "1280px",
       },
     },
   },

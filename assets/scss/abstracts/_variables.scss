@@ -13,6 +13,7 @@
 $color-white: #fff;
 $color-black: #333;
 $color-gold: #a7904a;
+$color-gray: #dbe1ea;
 
 // Fonts
 $font-michroma: 'Michroma';
@@ -32,4 +33,8 @@ $radius-small: 8px;
 $radius-medium: 14px;
 
 // Max Width
-$max-width: 1920px;
+$max-width: 1280px;
+
+// Padding
+$padding-x-default: clamp(20px, 10vw, 100px);
+$padding-y-default: clamp(20px, 10vh, 100px);
