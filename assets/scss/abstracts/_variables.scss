@@ -1,56 +1,32 @@
 @font-face {
-  font-family: 'Loos-Bold';
-  src: url('/fonts/Loos-Bold.otf') format('truetype');
+  font-family: 'Michroma';
+  src: url('/fonts/Michroma.ttf') format('truetype');
   font-display: auto;
 }
 @font-face {
-  font-family: 'Loos-SemiBold';
-  src: url('/fonts/Loos-SemiBold.otf') format('truetype');
-  font-display: auto;
-}
-@font-face {
-  font-family: 'Loos-Regular';
-  src: url('/fonts/Loos-Regular.otf') format('truetype');
-  font-display: auto;
-}
-@font-face {
-  font-family: 'Loos-Thin';
-  src: url('/fonts/Loos-Thin.otf') format('truetype');
+  font-family: 'Inter';
+  src: url('/fonts/Inter.ttf') format('truetype');
   font-display: auto;
 }
 
 // Colors
 $color-white: #fff;
-$color-black: #000;
-$color-red: #c13228;
+$color-black: #333;
+$color-gold: #a7904a;
 
 // Fonts
-$font-loos-bold: 'Loos-Bold';
-$font-loos-semiBold: 'Loos-SemiBold';
-$font-loos-regular: 'Loos-Regular';
-$font-loos-thin: 'Loos-Thin';
-
-// transitions
-$transition-main: 0.8s;
+$font-michroma: 'Michroma';
+$font-inter: 'Inter';
+$font-thin: 100;
+$font-extra-light: 200;
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-semi-bold: 600;
+$font-bold: 700;
+$font-extra-bold: 800;
+$font-black: 900;
 
 // Radius
-$radius-main: 25px;
-
-// padding
-$padding-main: clamp(20px, 10vw, 100px);
-
-// Shadows
-$shadow-m: 0 0 10px rgba(0, 0, 0, 0.2);
-$shadow-xl: 0 0 20px rgba(0, 0, 0, 0.2);
-
-// Spacing
-$spacing-xl: 20px;
-$spacing-m: 10px;
-
-// Backdrop Filter
-.backdrop-filter {
-  backdrop-filter: invert(100%) grayscale(1) contrast(9);
-}
-.bounce-transition {
-  transition-timing-function: cubic-bezier(0.47, 1.64, 0.41, 0.8);
-}
+$radius-small: 8px;
+$radius-medium: 14px;

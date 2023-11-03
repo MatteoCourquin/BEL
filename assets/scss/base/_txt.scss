@@ -4,78 +4,66 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-loos-bold;
-  text-transform: uppercase;
+  font-family: $font-inter;
 }
 h1 {
   font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: $font-semi-bold;
 }
 h2 {
   font-size: clamp(1.5rem, 3vw, 3rem);
+  font-weight: $font-semi-bold;
 }
 h3 {
   font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: $font-bold;
 }
 h4 {
   font-size: clamp(1.5rem, 3vw, 3rem);
+  font-weight: $font-bold;
 }
 p {
-  font-family: $font-loos-thin;
+  font-size: 1rem;
+  font-family: $font-inter;
+  font-weight: $font-regular;
 }
 
-.font-loos-bold {
-  font-family: $font-loos-bold !important;
+.font-michroma {
+  font-family: $font-michroma;
 }
-.font-loos-semiBold {
-  font-family: $font-loos-semiBold !important;
+.font-inter-thin {
+  font-family: $font-inter;
+  font-weight: $font-thin;
 }
-.font-loos-regular {
-  font-family: $font-loos-regular !important;
+.font-inter-extra-light {
+  font-family: $font-inter;
+  font-weight: $font-extra-light;
 }
-.font-loos-thin {
-  font-family: $font-loos-thin !important;
+.font-inter-light {
+  font-family: $font-inter;
+  font-weight: $font-light;
 }
-
-.description {
-  font-size: clamp(1rem, 2vw, 1.8rem);
+.font-inter-regular {
+  font-family: $font-inter;
+  font-weight: $font-regular;
 }
-.link {
-  font-family: $font-loos-thin;
-  font-size: 20px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  cursor: pointer;
-  position: relative;
-  &::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    position: absolute;
-    bottom: 0px;
-    transition: width 0.3s;
-  }
-  &:hover {
-    &::after {
-      width: 100%;
-    }
-  }
+.font-inter-medium {
+  font-family: $font-inter;
+  font-weight: $font-medium;
 }
-.link_underline {
-  text-decoration: underline;
-  &::after {
-    display: none;
-  }
+.font-inter-semi-bold {
+  font-family: $font-inter;
+  font-weight: $font-semi-bold;
 }
-.link_black {
-  color: $color-black;
-  &::after {
-    background: $color-black;
-  }
+.font-inter-bold {
+  font-family: $font-inter;
+  font-weight: $font-bold;
 }
-.link_white {
-  color: $color-white;
-  &::after {
-    background: $color-white;
-  }
+.font-inter-extra-bold {
+  font-family: $font-inter;
+  font-weight: $font-extra-bold;
+}
+.font-inter-black {
+  font-family: $font-inter;
+  font-weight: $font-black;
 }

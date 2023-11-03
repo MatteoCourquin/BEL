@@ -33,6 +33,7 @@ fetchData($client).then((data) => {
 </template>
 
 <style scoped lang="scss">
+@import '@/scss/main.scss';
 .card-wrapper {
   background: lightblue;
 

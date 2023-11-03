@@ -10,8 +10,8 @@ export default defineNuxtPlugin(() => {
   return {
     provide: {
       client: createClient({
-        space: 'y2z892aueigm',
-        accessToken: 'Li_fXscKxPbUtnyC0qBy7wf9F8QVNVcri_hklL1gOyk'
+        space: import.meta.env.VITE_CONTENTFUL_SPACE_ID as string,
+        accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN as string
       })
     }
   }
