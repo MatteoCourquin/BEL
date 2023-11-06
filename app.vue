@@ -15,6 +15,7 @@ const fetchData = async ($client) => {
   try {
     const { data } = await useAsyncData('projects', () => $client.getEntries())
 
+
     return data._rawValue.items.map((item) => ({
       title: item.fields.title,
     }));

@@ -1,6 +1,6 @@
 <template>
   <section
-    class="hero min-h-[800px] max-w-default py-y-default mx-auto flex justify-between items-center section-default">
+    class="hero min-h-[800px] max-w-default py-y-default mx-auto flex justify-between items-center px-x-default">
     <div class="w-2/3 self-start">
       <p class="font-michroma">Lorem ipsum dolor sit amet</p>
       <h1 class="uppercase py-8 whitespace-nowrap">Bureau d'études <br>Legavre</h1>
@@ -9,7 +9,7 @@
         optio voluptatibus veritatis aliquid accusamus dolorem.</p>
       <ButtonScroll />
     </div>
-    <div class="border-image relative h-fit m-4 self-end mb-20">
+    <div class="border-image relative h-fit m-4 self-end mb-20 w-1/3">
       <img src="/images/architect.jpg" alt="illustration d'architecture" class="rounded-small object-cover">
     </div>
   </section>
