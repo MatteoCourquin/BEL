@@ -95,7 +95,7 @@
   </nav>
   <div
     v-if="isMenuOpen"
-    class="burgerMenu md:hidden w-screen h-screen fixed bg-white left-0 z-30"
+    class="md:hidden w-screen h-screen fixed bg-white left-0 z-30"
   >
     <div class="flex flex-col items-center justify-center h-full gap-y-4">
       <NuxtLink
@@ -166,7 +166,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.burgerMenu {
-  height: calc(100vh - 75px);
-}
 </style>
