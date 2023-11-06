@@ -1,7 +1,7 @@
 <template>
   <section
-    class="hero min-h-[800px] max-w-default py-y-default mx-auto flex justify-between items-center section-default">
-    <div class="w-2/3 self-start">
+    class="hero min-h-[800px] max-w-default py-y-default mx-auto flex justify-between items-center px-x-default">
+    <div class="w-2/3 self-start mt-10">
       <p class="font-michroma">Lorem ipsum dolor sit amet</p>
       <h1 class="uppercase py-8 whitespace-nowrap">Bureau d'études <br>Legavre</h1>
       <p class="w-2/3 pb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus velit quos sint laborum
@@ -9,8 +9,8 @@
         optio voluptatibus veritatis aliquid accusamus dolorem.</p>
       <ButtonScroll />
     </div>
-    <div class="border-image relative h-fit m-4 self-end mb-20">
-      <img src="/images/architect.jpg" alt="illustration d'architecture" class="rounded-small object-cover">
+    <div class="border-image relative h-2/4 m-4 self-end mb-16 w-1/3">
+      <img src="/images/architect.jpg" alt="illustration d'architecture" class="rounded-small object-cover w-full h-full">
     </div>
   </section>
 </template>
