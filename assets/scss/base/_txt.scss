@@ -17,13 +17,13 @@ h2 {
   font-weight: $font-semi-bold;
 }
 h3 {
-  font-size: clamp(2rem, 5vw, 5rem);
-  line-height: clamp(2rem, 5vw, 5rem);
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: clamp(2rem, 5vw, 3rem);
   font-weight: $font-bold;
 }
 h4 {
-  font-size: clamp(1.5rem, 3vw, 3rem);
-  line-height: clamp(1.5rem, 3vw, 3rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: clamp(1.5rem, 3vw, 2rem);
   font-weight: $font-bold;
 }
 p {
