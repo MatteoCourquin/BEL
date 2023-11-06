@@ -12,7 +12,7 @@
     <div class="w-20 h-20 inline-block border bg-white"></div>
     <div class="w-20 h-20 inline-block border bg-gold"></div>
     <hr>
-    <img src='/images/architect.jpg' alt='Background Hero' preload sizes='xs:500 sm:800 md:1000 lg:2000 xl:2300' />
+    <img src='/images/architect.jpg' alt='Background Hero' />
     <Nuxt-Link class="block" v-for="(project, index) in projects" :key="index"
       :to="'projects/' + project.title.replace(/\s+/g, '-').toLowerCase()">{{ project.title }}</Nuxt-Link>
     <hr>

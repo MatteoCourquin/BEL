@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img class="fixed -z-10 opacity-25 w-screen h-screen object-cover" src="/images/paper.svg" alt="" />
+    <img src="/images/paper.svg" alt="papier millimétré" class="fixed -z-10 opacity-25 w-screen h-screen object-cover" />
     <Header />
     <main>
       <slot />

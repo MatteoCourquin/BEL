@@ -19,7 +19,6 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@nuxt/image": "^1.0.0",
     "contentful": "^10.6.5"
   }
 }

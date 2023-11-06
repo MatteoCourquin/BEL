@@ -10,7 +10,7 @@
       <ButtonScroll />
     </div>
     <div class="border-image relative h-fit m-4 self-end mb-20">
-      <img src="/images/architect.jpg" class="rounded-small object-cover" />
+      <img src="/images/architect.jpg" alt="illustration d'architecture" class="rounded-small object-cover">
     </div>
   </section>
 </template>

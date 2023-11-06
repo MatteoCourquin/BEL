@@ -6,7 +6,7 @@
           <h2 class="uppercase inline-block">{{ title }}</h2>
         </div>
       </div>
-      <img src="/images/meter.svg" class="-z-10 absolute top-1/2 -translate-y-1/2 w-screen" />
+      <img src="/images/meter.svg" alt="illustration de graduation" class="-z-10 absolute top-1/2 -translate-y-1/2 w-screen" />
     </div>
     <slot />
   </div>
