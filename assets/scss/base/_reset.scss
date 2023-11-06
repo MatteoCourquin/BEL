@@ -2,4 +2,13 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  color: $color-black;
+}
+
+.section-default {
+  max-width: $max-width;
+  padding: $padding-y-default $padding-x-default;
+  @media screen and (min-width : calc($max-width + 150px)) {
+    padding: $padding-y-default 0;
+  }
 }
