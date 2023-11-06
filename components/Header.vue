@@ -1,8 +1,9 @@
 <template>
-  <nav class="p-4 flex items-center justify-between max-w-default m-auto">
-    <div class="flex items-center space-x-4 relative">
-      <NuxtLink to="/" class="nav-link" @click="setActiveLink('/')">
-        <!-- Logo SVG -->
+  <nav
+    class="fixed top-0 w-full bg-white py-4 flex items-center justify-between max-w-default m-auto"
+  >
+    <div class="flex items-center gap-10">
+      <NuxtLink to="/" @click="setActiveLink('/')" ref="/">
         <svg
           width="97"
           height="41"
@@ -27,40 +28,43 @@
           />
         </svg>
       </NuxtLink>
-      <div class="hidden md:flex space-x-6">
+      <div class="hidden md:flex gap-10">
         <NuxtLink
-          to="/projets"
-          class="nav-link uppercase"
-          @click="setActiveLink('/projets')"
+          to="projets"
+          class="uppercase"
+          @click="setActiveLink('projets')"
+          ref="projets"
         >
           Projets
         </NuxtLink>
         <NuxtLink
-          to="/presse"
-          class="nav-link uppercase"
-          @click="setActiveLink('/presse')"
+          to="presse"
+          class="uppercase"
+          @click="setActiveLink('presse')"
+          ref="presse"
         >
           Presse
         </NuxtLink>
         <NuxtLink
-          to="/equipe"
-          class="nav-link uppercase"
-          @click="setActiveLink('/equipe')"
+          to="equipe"
+          class="uppercase"
+          @click="setActiveLink('equipe')"
+          ref="equipe"
         >
           Équipe
         </NuxtLink>
+        <span
+          class="w-[5px] h-[5px] absolute bottom-0 bg-gold rounded-full -translate-x-1/2 transition-all duration-300"
+          :style="{
+            left: dotPositionLeft + 'px',
+            top: dotPositionTop + 'px',
+            opacity: dotOpacity,
+          }"
+        ></span>
       </div>
-      <span
-        class="dot transition-dot"
-        :style="{
-          left: dotPosition + 'px',
-          display: dotDisplay,
-          marginLeft: '0',
-        }"
-      ></span>
     </div>
-    <div class="md:hidden flex items-center space-x-4">
-      <button @click="toggleMenu" class="text-white p-2">
+    <div class="md:hidden flex items-center gap-4">
+      <button @click="toggleMenu" class="text-white py-2">
         <svg
           width="24"
           height="24"
@@ -80,23 +84,50 @@
     </div>
     <div class="hidden md:flex">
       <NuxtLink
-        to="/contact"
-        class="nav-link bg-gold px-10 text-white py-1 rounded-md uppercase"
-        @click="setActiveLink('/contact')"
+        to="contact"
+        class="bg-gold px-10 text-white py-1 rounded-md uppercase"
+        @click="setActiveLink('contact')"
+        ref="contact"
       >
         Contact
       </NuxtLink>
     </div>
   </nav>
-  <div v-if="isMenuOpen" class="burgerMenu md:hidden w-screen h-screen fixed bg-white left-0 z-50">
-  <div class="flex flex-col items-center justify-center h-full">
-    <a href="/projets" class="text-black text-2xl mb-4 uppercase">Projets</a>
-    <a href="/presse" class="text-black text-2xl mb-4 uppercase">Presse</a>
-    <a href="/equipe" class="text-black text-2xl mb-4 uppercase">Équipe</a>
-    <a href="/contact" class="text-black text-2xl mb-4 uppercase">Contact</a>
+  <div
+    v-if="isMenuOpen"
+    class="burgerMenu md:hidden w-screen h-screen fixed bg-white left-0 z-30"
+  >
+    <div class="flex flex-col items-center justify-center h-full gap-y-4">
+      <NuxtLink
+        to="/projets"
+        class="text-black text-5xl mb-4 uppercase"
+        @click="toggleMenu"
+      >
+        Projets
+      </NuxtLink>
+      <NuxtLink
+        to="/presse"
+        class="text-black text-5xl mb-4 uppercase"
+        @click="toggleMenu"
+      >
+        Presse
+      </NuxtLink>
+      <NuxtLink
+        to="/equipe"
+        class="text-black text-5xl mb-4 uppercase"
+        @click="toggleMenu"
+      >
+        Équipe
+      </NuxtLink>
+      <NuxtLink
+        to="/contact"
+        class="text-black text-5xl mb-4 uppercase"
+        @click="toggleMenu"
+      >
+        Contact
+      </NuxtLink>
+    </div>
   </div>
-</div>
-
 </template>
 
 <script>
@@ -105,9 +136,9 @@ export default {
   data() {
     return {
       isMenuOpen: false,
-      activeLink: "",
-      dotPosition: 0,
-      dotDisplay: "none",
+      dotPositionLeft: 0,
+      dotPositionTop: 48.5,
+      dotOpacity: 0,
     };
   },
   methods: {
@@ -115,48 +146,27 @@ export default {
       this.isMenuOpen = !this.isMenuOpen;
     },
     setActiveLink(link) {
-      if (this.activeLink !== "/") {
-        const activeLinkClientRect = document
-        .querySelector(`.nav-link[href="${link}"]`)
-        .getBoundingClientRect();
-        
-        console.log(activeLinkClientRect);
-        const dotPosition =
-          activeLinkClientRect.right - activeLinkClientRect.width / 2 - 16;
-        this.dotPosition = dotPosition;
-        this.dotDisplay = "block";
-      } else {
-        this.dotDisplay = "none";
+      if (link !== "index") {
+        this.dotOpacity = "1";
+        this.dotPositionLeft =
+          this.$refs[link].$el.getBoundingClientRect().right -
+          this.$refs[link].$el.getBoundingClientRect().width / 2;
+        this.dotPositionTop =
+          this.$refs[link].$el.getBoundingClientRect().bottom;
+        if (link === "/" || link === "contact") {
+          this.dotOpacity = "0";
+        }
       }
     },
   },
   mounted() {
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 768) {
-        this.isMenuOpen = false;
-        this.dotDisplay = "none";
-      }
-    });
+    this.setActiveLink(useRoute().name);
   },
 };
 </script>
 
 <style scoped lang="scss">
-.dot {
-  width: 6px;
-  height: 6px;
-  background-color: #a7904a;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 0px;
-  transform: translateX(-50%);
-}
-
-.transition-dot {
-  transition: left 0.3s;
-}
-
 .burgerMenu {
-  height: calc(100vh - 64px);
+  height: calc(100vh - 75px);
 }
 </style>
