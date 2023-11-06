@@ -1,5 +1,6 @@
 <template>
-  <section class="hero max-w-default min-h-[800px] mx-auto flex justify-between items-center section-default">
+  <section
+    class="hero min-h-[800px] max-w-default py-y-default mx-auto flex justify-between items-center section-default">
     <div class="w-2/3 self-start">
       <p class="font-michroma">Lorem ipsum dolor sit amet</p>
       <h1 class="uppercase py-8 whitespace-nowrap">Bureau d'études <br>Legavre</h1>
@@ -9,24 +10,19 @@
       <ButtonScroll />
     </div>
     <div class="border-image relative h-fit m-4 self-end mb-20">
-      <NuxtImg src="images/architect.jpg" class="rounded-small object-cover"></NuxtImg>
+      <img src="/images/architect.jpg" class="rounded-small object-cover" />
     </div>
   </section>
 </template>
 
-<script setup>
-const projects = useProjects();
-</script>
 <script>
-
 export default {
   name: 'Index',
   data() {
-    return {};
+    return {}
   },
   methods: {}
 }
-
 </script>
 
 <style scoped lang='scss'>
@@ -37,6 +33,7 @@ export default {
 }
 
 .border-image {
+
   &::after,
   &::before {
     content: '';

@@ -12,8 +12,22 @@
     <div class="w-20 h-20 inline-block border bg-white"></div>
     <div class="w-20 h-20 inline-block border bg-gold"></div>
     <hr>
-    <NuxtImg src='/images/architect.jpg' alt='Background Hero' preload sizes='xs:500 sm:800 md:1000 lg:2000 xl:2300' />
-    <Nuxt-Link class="block" v-for="(project, index) in projects" :key="index" :to="'projects/' + project.title.replace(/\s+/g, '-').toLowerCase()">{{ project.title }}</Nuxt-Link>
+    <img src='/images/architect.jpg' alt='Background Hero' preload sizes='xs:500 sm:800 md:1000 lg:2000 xl:2300' />
+    <Nuxt-Link class="block" v-for="(project, index) in projects" :key="index"
+      :to="'projects/' + project.title.replace(/\s+/g, '-').toLowerCase()">{{ project.title }}</Nuxt-Link>
+    <hr>
+    <Section title="Test">
+      <!-- Mon contenu -->
+      <p class="bg-gold">test</p>
+      <p class="bg-gold">test</p>
+      <p class="bg-gold">test</p>
+      <p class="bg-gold">test</p>
+      <p class="bg-gold">test</p>
+      <p class="bg-gold">test</p>
+      <p class="bg-gold">test</p>
+      <p class="bg-gold">test</p>
+      <p class="bg-gold">test</p>
+    </Section>
     <hr>
     <p>{{ projects }}</p>
     <hr>
@@ -35,5 +49,4 @@ export default {
 
 <style scoped lang='scss'>
 @import '@/scss/main.scss';
-
 </style>

@@ -6,9 +6,10 @@
 }
 
 .section-default {
-  max-width: $max-width;
-  padding: $padding-y-default $padding-x-default;
-  @media screen and (min-width : calc($max-width + 150px)) {
-    padding: $padding-y-default 0;
+  padding-left: $padding-x-default;
+  padding-right: $padding-x-default;
+  @media screen and (min-width: calc($max-width + 150px)) {
+    padding-left: unset;
+    padding-right: unset;
   }
 }

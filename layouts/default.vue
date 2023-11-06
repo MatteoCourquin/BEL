@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtImg class="fixed -z-10 opacity-25 w-screen h-screen object-cover" src="/images/paper.svg" alt=""></NuxtImg>
+    <img class="fixed -z-10 opacity-25 w-screen h-screen object-cover" src="/images/paper.svg" alt="" />
     <Header />
     <main>
       <slot />
