@@ -5,7 +5,6 @@
 import contentful from 'contentful';
 const { createClient } = contentful;
 
-
 export default defineNuxtPlugin(() => {
   return {
     provide: {

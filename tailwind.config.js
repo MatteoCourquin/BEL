@@ -24,6 +24,10 @@ module.exports = {
         "x-default": "clamp(20px, 10vw, 100px)",
         "y-default": "clamp(20px, 10vh, 100px)"
       },
+      spacing: {
+        "x-default": "clamp(20px, 10vw, 100px)",
+        "y-default": "clamp(20px, 10vh, 100px)"
+      },
       borderRadius: {
         small: "8px",
         medium: "14px"
