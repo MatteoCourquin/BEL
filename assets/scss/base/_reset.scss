@@ -4,3 +4,7 @@
   box-sizing: border-box;
   color: $color-black;
 }
+
+.no-srollbar::-webkit-scrollbar {
+  display: none;
+}
