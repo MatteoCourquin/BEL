@@ -29,7 +29,7 @@
       </div>
       <div class="w-full flex flex-col-reverse md:flex-row justify-between items-start md:items-center my-6">
         <div class="flex flex-wrap  mt-3 md:mt-0">
-          <p class="text-white flex items-center mr-8">
+          <p class="text-white flex items-center mr-8 whitespace-nowrap">
             <span class="mr-2">
               <svg
                 width="16"
@@ -50,7 +50,7 @@
             </span>
             contact@be-legavre.fr
           </p>
-          <p class="text-white flex items-center mr-8">
+          <p class="text-white flex items-center mr-8 whitespace-nowrap">
             <span class="mr-2">
               <svg
                 width="10"
@@ -69,7 +69,7 @@
             </span>
             3 rue des trucs, 57000 Vannes
           </p>
-          <p class="text-white flex items-center mr-8">
+          <p class="text-white flex items-center mr-8 whitespace-nowrap">
             <span class="mr-2">
               <svg
                 width="12"
