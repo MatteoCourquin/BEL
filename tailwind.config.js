@@ -11,8 +11,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        black: "#333",
-        white: "#fff",
+        black: "#333333",
+        white: "#ffffff",
         gold: "#a7904a",
         gray: '#DBE1EA'
       },
@@ -21,6 +21,10 @@ module.exports = {
         "y-default": "clamp(20px, 10vh, 100px)"
       },
       margin: {
+        "x-default": "clamp(20px, 10vw, 100px)",
+        "y-default": "clamp(20px, 10vh, 100px)"
+      },
+      spacing: {
         "x-default": "clamp(20px, 10vw, 100px)",
         "y-default": "clamp(20px, 10vh, 100px)"
       },
