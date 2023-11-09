@@ -106,7 +106,7 @@ export default {
 @import '@/scss/main.scss';
 
 .hero {
-  height: calc(100vh - 73px);
+  height: calc(100vh - 89px);
 }
 
 .border-image {
