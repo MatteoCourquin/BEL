@@ -52,58 +52,35 @@
         </div>
       </div>
       <div class="md:hidden flex items-center gap-4">
-        <button
-          @click="toggleMenu"
-          class="flex flex-col justify-between items-end group gap-3"
-        >
-          <div class="w-14 h-[2px] bg-black"></div>
+        <button @click="toggleMenu" class="flex flex-col justify-between items-end group gap-3">
+          <div :class="['transition-all h-[2px] bg-black', isMenuOpen ? '-rotate-45 translate-y-[7px] w-8' : 'w-14']">
+          </div>
           <div
-            class="w-10 group-hover:w-14 transition-all h-[2px] bg-black"
-          ></div>
+            :class="['transition-all h-[2px] bg-black', isMenuOpen ? 'w-8 rotate-45 -translate-y-[7px]' : 'w-10 group-hover:w-14']">
+          </div>
         </button>
       </div>
       <div class="hidden md:flex">
-        <NuxtLink
-          to="contact"
-          class="bg-gold px-10 text-white py-1 rounded-md uppercase"
-          ref="contact"
-        >
+        <NuxtLink to="contact" class="bg-gold px-10 !text-white py-1 rounded-md uppercase font-inter-semi-bold"
+          @click="setActiveLink('contact')" ref="contact">
           Contact
         </NuxtLink>
       </div>
     </nav>
   </header>
   <div
-    v-if="isMenuOpen"
-    class="md:hidden w-screen h-screen fixed bg-white left-0 z-30"
-  >
+    :class="['md:hidden w-screen h-screen fixed bg-white left-0 z-[110] transition-all duration-500 border-b border-gray shadow-lg', isMenuOpen ? 'translate-y-0' : 'translate-header']">
     <div class="flex flex-col items-center justify-center h-full gap-y-4">
-      <NuxtLink
-        to="/projets"
-        class="text-black text-5xl mb-4 uppercase"
-        @click="toggleMenu"
-      >
+      <NuxtLink to="/projets" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Projets
       </NuxtLink>
-      <NuxtLink
-        to="/presse"
-        class="text-black text-5xl mb-4 uppercase"
-        @click="toggleMenu"
-      >
+      <NuxtLink to="/presse" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Presse
       </NuxtLink>
-      <NuxtLink
-        to="/equipe"
-        class="text-black text-5xl mb-4 uppercase"
-        @click="toggleMenu"
-      >
+      <NuxtLink to="/equipe" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Équipe
       </NuxtLink>
-      <NuxtLink
-        to="/contact"
-        class="text-black text-5xl mb-4 uppercase"
-        @click="toggleMenu"
-      >
+      <NuxtLink to="/contact" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Contact
       </NuxtLink>
     </div>
@@ -150,4 +127,10 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@import '@/scss/main.scss';
+
+.translate-header {
+  transform: translateY(calc(-100vh + 89px));
+}
+</style>
