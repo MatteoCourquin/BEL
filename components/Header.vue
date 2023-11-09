@@ -1,10 +1,6 @@
 <template>
-  <header
-    class="fixed top-0 w-screen bg-white z-[9999] border-b border-gray shadow-lg"
-  >
-    <nav
-      class="px-x-default py-6 flex items-center justify-between max-w-default m-auto"
-    >
+  <header class="fixed top-0 w-screen md:border-b md:border-gray md:shadow-lg md:bg-white z-[200]">
+    <nav class="px-x-default py-6 flex items-center justify-between max-w-default m-auto">
       <div class="flex items-center gap-10">
         <NuxtLink to="/" ref="index">
           <svg
@@ -75,36 +71,18 @@
     </nav>
   </header>
   <div
-    v-if="isMenuOpen"
-    class="md:hidden w-screen h-screen fixed bg-white left-0 z-30"
-  >
+    :class="['md:hidden w-screen h-screen fixed bg-white left-0 z-[110] transition-all duration-500 border-b border-gray shadow-lg', isMenuOpen ? 'translate-y-0' : 'translate-header']">
     <div class="flex flex-col items-center justify-center h-full gap-y-4">
-      <NuxtLink
-        to="/projets"
-        class="text-black text-5xl mb-4 uppercase"
-        @click="toggleMenu"
-      >
+      <NuxtLink to="/projets" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Projets
       </NuxtLink>
-      <NuxtLink
-        to="/presse"
-        class="text-black text-5xl mb-4 uppercase"
-        @click="toggleMenu"
-      >
+      <NuxtLink to="/presse" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Presse
       </NuxtLink>
-      <NuxtLink
-        to="/equipe"
-        class="text-black text-5xl mb-4 uppercase"
-        @click="toggleMenu"
-      >
+      <NuxtLink to="/equipe" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Équipe
       </NuxtLink>
-      <NuxtLink
-        to="/contact"
-        class="text-black text-5xl mb-4 uppercase"
-        @click="toggleMenu"
-      >
+      <NuxtLink to="/contact" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Contact
       </NuxtLink>
     </div>
