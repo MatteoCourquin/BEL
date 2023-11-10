@@ -104,25 +104,7 @@
       </div>
     </div>
   </Section>
-  <Section title="valeurs">
-    <div class="px-x-default max-w-default mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-      <div v-for="(advantage, index) in advantages" :key="index"
-        class="border border-gold rounded-medium p-10 lg:last-of-type:col-start-auto lg:last-of-type:col-end-auto last-of-type:col-start-auto last-of-type:col-end-auto sm:last-of-type:col-start-1 sm:last-of-type:col-end-3">
-        <img :src="advantage.logo" :alt="'icone pour ' + advantage.title">
-        <h4 class="py-4 !text-gold !text-lg">{{ advantage.title }}</h4>
-        <p class="!text-gold !text-sm">{{ advantage.description }}</p>
-      </div>
-    </div>
-  </Section>
-  <Section title="services">
-    <div class="px-x-default max-w-default mx-auto grid grid-services gap-10">
-      <div v-for="(service, index) in services" :key="index" class="flex gap-4">
-        <div class="w-10 flex justify-center"><img class="w-auto" :src="service.logo"
-            :alt="'icone pour ' + service.title" /></div>
-        <p>{{ service.title }}</p>
-      </div>
-    </div>
-  </Section>
+  <div class="h-screen"></div>
 </template>
 
 <script setup>
@@ -235,6 +217,9 @@ export default {
         duration : 20,
       });
     });
+    this.lastScrollY = window.scrollY || window.pageYOffset;
+    this.lastTimestamp = new Date().getTime();
+    window.addEventListener("scroll", this.animatePartenaireContainer);
   },
 };
 </script>
