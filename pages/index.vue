@@ -1,6 +1,6 @@
 <template>
   <section
-    class="hero min-h-[800px] max-w-default py-y-default mx-auto px-x-default relative flex sm:block flex-col gap-20 justify-between">
+    class="h-screen-header min-h-[800px] max-w-default py-y-default mx-auto px-x-default relative flex sm:block flex-col gap-20 justify-between">
     <div>
       <p class="font-michroma">Lorem ipsum dolor sit amet</p>
       <h1 class="uppercase py-8 sm:whitespace-nowrap">Bureau d'études <br>Legavre</h1>
@@ -18,11 +18,11 @@
   <Section title="projets">
     <div ref="slider" class="flex gap-8 md:gap-14 overflow-x-scroll md:pt-10 no-srollbar">
       <div ref="sliderItem" v-for="(project, index) in projects" :key="index"
-        class="margin-x-slider bg-red-100 w-1/2 lg:w-1/4 min-w-[200px] aspect-square shrink-0 rounded-bl-small relative">
+        class="margin-x-slider bg-red-100 w-3/4 sm:w-2/4 lg:w-1/3 min-w-[200px] aspect-square shrink-0 rounded-bl-small rounded-tr-small relative">
         <div
           class="hidden md:block w-20 h-20 rounded-full bg-gold absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 z-10">
         </div>
-        <img class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small overflow-hidden"
+        <img class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small rounded-tr-small overflow-hidden"
           src="/images/architect.jpg" alt="">
         <div
           class="absolute bottom-0 h-1/2 w-full bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 rounded-bl-small">
@@ -104,10 +104,6 @@ export default {
 
 <style scoped lang='scss'>
 @import '@/scss/main.scss';
-
-.hero {
-  height: calc(100vh - 73px);
-}
 
 .border-image {
 

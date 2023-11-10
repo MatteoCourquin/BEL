@@ -1,8 +1,11 @@
 <template>
-  <header class="fixed top-0 w-screen bg-white z-[9999] border-b border-gray shadow-lg">
-    <nav class="px-x-default py-6 flex items-center justify-between max-w-default m-auto">
-      <div class="flex items-center gap-10">
-        <NuxtLink to="/" @click="setActiveLink('/')" ref="/">
+  <header
+    class="fixed top-0 w-screen flex items-center h-[90px] md:border-b md:border-gray md:bg-white md:shadow-lg z-[200]">
+    <nav class="px-x-default flex items-center w-full justify-between max-w-default m-auto">
+      <div class="flex items-center gap-10 relative" ref="wrapperHeader">
+        <NuxtLink
+          :class="['transition-all duration-300', isMenuOpen ? '-translate-y-[140px] opacity-0 md:opacity-100 md:-translate-y-0' : 'opacity-100 -translate-y-0']"
+          to="/" @click="setActiveLink('/')" ref="/">
           <svg width="97" height="41" viewBox="0 0 97 41" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8.84615 22.2692H29.3846V39.5H1V1.5H29.3846V17.5769H8.84615H7.84615V18.5769V21.2692V22.2692H8.84615Z"
               stroke="#A7904A" stroke-width="2" />
@@ -14,50 +17,53 @@
           </svg>
         </NuxtLink>
         <div class="hidden md:flex gap-10">
-          <NuxtLink to="projets" class="uppercase" @click="setActiveLink('projets')" ref="projets">
+          <NuxtLink to="projets" class="uppercase font-inter-semi-bold" @click="setActiveLink('projets')" ref="projets">
             Projets
           </NuxtLink>
-          <NuxtLink to="presse" class="uppercase" @click="setActiveLink('presse')" ref="presse">
+          <NuxtLink to="presse" class="uppercase font-inter-semi-bold" @click="setActiveLink('presse')" ref="presse">
             Presse
           </NuxtLink>
-          <NuxtLink to="equipe" class="uppercase" @click="setActiveLink('equipe')" ref="equipe">
+          <NuxtLink to="equipe" class="uppercase font-inter-semi-bold" @click="setActiveLink('equipe')" ref="equipe">
             Équipe
           </NuxtLink>
-          <span
-            class="w-[5px] h-[5px] absolute bottom-0 bg-gold rounded-full -translate-x-1/2 transition-all duration-300"
-            :style="{
-              left: dotPositionLeft + 'px',
-              top: dotPositionTop + 'px',
-              opacity: dotOpacity,
-            }"></span>
         </div>
+        <span
+          class="w-[5px] h-[5px] hidden md:block -translate-x-1/2 absolute bottom-0 bg-gold rounded-full dot-translate transition-all duration-300"
+          :style="{
+            left: dotPositionLeft + 'px',
+            opacity: dotOpacity,
+          }"></span>
       </div>
       <div class="md:hidden flex items-center gap-4">
         <button @click="toggleMenu" class="flex flex-col justify-between items-end group gap-3">
-          <div class="w-14 h-[2px] bg-black"></div>
-          <div class="w-10 group-hover:w-14 transition-all h-[2px] bg-black"></div>
+          <div :class="['transition-all h-[2px] bg-black', isMenuOpen ? '-rotate-45 translate-y-[7px] w-8' : 'w-14']">
+          </div>
+          <div
+            :class="['transition-all h-[2px] bg-black', isMenuOpen ? 'w-8 rotate-45 -translate-y-[7px]' : 'w-10 group-hover:w-14']">
+          </div>
         </button>
       </div>
       <div class="hidden md:flex">
-        <NuxtLink to="contact" class="bg-gold px-10 text-white py-1 rounded-md uppercase"
+        <NuxtLink to="contact" class="bg-gold px-10 !text-white py-1 rounded-md uppercase font-inter-semi-bold"
           @click="setActiveLink('contact')" ref="contact">
           Contact
         </NuxtLink>
       </div>
     </nav>
   </header>
-  <div v-if="isMenuOpen" class="md:hidden w-screen h-screen fixed bg-white left-0 z-30">
+  <div
+    :class="['md:hidden w-screen h-screen fixed bg-white left-0 z-[110] transition-all duration-500 border-b border-gray shadow-lg', isMenuOpen ? 'translate-y-0' : 'translate-header']">
     <div class="flex flex-col items-center justify-center h-full gap-y-4">
-      <NuxtLink to="/projets" class="text-black text-5xl mb-4 uppercase" @click="toggleMenu">
+      <NuxtLink to="/projets" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Projets
       </NuxtLink>
-      <NuxtLink to="/presse" class="text-black text-5xl mb-4 uppercase" @click="toggleMenu">
+      <NuxtLink to="/presse" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Presse
       </NuxtLink>
-      <NuxtLink to="/equipe" class="text-black text-5xl mb-4 uppercase" @click="toggleMenu">
+      <NuxtLink to="/equipe" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Équipe
       </NuxtLink>
-      <NuxtLink to="/contact" class="text-black text-5xl mb-4 uppercase" @click="toggleMenu">
+      <NuxtLink to="/contact" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Contact
       </NuxtLink>
     </div>
@@ -71,7 +77,6 @@ export default {
     return {
       isMenuOpen: false,
       dotPositionLeft: 0,
-      dotPositionTop: 48.5,
       dotOpacity: 0,
     };
   },
@@ -82,16 +87,14 @@ export default {
     setActiveLink(link) {
       if (link !== "index") {
         this.dotOpacity = "1";
-        this.dotPositionLeft =
-          this.$refs[link].$el.getBoundingClientRect().right -
-          this.$refs[link].$el.getBoundingClientRect().width / 2;
-        this.dotPositionTop =
-          this.$refs[link].$el.getBoundingClientRect().bottom;
+        const linkRect = this.$refs[link].$el.getBoundingClientRect();
+        const parentRect = this.$refs.wrapperHeader.getBoundingClientRect();
+        this.dotPositionLeft = linkRect.right - linkRect.width / 2 - parentRect.left;
         if (link === "/" || link === "contact") {
           this.dotOpacity = "0";
         }
       }
-    },
+    }
   },
   mounted() {
     this.setActiveLink(useRoute().name);
@@ -99,4 +102,10 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@import '@/scss/main.scss';
+
+.translate-header {
+  transform: translateY(calc(-100vh + 90px));
+}
+</style>
