@@ -1,24 +1,14 @@
 <template>
   <header
-    class="fixed top-0 w-screen bg-white z-[9999] border-b border-gray shadow-lg"
-  >
-    <nav
-      class="px-x-default py-6 flex items-center justify-between max-w-default m-auto"
-    >
-      <div class="flex items-center gap-10">
-        <NuxtLink to="/" ref="index">
-          <svg
-            width="97"
-            height="41"
-            viewBox="0 0 97 41"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.84615 22.2692H29.3846V39.5H1V1.5H29.3846V17.5769H8.84615H7.84615V18.5769V21.2692V22.2692H8.84615Z"
-              stroke="#A7904A"
-              stroke-width="2"
-            />
+    class="fixed top-0 w-screen flex items-center h-[90px] md:border-b md:border-gray md:bg-white md:shadow-lg z-[200]">
+    <nav class="px-x-default flex items-center w-full justify-between max-w-default m-auto">
+      <div class="flex items-center gap-10 relative" ref="wrapperHeader">
+        <NuxtLink
+          :class="['transition-all duration-300', isMenuOpen ? '-translate-y-[140px] opacity-0 md:opacity-100 md:-translate-y-0' : 'opacity-100 -translate-y-0']"
+          to="/" @click="setActiveLink('/')" ref="/">
+          <svg width="97" height="41" viewBox="0 0 97 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.84615 22.2692H29.3846V39.5H1V1.5H29.3846V17.5769H8.84615H7.84615V18.5769V21.2692V22.2692H8.84615Z"
+              stroke="#A7904A" stroke-width="2" />
             <path
               d="M41.9228 25.3462H62.0767V39.5H34.0767V1.5H62.0767V14.1154H41.9228H40.9228V15.1154V18.5769V19.5769H41.9228H47.8459V20.2692H41.9228H40.9228V21.2692V24.3462V25.3462H41.9228Z"
               stroke="#A7904A"
@@ -41,15 +31,13 @@
           <NuxtLink to="equipe" class="uppercase" ref="equipe">
             Équipe
           </NuxtLink>
-          <span
-            class="w-[5px] h-[5px] absolute bottom-0 bg-gold rounded-full -translate-x-1/2 transition-all duration-300"
-            :style="{
-              left: dotPositionLeft + 'px',
-              top: dotPositionTop + 'px',
-              opacity: dotOpacity,
-            }"
-          ></span>
         </div>
+        <span
+          class="w-[5px] h-[5px] hidden md:block -translate-x-1/2 absolute bottom-0 bg-gold rounded-full dot-translate transition-all duration-300"
+          :style="{
+            left: dotPositionLeft + 'px',
+            opacity: dotOpacity,
+          }"></span>
       </div>
       <div class="md:hidden flex items-center gap-4">
         <button @click="toggleMenu" class="flex flex-col justify-between items-end group gap-3">
@@ -94,7 +82,6 @@ export default {
     return {
       isMenuOpen: false,
       dotPositionLeft: 0,
-      dotPositionTop: 48.5,
       dotOpacity: 0,
     };
   },
@@ -107,19 +94,17 @@ export default {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
-    setActiveLink() {
-      const link = this.$route.name;
-      this.dotPositionLeft =
-        this.$refs[link].$el.getBoundingClientRect().right -
-        this.$refs[link].$el.getBoundingClientRect().width / 2;
-      this.dotPositionTop = this.$refs[link].$el.getBoundingClientRect().bottom;
-
-      if (link === "index" || link === "contact") {
-        this.dotOpacity = 0;
-      } else {
-        this.dotOpacity = 1;
+    setActiveLink(link) {
+      if (link !== "index") {
+        this.dotOpacity = "1";
+        const linkRect = this.$refs[link].$el.getBoundingClientRect();
+        const parentRect = this.$refs.wrapperHeader.getBoundingClientRect();
+        this.dotPositionLeft = linkRect.right - linkRect.width / 2 - parentRect.left;
+        if (link === "/" || link === "contact") {
+          this.dotOpacity = "0";
+        }
       }
-    },
+    }
   },
   mounted() {
     this.setActiveLink();
@@ -131,6 +116,6 @@ export default {
 @import '@/scss/main.scss';
 
 .translate-header {
-  transform: translateY(calc(-100vh + 89px));
+  transform: translateY(calc(-100vh + 90px));
 }
 </style>

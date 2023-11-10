@@ -1,6 +1,12 @@
 <template>
   <div>
     <hr>
+    <h1>Spacing</h1>
+    <h4>Titre</h4>
+    <p>p-10</p>
+    <h4>Sous titre</h4>
+    <p>p-2 md:p-4</p>
+    <hr>
     <h1>heading1</h1>
     <h2>heading2</h2>
     <h3>headin3</h3>
