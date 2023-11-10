@@ -1,119 +1,255 @@
 <template>
   <section
-    class="hero min-h-[800px] max-w-default py-y-default mx-auto px-x-default relative flex sm:block flex-col gap-20 justify-between">
+    class="hero min-h-[800px] max-w-default py-y-default mx-auto px-x-default relative flex sm:block flex-col gap-20 justify-between"
+  >
     <div>
       <p class="font-michroma">Lorem ipsum dolor sit amet</p>
-      <h1 class="uppercase py-8 sm:whitespace-nowrap">Bureau d'études <br>Legavre</h1>
-      <p class="w-full sm:w-2/3 pb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus velit quos sint
-        laborum
-        placeat
-        optio voluptatibus veritatis aliquid accusamus dolorem.</p>
+      <h1 class="uppercase py-8 sm:whitespace-nowrap">
+        Bureau d'études <br />Legavre
+      </h1>
+      <p class="w-full sm:w-2/3 pb-8">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus velit
+        quos sint laborum placeat optio voluptatibus veritatis aliquid accusamus
+        dolorem.
+      </p>
       <ButtonScroll />
     </div>
     <div
-      class="border-image m-4 relative sm:absolute w-full sm:w-[30vw] h-52 -translate-x-4 min-w-[250px] sm:h-[30vh] min-h-[150px] sm:bottom-[10%] sm:right-x-default">
-      <img src="/images/architect.jpg" alt="illustration d'architecture" class="rounded-small object-cover w-full h-full">
+      class="border-image m-4 relative sm:absolute w-full sm:w-[30vw] h-52 -translate-x-4 min-w-[250px] sm:h-[30vh] min-h-[150px] sm:bottom-[10%] sm:right-x-default"
+    >
+      <img
+        src="/images/architect.jpg"
+        alt="illustration d'architecture"
+        class="rounded-small object-cover w-full h-full"
+      />
     </div>
   </section>
   <Section title="projets">
-    <div ref="slider" class="flex gap-8 md:gap-14 overflow-x-scroll md:pt-10 no-srollbar">
-      <div ref="sliderItem" v-for="(project, index) in projects" :key="index"
-        class="margin-x-slider bg-red-100 w-1/2 lg:w-1/4 min-w-[200px] aspect-square shrink-0 rounded-bl-small relative">
+    <div
+      ref="slider"
+      class="flex gap-8 md:gap-14 overflow-x-scroll md:pt-10 no-srollbar"
+    >
+      <div
+        ref="sliderItem"
+        v-for="(project, index) in projects"
+        :key="index"
+        class="margin-x-slider bg-red-100 w-1/2 lg:w-1/4 min-w-[200px] aspect-square shrink-0 rounded-bl-small relative"
+      >
         <div
-          class="hidden md:block w-20 h-20 rounded-full bg-gold absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 z-10">
-        </div>
-        <img class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small overflow-hidden"
-          src="/images/architect.jpg" alt="">
+          class="hidden md:block w-20 h-20 rounded-full bg-gold absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 z-10"
+        ></div>
+        <img
+          class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small overflow-hidden"
+          src="/images/architect.jpg"
+          alt=""
+        />
         <div
-          class="absolute bottom-0 h-1/2 w-full bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 rounded-bl-small">
-          <h4 class="!text-white pb-2 md:pb-4 whitespace-nowrap overflow-hidden text-ellipsis">{{ project.title }}</h4>
-          <p class="!text-gray md:pb-2 whitespace-nowrap overflow-hidden text-ellipsis">#{{ project.title }} #{{
-            project.title }}
-            #{{ project.title }} #{{ project.title }} #{{ project.title }}</p>
+          class="absolute bottom-0 h-1/2 w-full bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 rounded-bl-small"
+        >
+          <h4
+            class="!text-white pb-2 md:pb-4 whitespace-nowrap overflow-hidden text-ellipsis"
+          >
+            {{ project.title }}
+          </h4>
+          <p
+            class="!text-gray md:pb-2 whitespace-nowrap overflow-hidden text-ellipsis"
+          >
+            #{{ project.title }} #{{ project.title }} #{{ project.title }} #{{
+              project.title
+            }}
+            #{{ project.title }}
+          </p>
         </div>
       </div>
     </div>
     <div class="flex gap-10 justify-center pt-10 items-center">
       <div @click="scrollLeft" class="w-14 flex items-center justify-end">
-        <div class="group relative p-4 cursor-pointer w-10 hover:w-14 transition-all">
-          <div class="absolute top-1/2 right-0 group-hover:w-14 transition-all -translate-y-1/2 bg-black w-10 h-[2px]">
-          </div>
-          <img src="/images/arrow.svg"
+        <div
+          class="group relative p-4 cursor-pointer w-10 hover:w-14 transition-all"
+        >
+          <div
+            class="absolute top-1/2 right-0 group-hover:w-14 transition-all -translate-y-1/2 bg-black w-10 h-[2px]"
+          ></div>
+          <img
+            src="/images/arrow.svg"
             class="w-4 h-4 group-hover: transition-all -translate-x-1/2 translate-y-1/2 absolute left-[2px] top-0 rotate-90"
-            alt="fleche gauche">
+            alt="fleche gauche"
+          />
         </div>
       </div>
       <div @click="scrollRight" class="w-14 flex items-center justify-start">
-        <div class="group relative p-4 cursor-pointer w-10 hover:w-14 transition-all">
-          <div class="absolute top-1/2 left-0 group-hover:w-14 transition-all -translate-y-1/2 bg-black w-10 h-[2px]">
-          </div>
-          <img src="/images/arrow.svg"
-            class="w-4 h-4 translate-x-1/2 translate-y-1/2 absolute right-[2px] top-0 -rotate-90" alt="fleche droite">
+        <div
+          class="group relative p-4 cursor-pointer w-10 hover:w-14 transition-all"
+        >
+          <div
+            class="absolute top-1/2 left-0 group-hover:w-14 transition-all -translate-y-1/2 bg-black w-10 h-[2px]"
+          ></div>
+          <img
+            src="/images/arrow.svg"
+            class="w-4 h-4 translate-x-1/2 translate-y-1/2 absolute right-[2px] top-0 -rotate-90"
+            alt="fleche droite"
+          />
         </div>
       </div>
     </div>
   </Section>
+  <Section title="partenaires">
+    <div class="overflow-hidden">
+      <div class="flex flex-nowrap">
+        <div
+          ref="partenaireContainerRight1"
+          class="partenaireContainerRight flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
+        >
+          <div
+            class="shrink-0"
+            v-for="(partenaire, index) in partenaires"
+            :key="index"
+          >
+            <img
+              class="w-40 h-40 object-contain rounded-full"
+              :src="partenaire.img"
+              alt="logo partenaire"
+            />
+          </div>
+        </div>
+        <div
+          ref="partenaireContainerRight2"
+          class="partenaireContainerRight flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
+        >
+          <div
+            class="shrink-0"
+            v-for="(partenaire, index) in partenaires"
+            :key="index"
+          >
+            <img
+              class="w-40 h-40 object-contain rounded-full"
+              :src="partenaire.img"
+              alt="logo partenaire"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-nowrap">
+        <div
+          ref="partenaireContainerLeft1"
+          class="partenaireContainerLeft flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
+        >
+          <div
+            class="shrink-0"
+            v-for="(partenaire, index) in partenaires"
+            :key="index"
+          >
+            <img
+              class="w-40 h-40 object-contain rounded-full"
+              :src="partenaire.img"
+              alt="logo partenaire"
+            />
+          </div>
+        </div>
+        <div
+          ref="partenaireContainerLeft2"
+          class="partenaireContainerLeft flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
+        >
+          <div
+            class="shrink-0"
+            v-for="(partenaire, index) in partenaires"
+            :key="index"
+          >
+            <img
+              class="w-40 h-40 object-contain rounded-full"
+              :src="partenaire.img"
+              alt="logo partenaire"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+  <div class="h-screen"></div>
 </template>
 
-
 <script setup>
-const projects = useProjects()
+const projects = useProjects();
+const partenaires = Array(10).fill({
+  img: "/images/staze.png",
+});
 </script>
 <script>
 export default {
-  name: 'Index',
+  name: "Index",
   data() {
     return {
       paddingProjects: 0,
-    }
+      scrollSpeed: 0,
+      lastScrollY: 0,
+    };
   },
   methods: {
     scrollRight() {
       const container = this.$refs.slider;
       this.paddingProjects = window.innerWidth >= 768 ? 56 : 32;
       container.scrollLeft + container.clientWidth >= container.scrollWidth - 1
-        ?
-        container.scrollTo({
-          behavior: 'smooth',
-          left: 0
-        })
-        :
-        container.scrollTo({
-          behavior: 'smooth',
-          left: container.scrollLeft + ((this.$refs.sliderItem[0].clientWidth + this.paddingProjects) * 1)
-        })
+        ? container.scrollTo({
+            behavior: "smooth",
+            left: 0,
+          })
+        : container.scrollTo({
+            behavior: "smooth",
+            left:
+              container.scrollLeft +
+              (this.$refs.sliderItem[0].clientWidth + this.paddingProjects) * 1,
+          });
     },
     scrollLeft() {
       const container = this.$refs.slider;
       this.paddingProjects = window.innerWidth >= 768 ? 56 : 32;
       container.scrollLeft <= 1
-        ?
-        container.scrollTo({
-          behavior: 'smooth',
-          left: container.scrollWidth - container.clientWidth
-        })
-        :
-        container.scrollTo({
-          behavior: 'smooth',
-          left: container.scrollLeft - ((this.$refs.sliderItem[0].clientWidth + this.paddingProjects) * 1)
-        })
+        ? container.scrollTo({
+            behavior: "smooth",
+            left: container.scrollWidth - container.clientWidth,
+          })
+        : container.scrollTo({
+            behavior: "smooth",
+            left:
+              container.scrollLeft -
+              (this.$refs.sliderItem[0].clientWidth + this.paddingProjects) * 1,
+          });
+    },
+    animatePartenaireContainer() {
+      const partenaireContainerRight1 = this.$refs.partenaireContainerRight1;
+      const partenaireContainerRight2 = this.$refs.partenaireContainerRight2;
+      const partenaireContainerLeft1 = this.$refs.partenaireContainerLeft1;
+      const partenaireContainerLeft2 = this.$refs.partenaireContainerLeft2;
+
+
+      const speed = window.scrollY / 100;
+      console.log(speed)
+
+      partenaireContainerRight1.style.animationDuration = `${speed}s`;
+      partenaireContainerRight2.style.animationDuration = `${speed}s`;
+      partenaireContainerLeft1.style.animationDuration = `${speed}s`;
+      partenaireContainerLeft2.style.animationDuration = `${speed}s`;
     },
   },
-}
+  mounted() {
+    this.lastScrollY = window.scrollY || window.pageYOffset;
+    this.lastTimestamp = new Date().getTime();
+    window.addEventListener("scroll", this.animatePartenaireContainer);
+  },
+};
 </script>
 
-<style scoped lang='scss'>
-@import '@/scss/main.scss';
+<style scoped lang="scss">
+@import "@/scss/main.scss";
 
 .hero {
-  height: calc(100vh - 73px);
+  height: calc(100vh - 89px);
 }
 
 .border-image {
-
   &::after,
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     border: 1px solid $color-gold;
     border-radius: $radius-small;
@@ -146,7 +282,7 @@ export default {
     margin-left: calc(((100vw - $max-width) / 2) + $padding-x-default);
   }
 
-  @media screen and (max-width : $max-width) {
+  @media screen and (max-width: $max-width) {
     &:last-of-type {
       margin-right: $padding-x-default;
     }
@@ -155,5 +291,22 @@ export default {
       margin-left: $padding-x-default;
     }
   }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.partenaireContainerRight {
+  animation: slideLeft infinite linear reverse;
+}
+
+.partenaireContainerLeft {
+  animation: slideLeft infinite linear;
 }
 </style>
