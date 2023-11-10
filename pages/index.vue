@@ -75,101 +75,40 @@
   <Section title="partenaires">
     <div class="overflow-hidden">
       <div class="flex flex-nowrap">
-        <div
-          ref="partenaireContainerRight1"
-          class="right flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
-        >
-          <div
-            class="shrink-0"
-            v-for="(partenaire, index) in partenaires"
-            :key="index"
-          >
-            <img
-              class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
-              :src="partenaire.img"
-              alt="logo partenaire"
-            />
+        <div ref="partenaireContainerRight1"
+          class="partenaireContainerRight flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
+          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
+            <img class="w-40 h-40 object-contain rounded-full" :src="partenaire.img" alt="logo partenaire" />
           </div>
         </div>
-        <div
-          ref="partenaireContainerRight2"
-          class="right flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
-        >
-          <div
-            class="shrink-0"
-            v-for="(partenaire, index) in partenaires"
-            :key="index"
-          >
-            <img
-              class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
-              :src="partenaire.img"
-              alt="logo partenaire"
-            />
+        <div ref="partenaireContainerRight2"
+          class="partenaireContainerRight flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
+          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
+            <img class="w-40 h-40 object-contain rounded-full" :src="partenaire.img" alt="logo partenaire" />
           </div>
         </div>
       </div>
-      <div class="flex flex-nowrap flex-row-reverse">
-        <div
-          ref="partenaireContainerLeft1"
-          class="left flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
-        >
-          <div
-            class="shrink-0"
-            v-for="(partenaire, index) in partenaires"
-            :key="index"
-          >
-            <img
-              class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
-              :src="partenaire.img"
-              alt="logo partenaire"
-            />
+      <div class="flex flex-nowrap">
+        <div ref="partenaireContainerLeft1"
+          class="partenaireContainerLeft flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
+          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
+            <img class="w-40 h-40 object-contain rounded-full" :src="partenaire.img" alt="logo partenaire" />
           </div>
         </div>
-        <div
-          ref="partenaireContainerLeft2"
-          class="left flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
-        >
-          <div
-            class="shrink-0"
-            v-for="(partenaire, index) in partenaires"
-            :key="index"
-          >
-            <img
-              class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
-              :src="partenaire.img"
-              alt="logo partenaire"
-            />
+        <div ref="partenaireContainerLeft2"
+          class="partenaireContainerLeft flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
+          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
+            <img class="w-40 h-40 object-contain rounded-full" :src="partenaire.img" alt="logo partenaire" />
           </div>
         </div>
       </div>
     </div>
   </Section>
-  <Section title="valeurs">
-    <div class="px-x-default max-w-default mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-      <div v-for="(advantage, index) in advantages" :key="index"
-        class="border border-gold rounded-medium p-10 lg:last-of-type:col-start-auto lg:last-of-type:col-end-auto last-of-type:col-start-auto last-of-type:col-end-auto sm:last-of-type:col-start-1 sm:last-of-type:col-end-3">
-        <img :src="advantage.logo" :alt="'icone pour ' + advantage.title">
-        <h4 class="py-4 !text-gold !text-lg">{{ advantage.title }}</h4>
-        <p class="!text-gold !text-sm">{{ advantage.description }}</p>
-      </div>
-    </div>
-  </Section>
-  <Section title="services">
-    <div class="px-x-default max-w-default mx-auto grid grid-services gap-10">
-      <div v-for="(service, index) in services" :key="index" class="flex gap-4">
-        <div class="w-10 flex justify-center"><img class="w-auto" :src="service.logo"
-            :alt="'icone pour ' + service.title" /></div>
-        <p>{{ service.title }}</p>
-      </div>
-    </div>
-  </Section>
+  <div class="h-screen"></div>
 </template>
 
 <script setup>
 const projects = useProjects();
-const partenaires = Array(10).fill({
-  img: "/images/staze.png",
-});
 const advantages = [
   {
     title: "Communication",
@@ -213,6 +152,9 @@ const services = [
     logo: "/icons/building.svg"
   },
 ]
+const partenaires = Array(10).fill({
+  img: "/images/staze.png",
+});
 </script>
 <script>
 import { gsap } from "gsap";
