@@ -3,15 +3,12 @@
     class="hero min-h-[800px] max-w-default py-y-default mx-auto px-x-default relative flex sm:block flex-col gap-20 justify-between"
   >
     <div>
-      <p class="font-michroma">Lorem ipsum dolor sit amet</p>
-      <h1 class="uppercase py-8 sm:whitespace-nowrap">
-        Bureau d'études <br />Legavre
-      </h1>
-      <p class="w-full sm:w-2/3 pb-8">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus velit
-        quos sint laborum placeat optio voluptatibus veritatis aliquid accusamus
-        dolorem.
-      </p>
+      <p class="font-michroma">Maitres d'oeuvre depuis 1988</p>
+      <h1 class="uppercase py-8 sm:whitespace-nowrap">Bureau d'études <br>Legavre</h1>
+      <p class="w-full sm:w-2/3 pb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus velit quos sint
+        laborum
+        placeat
+        optio voluptatibus veritatis aliquid accusamus dolorem.</p>
       <ButtonScroll />
     </div>
     <div
@@ -31,7 +28,8 @@
         <div
           class="hidden md:block w-20 h-20 rounded-full bg-gold absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 z-10">
         </div>
-        <img class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small rounded-tr-small overflow-hidden"
+        <img
+          class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small rounded-tr-small overflow-hidden"
           src="/images/architect.jpg" alt="">
         <div
           class="absolute bottom-0 h-1/2 w-full bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 rounded-bl-small"
@@ -155,7 +153,16 @@
       </div>
     </div>
   </Section>
-  <div class="h-screen"></div>
+  <Section title="valeurs">
+    <div class="px-x-default max-w-default mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div v-for="(advantage, index) in advantages" :key="index"
+        class="border border-gold rounded-medium p-10 lg:last-of-type:col-start-auto lg:last-of-type:col-end-auto last-of-type:col-start-auto last-of-type:col-end-auto sm:last-of-type:col-start-1 sm:last-of-type:col-end-3">
+        <img :src="advantage.logo" :alt="'icone pour ' + advantage.title">
+        <h4 class="py-4 !text-gold !text-lg">{{ advantage.title }}</h4>
+        <p class="!text-gold !text-sm">{{ advantage.description }}</p>
+      </div>
+    </div>
+  </Section>
 </template>
 
 <script setup>
@@ -163,6 +170,23 @@ const projects = useProjects();
 const partenaires = Array(10).fill({
   img: "/images/staze.png",
 });
+const advantages = [
+  {
+    title: "Communication",
+    description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
+    logo: "/icons/communication.svg"
+  },
+  {
+    title: "Vitesse de décision",
+    description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
+    logo: "/icons/decision.svg"
+  },
+  {
+    title: "Flexibilité",
+    description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
+    logo: "/icons/flexibility.svg"
+  }
+]
 </script>
 <script>
 import { gsap } from "gsap";
