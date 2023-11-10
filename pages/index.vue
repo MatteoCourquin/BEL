@@ -10,13 +10,9 @@
       <ButtonScroll />
     </div>
     <div
-      class="border-image m-4 relative sm:absolute w-full sm:w-[30vw] h-52 -translate-x-4 min-w-[250px] sm:h-[30vh] min-h-[150px] sm:bottom-[10%] sm:right-x-default"
-    >
-      <img
-        src="/images/architect.jpg"
-        alt="illustration d'architecture"
-        class="rounded-small object-cover w-full h-full"
-      />
+      class="border-image m-4 relative sm:absolute w-full sm:w-[30vw] h-52 -translate-x-4 min-w-[250px] sm:h-[30vh] min-h-[150px] sm:bottom-[10%] sm:right-x-default">
+      <img src="/images/architect.jpg" alt="illustration d'architecture"
+        class="rounded-small object-cover w-full h-full" />
     </div>
   </section>
   <Section title="projets">
@@ -57,9 +53,59 @@
         <div class="w-10 flex justify-center"><img class="w-auto" :src="service.logo"
             :alt="'icone pour ' + service.title" /></div>
         <p>{{ service.title }}</p>
+        <div @click="scrollLeft" class="w-14 flex items-center justify-end">
+          <div class="group relative p-4 cursor-pointer w-10 hover:w-14 transition-all">
+            <div class="absolute top-1/2 right-0 group-hover:w-14 transition-all -translate-y-1/2 bg-black w-10 h-[2px]">
+            </div>
+            <img src="/images/arrow.svg"
+              class="w-4 h-4 group-hover: transition-all -translate-x-1/2 translate-y-1/2 absolute left-[2px] top-0 rotate-90"
+              alt="fleche gauche" />
+          </div>
+        </div>
+        <div @click="scrollRight" class="w-14 flex items-center justify-start">
+          <div class="group relative p-4 cursor-pointer w-10 hover:w-14 transition-all">
+            <div class="absolute top-1/2 left-0 group-hover:w-14 transition-all -translate-y-1/2 bg-black w-10 h-[2px]">
+            </div>
+            <img src="/images/arrow.svg"
+              class="w-4 h-4 translate-x-1/2 translate-y-1/2 absolute right-[2px] top-0 -rotate-90" alt="fleche droite" />
+          </div>
+        </div>
       </div>
     </div>
   </Section>
+  <Section title="partenaires">
+    <div class="overflow-hidden">
+      <div class="flex flex-nowrap">
+        <div ref="partenaireContainerRight1"
+          class="partenaireContainerRight flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
+          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
+            <img class="w-40 h-40 object-contain rounded-full" :src="partenaire.img" alt="logo partenaire" />
+          </div>
+        </div>
+        <div ref="partenaireContainerRight2"
+          class="partenaireContainerRight flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
+          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
+            <img class="w-40 h-40 object-contain rounded-full" :src="partenaire.img" alt="logo partenaire" />
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-nowrap">
+        <div ref="partenaireContainerLeft1"
+          class="partenaireContainerLeft flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
+          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
+            <img class="w-40 h-40 object-contain rounded-full" :src="partenaire.img" alt="logo partenaire" />
+          </div>
+        </div>
+        <div ref="partenaireContainerLeft2"
+          class="partenaireContainerLeft flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
+          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
+            <img class="w-40 h-40 object-contain rounded-full" :src="partenaire.img" alt="logo partenaire" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+  <div class="h-screen"></div>
 </template>
 
 <script setup>
@@ -129,48 +175,51 @@ export default {
       this.paddingProjects = window.innerWidth >= 768 ? 56 : 32;
       container.scrollLeft + container.clientWidth >= container.scrollWidth - 1
         ? container.scrollTo({
-            behavior: "smooth",
-            left: 0,
-          })
+          behavior: "smooth",
+          left: 0,
+        })
         : container.scrollTo({
-            behavior: "smooth",
-            left:
-              container.scrollLeft +
-              (this.$refs.sliderItem[0].clientWidth + this.paddingProjects) * 1,
-          });
+          behavior: "smooth",
+          left:
+            container.scrollLeft +
+            (this.$refs.sliderItem[0].clientWidth + this.paddingProjects) * 1,
+        });
     },
     scrollLeft() {
       const container = this.$refs.slider;
       this.paddingProjects = window.innerWidth >= 768 ? 56 : 32;
       container.scrollLeft <= 1
         ? container.scrollTo({
-            behavior: "smooth",
-            left: container.scrollWidth - container.clientWidth,
-          })
+          behavior: "smooth",
+          left: container.scrollWidth - container.clientWidth,
+        })
         : container.scrollTo({
-            behavior: "smooth",
-            left:
-              container.scrollLeft -
-              (this.$refs.sliderItem[0].clientWidth + this.paddingProjects) * 1,
-          });
+          behavior: "smooth",
+          left:
+            container.scrollLeft -
+            (this.$refs.sliderItem[0].clientWidth + this.paddingProjects) * 1,
+        });
+    },
+    animatePartenaireContainer() {
+      const partenaireContainerRight1 = this.$refs.partenaireContainerRight1;
+      const partenaireContainerRight2 = this.$refs.partenaireContainerRight2;
+      const partenaireContainerLeft1 = this.$refs.partenaireContainerLeft1;
+      const partenaireContainerLeft2 = this.$refs.partenaireContainerLeft2;
+
+
+      const speed = window.scrollY / 100;
+      console.log(speed)
+
+      partenaireContainerRight1.style.animationDuration = `${speed}s`;
+      partenaireContainerRight2.style.animationDuration = `${speed}s`;
+      partenaireContainerLeft1.style.animationDuration = `${speed}s`;
+      partenaireContainerLeft2.style.animationDuration = `${speed}s`;
     },
   },
   mounted() {
-    const partenaireContainer = [
-      this.$refs.partenaireContainerRight1,
-      this.$refs.partenaireContainerRight2,
-      this.$refs.partenaireContainerLeft1,
-      this.$refs.partenaireContainerLeft2,
-    ];
-
-    partenaireContainer.forEach((container) => {
-      gsap.to(container, {
-        x: container.className.includes("right") ? "-100%" : "100%",
-        ease: "linear",
-        repeat: -1,
-        duration : 20,
-      });
-    });
+    this.lastScrollY = window.scrollY || window.pageYOffset;
+    this.lastTimestamp = new Date().getTime();
+    window.addEventListener("scroll", this.animatePartenaireContainer);
   },
 };
 </script>
