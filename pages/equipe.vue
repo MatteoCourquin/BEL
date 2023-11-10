@@ -13,8 +13,8 @@
   <section
     class="flex flex-col justify-center sm:items-start min-h-[800px] max-w-default py-y-default mx-auto items-center px-x-default">
     <h3 class="pb-10">Notre équipe d'expers</h3>
-    <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center justify-center gap-10">
-      <div v-for="(member, index) in team" :key="index" class="w-10/12 sm:w-full">
+    <div class="w-full grid grid-equipe justify-items-center justify-center gap-10">
+      <div v-for="(member, index) in team" :key="index" class="w-full">
         <img :src="member.image" :alt="'Photo de ' + member.name" class="rounded-md h-auto w-full" />
         <h4 class="py-2 md:py-4">{{ member.name }}</h4>
         <p>{{ member.job }}</p>

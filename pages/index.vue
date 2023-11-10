@@ -21,7 +21,8 @@
         <div
           class="hidden md:block w-20 h-20 rounded-full bg-gold absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 z-10">
         </div>
-        <img class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small rounded-tr-small overflow-hidden"
+        <img
+          class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small rounded-tr-small overflow-hidden"
           src="/images/architect.jpg" alt="">
         <div
           class="absolute bottom-0 h-1/2 w-full bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 rounded-bl-small">
@@ -103,7 +104,16 @@
       </div>
     </div>
   </Section>
-  <div class="h-screen"></div>
+  <Section title="valeurs">
+    <div class="px-x-default max-w-default mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div v-for="(advantage, index) in advantages" :key="index"
+        class="border border-gold rounded-medium p-10 lg:last-of-type:col-start-auto lg:last-of-type:col-end-auto last-of-type:col-start-auto last-of-type:col-end-auto sm:last-of-type:col-start-1 sm:last-of-type:col-end-3">
+        <img :src="advantage.logo" :alt="'icone pour ' + advantage.title">
+        <h4 class="py-4 !text-gold !text-lg">{{ advantage.title }}</h4>
+        <p class="!text-gold !text-sm">{{ advantage.description }}</p>
+      </div>
+    </div>
+  </Section>
 </template>
 
 <script setup>
