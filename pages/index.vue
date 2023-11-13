@@ -98,7 +98,7 @@
       <div class="flex flex-nowrap">
         <div
           ref="partenaireContainerRight1"
-          class="partenaireContainerRight flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
+          class="right flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
         >
           <div
             class="shrink-0"
@@ -114,7 +114,7 @@
         </div>
         <div
           ref="partenaireContainerRight2"
-          class="partenaireContainerRight flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
+          class="right flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
         >
           <div
             class="shrink-0"
@@ -129,10 +129,10 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-nowrap">
+      <div class="flex flex-nowrap flex-row-reverse">
         <div
           ref="partenaireContainerLeft1"
-          class="partenaireContainerLeft flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
+          class="left flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
         >
           <div
             class="shrink-0"
@@ -148,7 +148,7 @@
         </div>
         <div
           ref="partenaireContainerLeft2"
-          class="partenaireContainerLeft flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
+          class="left flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
         >
           <div
             class="shrink-0"
@@ -175,13 +175,16 @@ const partenaires = Array(10).fill({
 });
 </script>
 <script>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 export default {
   name: "Index",
   data() {
     return {
       paddingProjects: 0,
-      scrollSpeed: 0,
-      lastScrollY: 0,
+      scrollSpeed: 10,
     };
   },
   methods: {
@@ -215,26 +218,24 @@ export default {
               (this.$refs.sliderItem[0].clientWidth + this.paddingProjects) * 1,
           });
     },
-    animatePartenaireContainer() {
-      const partenaireContainerRight1 = this.$refs.partenaireContainerRight1;
-      const partenaireContainerRight2 = this.$refs.partenaireContainerRight2;
-      const partenaireContainerLeft1 = this.$refs.partenaireContainerLeft1;
-      const partenaireContainerLeft2 = this.$refs.partenaireContainerLeft2;
-
-
-      const speed = window.scrollY / 100;
-      console.log(speed)
-
-      partenaireContainerRight1.style.animationDuration = `${speed}s`;
-      partenaireContainerRight2.style.animationDuration = `${speed}s`;
-      partenaireContainerLeft1.style.animationDuration = `${speed}s`;
-      partenaireContainerLeft2.style.animationDuration = `${speed}s`;
-    },
   },
   mounted() {
-    this.lastScrollY = window.scrollY || window.pageYOffset;
-    this.lastTimestamp = new Date().getTime();
-    window.addEventListener("scroll", this.animatePartenaireContainer);
+    const partenaireContainer = [
+      this.$refs.partenaireContainerRight1,
+      this.$refs.partenaireContainerRight2,
+      this.$refs.partenaireContainerLeft1,
+      this.$refs.partenaireContainerLeft2,
+    ];
+
+    partenaireContainer.forEach((container) => {
+      // const duratinoSpeed = 
+      gsap.to(container, {
+        x: container.className.includes("right") ? "-100%" : "100%",
+        ease: "linear",
+        repeat: -1,
+        duration: 10,
+      });
+    });
   },
 };
 </script>
@@ -291,22 +292,5 @@ export default {
       margin-left: $padding-x-default;
     }
   }
-}
-
-@keyframes slideLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.partenaireContainerRight {
-  animation: slideLeft infinite linear reverse;
-}
-
-.partenaireContainerLeft {
-  animation: slideLeft infinite linear;
 }
 </style>

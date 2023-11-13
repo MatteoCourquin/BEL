@@ -90,7 +90,6 @@
         <NuxtLink
           to="/contact"
           class="nav-link bg-white px-10 text-black py-1 rounded-md uppercase mb-3 md:mb-0"
-          @click="setActiveLink('/contact')"
         >
           Contact
         </NuxtLink>
