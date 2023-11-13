@@ -200,26 +200,24 @@ export default {
             (this.$refs.sliderItem[0].clientWidth + this.paddingProjects) * 1,
         });
     },
-    animatePartenaireContainer() {
-      const partenaireContainerRight1 = this.$refs.partenaireContainerRight1;
-      const partenaireContainerRight2 = this.$refs.partenaireContainerRight2;
-      const partenaireContainerLeft1 = this.$refs.partenaireContainerLeft1;
-      const partenaireContainerLeft2 = this.$refs.partenaireContainerLeft2;
-
-
-      const speed = window.scrollY / 100;
-      console.log(speed)
-
-      partenaireContainerRight1.style.animationDuration = `${speed}s`;
-      partenaireContainerRight2.style.animationDuration = `${speed}s`;
-      partenaireContainerLeft1.style.animationDuration = `${speed}s`;
-      partenaireContainerLeft2.style.animationDuration = `${speed}s`;
-    },
   },
   mounted() {
-    this.lastScrollY = window.scrollY || window.pageYOffset;
-    this.lastTimestamp = new Date().getTime();
-    window.addEventListener("scroll", this.animatePartenaireContainer);
+    const partenaireContainer = [
+      this.$refs.partenaireContainerRight1,
+      this.$refs.partenaireContainerRight2,
+      this.$refs.partenaireContainerLeft1,
+      this.$refs.partenaireContainerLeft2,
+    ];
+
+    partenaireContainer.forEach((container) => {
+      // const duratinoSpeed = 
+      gsap.to(container, {
+        x: container.className.includes("right") ? "-100%" : "100%",
+        ease: "linear",
+        repeat: -1,
+        duration: 10,
+      });
+    });
   },
 };
 </script>
