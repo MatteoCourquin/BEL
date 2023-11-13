@@ -6,7 +6,7 @@
 
 <style lang="scss">
 @import '@/scss/main.scss';
-  </style>
+</style>
 
 <script setup>
 const { $client } = useNuxtApp();
@@ -15,9 +15,10 @@ const fetchData = async ($client) => {
   try {
     const { data } = await useAsyncData('projects', () => $client.getEntries())
 
-
     return data._rawValue.items.map((item) => ({
       title: item.fields.nom,
+      tags: item.fields.tags,
+      description: item.fields.description.content,
     }));
   } catch (error) {
     console.error('Error fetching data:', error);
