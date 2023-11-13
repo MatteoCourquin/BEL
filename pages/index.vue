@@ -64,6 +64,14 @@
       </div>
     </div>
   </Section>
+  <Section title="services">
+    <div class="px-x-default max-w-default mx-auto grid grid-services gap-10">
+      <div v-for="(service, index) in services" :key="index" class="flex gap-4">
+        <div class="w-10 flex justify-center"><img class="w-auto" :src="service.logo" :alt="'icone pour ' + service.title" /></div>
+        <p>{{ service.title }}</p>
+      </div>
+    </div>
+  </Section>
 </template>
 
 
@@ -85,6 +93,32 @@ const advantages = [
     description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
     logo: "/icons/flexibility.svg"
   }
+]
+const services = [
+  {
+    title: "Aménagements urbains",
+    logo: "/icons/map.svg"
+  },
+  {
+    title: "Lotissement",
+    logo: "/icons/house.svg"
+  },
+  {
+    title: "Aménagements paysagers",
+    logo: "/icons/landscape.svg"
+  },
+  {
+    title: "Equipements sportifs",
+    logo: "/icons/run.svg"
+  },
+  {
+    title: "Cimetière",
+    logo: "/icons/cemetery.svg"
+  },
+  {
+    title: "Equipements collectifs",
+    logo: "/icons/building.svg"
+  },
 ]
 </script>
 <script>
@@ -179,5 +213,9 @@ export default {
       margin-left: $padding-x-default;
     }
   }
+}
+
+.grid-services {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 </style>
