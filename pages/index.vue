@@ -209,11 +209,12 @@ export default {
     ];
 
     partenaireContainer.forEach((container) => {
+      // const duratinoSpeed = 
       gsap.to(container, {
         x: container.className.includes("right") ? "-100%" : "100%",
         ease: "linear",
         repeat: -1,
-        duration : 20,
+        duration: 10,
       });
     });
   },
