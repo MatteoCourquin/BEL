@@ -76,30 +76,70 @@
   <Section title="partenaires">
     <div class="overflow-hidden">
       <div class="flex flex-nowrap">
-        <div ref="partenaireContainerRight1"
-          class="partenaireContainerRight flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
-          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-40 h-40 object-contain rounded-full" :src="partenaire.img" alt="logo partenaire" />
+        <div
+          ref="partenaireContainerRight1"
+          class="right flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
+        >
+          <div
+            class="shrink-0"
+            v-for="(partenaire, index) in partenaires"
+            :key="index"
+          >
+            <img
+              class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
+              :src="partenaire.img"
+              alt="logo partenaire"
+            />
           </div>
         </div>
-        <div ref="partenaireContainerRight2"
-          class="partenaireContainerRight flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
-          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-40 h-40 object-contain rounded-full" :src="partenaire.img" alt="logo partenaire" />
+        <div
+          ref="partenaireContainerRight2"
+          class="right flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
+        >
+          <div
+            class="shrink-0"
+            v-for="(partenaire, index) in partenaires"
+            :key="index"
+          >
+            <img
+              class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
+              :src="partenaire.img"
+              alt="logo partenaire"
+            />
           </div>
         </div>
       </div>
-      <div class="flex flex-nowrap">
-        <div ref="partenaireContainerLeft1"
-          class="partenaireContainerLeft flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
-          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-40 h-40 object-contain rounded-full" :src="partenaire.img" alt="logo partenaire" />
+      <div class="flex flex-nowrap flex-row-reverse">
+        <div
+          ref="partenaireContainerLeft1"
+          class="left flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
+        >
+          <div
+            class="shrink-0"
+            v-for="(partenaire, index) in partenaires"
+            :key="index"
+          >
+            <img
+              class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
+              :src="partenaire.img"
+              alt="logo partenaire"
+            />
           </div>
         </div>
-        <div ref="partenaireContainerLeft2"
-          class="partenaireContainerLeft flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
-          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-40 h-40 object-contain rounded-full" :src="partenaire.img" alt="logo partenaire" />
+        <div
+          ref="partenaireContainerLeft2"
+          class="left flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14"
+        >
+          <div
+            class="shrink-0"
+            v-for="(partenaire, index) in partenaires"
+            :key="index"
+          >
+            <img
+              class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
+              :src="partenaire.img"
+              alt="logo partenaire"
+            />
           </div>
         </div>
       </div>
@@ -214,7 +254,7 @@ export default {
         x: container.className.includes("right") ? "-100%" : "100%",
         ease: "linear",
         repeat: -1,
-        duration: 10,
+        duration : 20,
       });
     });
   },
