@@ -214,7 +214,7 @@ export default {
         x: container.className.includes("right") ? "-100%" : "100%",
         ease: "linear",
         repeat: -1,
-        duration: 10,
+        duration : 20,
       });
     });
   },
