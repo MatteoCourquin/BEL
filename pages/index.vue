@@ -5,9 +5,7 @@
       <p class="font-michroma">Maitres d'oeuvre depuis 1988</p>
       <h1 class="uppercase py-8 sm:whitespace-nowrap">Bureau d'études <br>Legavre</h1>
       <p class="w-full sm:w-2/3 pb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus velit quos sint
-        laborum
-        placeat
-        optio voluptatibus veritatis aliquid accusamus dolorem.</p>
+        laborum placeat optio voluptatibus veritatis aliquid accusamus dolorem.</p>
       <ButtonScroll />
     </div>
     <div
@@ -28,9 +26,7 @@
         <div
           class="absolute bottom-0 h-1/2 w-full bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 rounded-bl-small">
           <h4 class="!text-white pb-2 md:pb-4 whitespace-nowrap overflow-hidden text-ellipsis">{{ project.title }}</h4>
-          <p class="!text-gray md:pb-2 whitespace-nowrap overflow-hidden text-ellipsis">#{{ project.title }} #{{
-            project.title }}
-            #{{ project.title }} #{{ project.title }} #{{ project.title }}</p>
+          <p class="!text-gray md:pb-2 whitespace-nowrap overflow-hidden text-ellipsis">#{{ project.tags }}</p>
         </div>
       </div>
     </div>

@@ -19,8 +19,8 @@
     <div class="w-20 h-20 inline-block border bg-gold"></div>
     <hr>
     <img src='/images/architect.jpg' alt='Background Hero' />
-    <Nuxt-Link class="block" v-for="(project, index) in projects" :key="index"
-      :to="'projects/' + project.title.replace(/\s+/g, '-').toLowerCase()">{{ project.title }}</Nuxt-Link>
+    <!-- <a class="block" v-for="(project, index) in projects" :key="index"
+      :href="'/projects/' + project.title.replace(/\s+/g, '-').toLowerCase()">{{ project.title }}</a> -->
     <hr>
     <Section title="Test">
       <!-- Mon contenu -->
@@ -35,14 +35,12 @@
       <p class="bg-gold">test</p>
     </Section>
     <hr>
-    <p>{{ projects }}</p>
-    <hr>
   </div>
 </template>
 
 <script setup>
 const projects = useProjects();
-</script>
+</script >
 <script>
 export default {
   name: 'Sample',
