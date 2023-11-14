@@ -106,7 +106,7 @@
             :key="index"
           >
             <img
-              class="w-40 h-40 object-contain rounded-full"
+              class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
               :src="partenaire.img"
               alt="logo partenaire"
             />
@@ -122,7 +122,7 @@
             :key="index"
           >
             <img
-              class="w-40 h-40 object-contain rounded-full"
+              class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
               :src="partenaire.img"
               alt="logo partenaire"
             />
@@ -140,7 +140,7 @@
             :key="index"
           >
             <img
-              class="w-40 h-40 object-contain rounded-full"
+              class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
               :src="partenaire.img"
               alt="logo partenaire"
             />
@@ -156,7 +156,7 @@
             :key="index"
           >
             <img
-              class="w-40 h-40 object-contain rounded-full"
+              class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
               :src="partenaire.img"
               alt="logo partenaire"
             />
@@ -231,7 +231,7 @@ export default {
         x: container.className.includes("right") ? "-100%" : "100%",
         ease: "linear",
         repeat: -1,
-        duration: 10,
+        duration : 20,
       });
     });
   },

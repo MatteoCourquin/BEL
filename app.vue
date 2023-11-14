@@ -17,7 +17,7 @@ const fetchData = async ($client) => {
 
 
     return data._rawValue.items.map((item) => ({
-      title: item.fields.title,
+      title: item.fields.nom,
     }));
   } catch (error) {
     console.error('Error fetching data:', error);
