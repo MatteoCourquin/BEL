@@ -38,11 +38,11 @@ const wrapInParagraph = (content) => `<p class="pb-4">${content.join('')}</p>`;
 const fetchData = async ($client) => {
   try {
     const { data } = await useAsyncData('projects', () => $client.getEntries())
-
-    return data._rawValue.items.map((item) => ({
+    return data._rawValue.items.map((item) =>
+    ({
       title: item.fields.nom,
       tags: item.fields.tags,
-      description: item.fields.description.content,
+      description: formatContentfulData(item.fields.description.content),
     }));
   } catch (error) {
     console.error('Error fetching data:', error);
