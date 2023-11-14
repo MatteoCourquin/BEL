@@ -1,24 +1,14 @@
 <template>
   <header
-    class="fixed top-0 w-screen bg-white z-[9999] border-b border-gray shadow-lg"
-  >
-    <nav
-      class="px-x-default py-6 flex items-center justify-between max-w-default m-auto"
-    >
-      <div class="flex items-center gap-10">
-        <NuxtLink to="/" ref="index">
-          <svg
-            width="97"
-            height="41"
-            viewBox="0 0 97 41"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.84615 22.2692H29.3846V39.5H1V1.5H29.3846V17.5769H8.84615H7.84615V18.5769V21.2692V22.2692H8.84615Z"
-              stroke="#A7904A"
-              stroke-width="2"
-            />
+    class="fixed top-0 w-screen flex items-center h-[90px] md:border-b md:border-gray md:bg-white md:shadow-lg z-[200]">
+    <nav class="px-x-default flex items-center w-full justify-between max-w-default m-auto">
+      <div class="flex items-center gap-10 relative" ref="wrapperHeader">
+        <NuxtLink
+          :class="['transition-all duration-300', isMenuOpen ? '-translate-y-[140px] opacity-0 md:opacity-100 md:-translate-y-0' : 'opacity-100 -translate-y-0']"
+          to="/" @click="setActiveLink('/')" ref="/">
+          <svg width="97" height="41" viewBox="0 0 97 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.84615 22.2692H29.3846V39.5H1V1.5H29.3846V17.5769H8.84615H7.84615V18.5769V21.2692V22.2692H8.84615Z"
+              stroke="#A7904A" stroke-width="2" />
             <path
               d="M41.9228 25.3462H62.0767V39.5H34.0767V1.5H62.0767V14.1154H41.9228H40.9228V15.1154V18.5769V19.5769H41.9228H47.8459V20.2692H41.9228H40.9228V21.2692V24.3462V25.3462H41.9228Z"
               stroke="#A7904A"
@@ -75,36 +65,18 @@
     </nav>
   </header>
   <div
-    v-if="isMenuOpen"
-    class="md:hidden w-screen h-screen fixed bg-white left-0 z-30"
-  >
+    :class="['md:hidden w-screen h-screen fixed bg-white left-0 z-[110] transition-all duration-500 border-b border-gray shadow-lg', isMenuOpen ? 'translate-y-0' : 'translate-header']">
     <div class="flex flex-col items-center justify-center h-full gap-y-4">
-      <NuxtLink
-        to="/projets"
-        class="text-black text-5xl mb-4 uppercase"
-        @click="toggleMenu"
-      >
+      <NuxtLink to="/projets" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Projets
       </NuxtLink>
-      <NuxtLink
-        to="/presse"
-        class="text-black text-5xl mb-4 uppercase"
-        @click="toggleMenu"
-      >
+      <NuxtLink to="/presse" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Presse
       </NuxtLink>
-      <NuxtLink
-        to="/equipe"
-        class="text-black text-5xl mb-4 uppercase"
-        @click="toggleMenu"
-      >
+      <NuxtLink to="/equipe" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Équipe
       </NuxtLink>
-      <NuxtLink
-        to="/contact"
-        class="text-black text-5xl mb-4 uppercase"
-        @click="toggleMenu"
-      >
+      <NuxtLink to="/contact" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Contact
       </NuxtLink>
     </div>

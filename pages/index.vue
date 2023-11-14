@@ -104,6 +104,15 @@
       </div>
     </div>
   </Section>
+  <Section title="services">
+    <div class="px-x-default max-w-default mx-auto grid grid-services gap-10">
+      <div v-for="(service, index) in services" :key="index" class="flex gap-4">
+        <div class="w-10 flex justify-center"><img class="w-auto" :src="service.logo"
+            :alt="'icone pour ' + service.title" /></div>
+        <p>{{ service.title }}</p>
+      </div>
+    </div>
+  </Section>
   <div class="h-screen"></div>
 </template>
 
