@@ -184,7 +184,6 @@ export default {
   data() {
     return {
       paddingProjects: 0,
-      scrollSpeed: 10,
     };
   },
   methods: {
@@ -228,7 +227,6 @@ export default {
     ];
 
     partenaireContainer.forEach((container) => {
-      // const duratinoSpeed = 
       gsap.to(container, {
         x: container.className.includes("right") ? "-100%" : "100%",
         ease: "linear",
