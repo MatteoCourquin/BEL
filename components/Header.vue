@@ -11,21 +11,34 @@
               stroke="#A7904A" stroke-width="2" />
             <path
               d="M41.9228 25.3462H62.0767V39.5H34.0767V1.5H62.0767V14.1154H41.9228H40.9228V15.1154V18.5769V19.5769H41.9228H47.8459V20.2692H41.9228H40.9228V21.2692V24.3462V25.3462H41.9228Z"
-              stroke="#A7904A" stroke-width="2" />
-            <path d="M73.3442 22.2692H95.5384V39.5H67.1538V1.5H72.3442V21.2692V22.2692H73.3442Z" stroke="#A7904A"
-              stroke-width="2" />
+              stroke="#A7904A"
+              stroke-width="2"
+            />
+            <path
+              d="M73.3442 22.2692H95.5384V39.5H67.1538V1.5H72.3442V21.2692V22.2692H73.3442Z"
+              stroke="#A7904A"
+              stroke-width="2"
+            />
           </svg>
         </NuxtLink>
         <div class="hidden md:flex gap-10">
-          <NuxtLink to="projets" class="uppercase font-inter-semi-bold" @click="setActiveLink('projets')" ref="projets">
+          <NuxtLink to="projets" class="uppercase" ref="projets">
             Projets
           </NuxtLink>
-          <NuxtLink to="presse" class="uppercase font-inter-semi-bold" @click="setActiveLink('presse')" ref="presse">
+          <NuxtLink to="presse" class="uppercase" ref="presse">
             Presse
           </NuxtLink>
-          <NuxtLink to="equipe" class="uppercase font-inter-semi-bold" @click="setActiveLink('equipe')" ref="equipe">
+          <NuxtLink to="equipe" class="uppercase" ref="equipe">
             Équipe
           </NuxtLink>
+          <span
+            class="w-[5px] h-[5px] absolute bottom-0 bg-gold rounded-full -translate-x-1/2 transition-all duration-300"
+            :style="{
+              left: dotPositionLeft + 'px',
+              top: dotPositionTop + 'px',
+              opacity: dotOpacity,
+            }"
+          ></span>
         </div>
         <span
           class="w-[5px] h-[5px] hidden md:block -translate-x-1/2 absolute bottom-0 bg-gold rounded-full dot-translate transition-all duration-300"
@@ -80,24 +93,31 @@ export default {
       dotOpacity: 0,
     };
   },
+  watch: {
+    $route() {
+      this.setActiveLink();
+    },
+  },
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
-    setActiveLink(link) {
-      if (link !== "index") {
-        this.dotOpacity = "1";
-        const linkRect = this.$refs[link].$el.getBoundingClientRect();
-        const parentRect = this.$refs.wrapperHeader.getBoundingClientRect();
-        this.dotPositionLeft = linkRect.right - linkRect.width / 2 - parentRect.left;
-        if (link === "/" || link === "contact") {
-          this.dotOpacity = "0";
-        }
+    setActiveLink() {
+      const link = this.$route.name;
+      this.dotPositionLeft =
+        this.$refs[link].$el.getBoundingClientRect().right -
+        this.$refs[link].$el.getBoundingClientRect().width / 2;
+      this.dotPositionTop = this.$refs[link].$el.getBoundingClientRect().bottom;
+
+      if (link === "index" || link === "contact") {
+        this.dotOpacity = 0;
+      } else {
+        this.dotOpacity = 1;
       }
     }
   },
   mounted() {
-    this.setActiveLink(useRoute().name);
+    this.setActiveLink();
   },
 };
 </script>
