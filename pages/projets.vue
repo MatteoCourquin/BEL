@@ -1,9 +1,14 @@
 <template>
-  <h1>Projets</h1>
+  <div>
+    <h1>Projets</h1>
+  </div>
 </template>
+
 
 <script>
 export default {
-  name: "Projets",
+  data() {
+    return {};
+  },
 };
 </script>
