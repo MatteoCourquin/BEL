@@ -1,6 +1,5 @@
 <template>
-  <section
-    class="h-screen-header min-h-[800px] max-w-default pt-y-default mx-auto flex flex-col px-x-default">
+  <section class="h-screen-header min-h-[800px] max-w-default pt-y-default mx-auto flex flex-col px-x-default">
     <h3 class="pb-4">Lorem ipsum dolor - Bureau d’études legavre</h3>
     <p>
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. At repudiandae

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Projet : {{ route.params.project.replace(/\s+/g, '-').toLowerCase() }}</p>
+    <p>Projet : {{ route.params.projet.replace(/\s+/g, '-').toLowerCase() }}</p>
   </div>
 </template>
 

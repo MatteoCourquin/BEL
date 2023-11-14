@@ -2,9 +2,8 @@
   <section
     class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-1 max-w-default px-x-default py-y-default mx-auto min-h-screen-header lg:min-h-fit lg:h-screen-header">
     <div class="flex justify-center items-center pb-10 lg:pb-0 lg:col-start-2	lg:col-end-3	lg:row-end-2">
-      <Swiper class="w-9/12 h-fit flex justify-center items-center"
-        :modules="[SwiperAutoplay, SwiperEffectCards]" :slides-per-view="1" :loop="false" :effect="'cards'"
-        @slideChange="onSlideChange">
+      <Swiper class="w-9/12 h-fit flex justify-center items-center" :modules="[SwiperAutoplay, SwiperEffectCards]"
+        :slides-per-view="1" :loop="false" :effect="'cards'" @slideChange="onSlideChange">
         <SwiperSlide v-for="(article, index) in articles" :key="index" class="w-full h-[50vh] rounded-small shadow-lg">
           <img class="rounded-small w-full h-[50vh] object-cover" :src="`/images/presse/${article.image}`"
             :alt="'Illustration de l\'article ' + article.title">

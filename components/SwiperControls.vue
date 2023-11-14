@@ -10,7 +10,8 @@
       <span class="px-2">/</span>
       <p class="font-michroma">{{ swiper.slides.length <= 9 ? `0${swiper.slides.length}` : swiper.slides.length }}</p>
     </div>
-    <Arrow :class="[currentArticle + 1 >= swiper.slides.length ? 'opacity-30' : 'opacity-100']" direction="right" @click="swiper.slideNext()" />
+    <Arrow :class="[currentArticle + 1 >= swiper.slides.length ? 'opacity-30' : 'opacity-100']" direction="right"
+      @click="swiper.slideNext()" />
   </div>
 </template>
 
