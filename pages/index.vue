@@ -35,23 +35,8 @@
       </div>
     </div>
     <div class="flex gap-10 justify-center pt-10 items-center">
-      <div @click="scrollLeft" class="w-14 flex items-center justify-end">
-        <div class="group relative p-4 cursor-pointer w-10 hover:w-14 transition-all">
-          <div class="absolute top-1/2 right-0 group-hover:w-14 transition-all -translate-y-1/2 bg-black w-10 h-[2px]">
-          </div>
-          <img src="/images/arrow.svg"
-            class="w-4 h-4 group-hover: transition-all -translate-x-1/2 translate-y-1/2 absolute left-[2px] top-0 rotate-90"
-            alt="fleche gauche">
-        </div>
-      </div>
-      <div @click="scrollRight" class="w-14 flex items-center justify-start">
-        <div class="group relative p-4 cursor-pointer w-10 hover:w-14 transition-all">
-          <div class="absolute top-1/2 left-0 group-hover:w-14 transition-all -translate-y-1/2 bg-black w-10 h-[2px]">
-          </div>
-          <img src="/images/arrow.svg"
-            class="w-4 h-4 translate-x-1/2 translate-y-1/2 absolute right-[2px] top-0 -rotate-90" alt="fleche droite">
-        </div>
-      </div>
+      <Arrow direction="left" @click="scrollLeft" />
+      <Arrow direction="right" @click="scrollRight" />
     </div>
   </Section>
   <Section title="valeurs">
@@ -67,7 +52,8 @@
   <Section title="services">
     <div class="px-x-default max-w-default mx-auto grid grid-services gap-10">
       <div v-for="(service, index) in services" :key="index" class="flex gap-4">
-        <div class="w-10 flex justify-center"><img class="w-auto" :src="service.logo" :alt="'icone pour ' + service.title" /></div>
+        <div class="w-10 flex justify-center"><img class="w-auto" :src="service.logo"
+            :alt="'icone pour ' + service.title" /></div>
         <p>{{ service.title }}</p>
       </div>
     </div>

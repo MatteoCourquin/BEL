@@ -19,6 +19,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "contentful": "^10.6.5"
+    "contentful": "^10.6.5",
+    "nuxt-swiper": "^1.2.2"
   }
 }
