@@ -16,20 +16,20 @@
   </section>
   <Section title="projets">
     <div ref="slider" class="flex gap-8 md:gap-14 overflow-x-scroll md:pt-10 no-srollbar">
-      <div ref="sliderItem" v-for="(project, index) in projects" :key="index"
-        class="margin-x-slider bg-red-100 w-3/4 sm:w-2/4 lg:w-1/3 min-w-[200px] aspect-square shrink-0 rounded-bl-small rounded-tr-small relative">
-        <div
-          class="hidden md:block w-20 h-20 rounded-full bg-gold absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 z-10">
-        </div>
+      <Nuxt-Link ref="sliderItem" v-for="(project, index) in projects" :key="index"
+        :to="'projet/' + project.title.replace(/\s+/g, '-').toLowerCase()"
+        class="margin-x-slider w-3/4 sm:w-2/4 lg:w-1/3 min-w-[200px] aspect-square shrink-0 rounded-bl-small rounded-tr-small relative group max-w-md">
+        <img src="/circles/projects.svg" alt=""
+          class="hidden md:block w-24 h-24 rounded-full absolute top-0 right-0 translate-x-10 -translate-y-10 z-10">
         <img
-          class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small rounded-tr-small overflow-hidden"
-          src="/images/architect.jpg" alt="">
+          class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small rounded-tr-small overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500"
+          src="/images/architect.jpg" :alt="'Illustration du projet ' + project.title">
         <div
           class="absolute bottom-0 h-1/2 w-full bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 rounded-bl-small">
           <h4 class="!text-white pb-2 md:pb-4 whitespace-nowrap overflow-hidden text-ellipsis">{{ project.title }}</h4>
           <p class="!text-gray md:pb-2 whitespace-nowrap overflow-hidden text-ellipsis">#{{ project.tags }}</p>
         </div>
-      </div>
+      </Nuxt-Link>
     </div>
     <div class="flex gap-10 justify-center pt-10 items-center">
       <Arrow direction="left" @click="scrollLeft" />
@@ -37,10 +37,10 @@
     </div>
   </Section>
   <Section title="valeurs">
-    <div class="px-x-default max-w-default mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div class="px-x-default max-w-default mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
       <div v-for="(advantage, index) in advantages" :key="index"
         class="border border-gold rounded-medium p-10 lg:last-of-type:col-start-auto lg:last-of-type:col-end-auto last-of-type:col-start-auto last-of-type:col-end-auto sm:last-of-type:col-start-1 sm:last-of-type:col-end-3">
-        <img :src="advantage.logo" :alt="'icone pour ' + advantage.title">
+        <img :src="'icons' + advantage.logo" :alt="'icone pour ' + advantage.title">
         <h4 class="py-4 !text-gold !text-lg">{{ advantage.title }}</h4>
         <p class="!text-gold !text-sm">{{ advantage.description }}</p>
       </div>
@@ -52,15 +52,15 @@
         <div ref="partenaireContainerRight1"
           class="right flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
           <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full" :src="partenaire.img"
-              alt="logo partenaire" />
+            <img class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
+              :src="'/images/partenaires/' + partenaire.img" alt="logo partenaire" />
           </div>
         </div>
         <div ref="partenaireContainerRight2"
           class="right flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
           <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full" :src="partenaire.img"
-              alt="logo partenaire" />
+            <img class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
+              :src="'/images/partenaires/' + partenaire.img" alt="logo partenaire" />
           </div>
         </div>
       </div>
@@ -68,15 +68,15 @@
         <div ref="partenaireContainerLeft1"
           class="left flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
           <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full" :src="partenaire.img"
-              alt="logo partenaire" />
+            <img class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
+              :src="'/images/partenaires/' + partenaire.img" alt="logo partenaire" />
           </div>
         </div>
         <div ref="partenaireContainerLeft2"
           class="left flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
           <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full" :src="partenaire.img"
-              alt="logo partenaire" />
+            <img class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
+              :src="'/images/partenaires/' + partenaire.img" alt="logo partenaire" />
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@
   <Section title="services">
     <div class="px-x-default max-w-default mx-auto grid grid-services gap-10">
       <div v-for="(service, index) in services" :key="index" class="flex gap-4">
-        <div class="w-10 flex justify-center"><img class="w-auto" :src="service.logo"
+        <div class="w-10 flex justify-center"><img class="w-auto" :src="'/icons/' + service.logo"
             :alt="'icone pour ' + service.title" /></div>
         <p>{{ service.title }}</p>
       </div>
@@ -99,48 +99,77 @@ const advantages = [
   {
     title: "Communication",
     description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
-    logo: "/icons/communication.svg"
+    logo: "/communication.svg"
   },
   {
     title: "Vitesse de décision",
     description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
-    logo: "/icons/decision.svg"
+    logo: "/decision.svg"
   },
   {
     title: "Flexibilité",
     description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
-    logo: "/icons/flexibility.svg"
+    logo: "/flexibility.svg"
   }
 ]
 const services = [
   {
     title: "Aménagements urbains",
-    logo: "/icons/map.svg"
+    logo: "/map.svg"
   },
   {
     title: "Lotissement",
-    logo: "/icons/house.svg"
+    logo: "/house.svg"
   },
   {
     title: "Aménagements paysagers",
-    logo: "/icons/landscape.svg"
+    logo: "/landscape.svg"
   },
   {
     title: "Equipements sportifs",
-    logo: "/icons/run.svg"
+    logo: "/run.svg"
   },
   {
     title: "Cimetière",
-    logo: "/icons/cemetery.svg"
+    logo: "/cemetery.svg"
   },
   {
     title: "Equipements collectifs",
-    logo: "/icons/building.svg"
+    logo: "/building.svg"
   },
 ]
-const partenaires = Array(10).fill({
-  img: "/images/staze.png",
-});
+const partenaires = [
+  {
+    img: "/staze.svg",
+  },
+  {
+    img: "/daasity.svg",
+  },
+  {
+    img: "/photoaid.svg",
+  },
+  {
+    img: "/promoted.svg",
+  },
+  {
+    img: "/waydev.svg",
+  },
+  {
+    img: "/staze.svg",
+  },
+  {
+    img: "/daasity.svg",
+  },
+  {
+    img: "/photoaid.svg",
+  },
+  {
+    img: "/promoted.svg",
+  },
+  {
+    img: "/waydev.svg",
+  },
+];
 </script>
 <script>
 import { gsap } from "gsap";
@@ -248,7 +277,15 @@ export default {
 
   @media screen and (max-width: $max-width) {
     &:last-of-type {
-      margin-right: $padding-x-default;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: $padding-x-default;
+        transform: translateX(100%);
+        height: 100%;
+      }
     }
 
     &:first-of-type {

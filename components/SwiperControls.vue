@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center gap-10 items-center pt-10 h-fit">
+  <div class="flex justify-center gap-10 items-center pt-10 h-fit absolute right-1/2 translate-x-1/2">
     <Arrow :class="[currentArticle <= 0 ? 'opacity-30' : 'opacity-100']" direction="left" @click="swiper.slidePrev()" />
     <div class="flex h-6 overflow-hidden">
       <div class="h-full no-srollbar transition-all"
