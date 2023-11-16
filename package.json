@@ -19,8 +19,9 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "contentful": "^10.6.5",
-    "nuxt-swiper": "^1.2.2",
-    "gsap": "^3.12.2"
+    "gsap": "^3.12.2",
+    "nuxt-swiper": "^1.2.2"
   }
 }

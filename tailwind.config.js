@@ -15,6 +15,7 @@ module.exports = {
         white: '#ffffff',
         gold: '#a7904a',
         gray: '#DBE1EA',
+        'dark-gray': '#929292'
       },
       padding: {
         'x-default': 'clamp(20px, 10vw, 100px)',
