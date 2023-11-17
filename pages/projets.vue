@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1>Projets</h1>
-  </div>
+  <section class="min-h-screen-header pt-y-default">
+    <Tabs />
+  </section>
 </template>
 
 

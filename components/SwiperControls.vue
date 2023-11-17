@@ -1,8 +1,9 @@
 <template>
   <div class="flex justify-center gap-10 items-center pt-10 h-fit absolute right-1/2 translate-x-1/2">
-    <Arrow :class="[currentArticle <= 0 ? 'opacity-30' : 'opacity-100']" direction="left" @click="swiper.slidePrev()" />
+    <Arrow :class="[currentArticle <= 0 ? 'opacity-30' : 'opacity-100']" direction="left" color="black"
+      @click="swiper.slidePrev()" />
     <div class="flex h-6 overflow-hidden">
-      <div class="h-full no-srollbar transition-all"
+      <div class="h-full no-scrollbar transition-all"
         :style="{ transform: `translateY(calc(-24px * ${currentArticle}))` }">
         <p class="font-michroma" v-for="(index) in swiper.slides.length" :key="index">{{ index <= 9 ? `0${index}` : index
         }}</p>
@@ -11,7 +12,7 @@
       <p class="font-michroma">{{ swiper.slides.length <= 9 ? `0${swiper.slides.length}` : swiper.slides.length }}</p>
     </div>
     <Arrow :class="[currentArticle + 1 >= swiper.slides.length ? 'opacity-30' : 'opacity-100']" direction="right"
-      @click="swiper.slideNext()" />
+      color="black" @click="swiper.slideNext()" />
   </div>
 </template>
 
