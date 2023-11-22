@@ -18,7 +18,7 @@
     <div ref="slider" class="flex gap-8 md:gap-14 overflow-x-scroll md:pt-10 no-scrollbar">
       <div ref="sliderItem" v-for="(project, index) in projects" :key="index"
         class="margin-x-slider w-3/4 sm:w-2/4 lg:w-1/3 min-w-[200px] aspect-square shrink-0 rounded-bl-small rounded-tr-small relative group max-w-md">
-        <Nuxt-Link :to="'projet/' + project.title.replace(/\s+/g, '-').toLowerCase()">
+        <Nuxt-Link :to="'projet/' + formatSlug(project.title)">
           <div class="hidden md:block w-24 h-24 rounded-full absolute top-0 right-0 translate-x-10 -translate-y-10 z-10">
             <img src="/circles/projects.svg" alt="" class="animate-spin-circle">
           </div>

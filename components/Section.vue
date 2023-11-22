@@ -3,7 +3,11 @@
     <div class="relative mb-y-default overflow-hidden">
       <div class="flex justify-center md:justify-normal max-w-default mx-auto px-x-default">
         <div class="px-24 py-4 z-10 gradient-white w-fit">
-          <h2 class="uppercase inline-block">{{ title }}</h2>
+          <h1 v-if="variant === 'heading1'" class="uppercase text-center inline-block">{{ title }}</h1>
+          <h2 v-if="variant === 'heading2'" class="uppercase text-center inline-block">{{ title }}</h2>
+          <h3 v-if="variant === 'heading3'" class="uppercase text-center inline-block">{{ title }}</h3>
+          <h4 v-if="variant === 'heading4'" class="uppercase text-center inline-block">{{ title }}</h4>
+          <h5 v-if="variant === 'heading5'" class="uppercase text-center inline-block">{{ title }}</h5>
         </div>
       </div>
       <img src="/images/meter.svg" alt="illustration de graduation"
@@ -22,7 +26,11 @@ export default {
     title: {
       type: String,
       required: true,
-    }
+    },
+    variant: {
+      type: String,
+      default: 'heading2',
+    },
   },
   data() {
     return {};

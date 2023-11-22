@@ -1,11 +1,10 @@
 <template>
-  <div ref="wrapper" class="flex overflow-x-scroll no-scrollbar">
+  <div ref="wrapper" class="flex w-screen overflow-x-scroll no-scrollbar pt-y-default">
     <div v-for="(item, index) in items" :key="index"
-      class="cursor-pointer px-2 md:px-4 last-of-type:pr-0 first-of-type:pl-0 border-b border-gray margin-x-slider"
-      :ref="item.replace(/\s+/g, '').toLowerCase() + index"
-      @click="activeItem = item.replace(/\s+/g, '').toLowerCase() + index">
+      class="cursor-pointer px-2 md:px-4 last-of-type:pr-0 first-of-type:pl-0 border-b border-gray margin-x-slider relative"
+      :ref="formatSlug(item) + index" @click="activeItem = formatSlug(item) + index">
       <p
-        :class="['whitespace-nowrap relative font-michroma', item.replace(/\s+/g, '').toLowerCase() + index === activeItem ? 'border-tabs-items-gold !text-gold' : 'text-black']">
+        :class="['whitespace-nowrap relative font-michroma', formatSlug(item) + index === activeItem ? 'border-tabs-items-gold !text-gold' : 'text-black']">
         {{ item }}</p>
     </div>
   </div>
@@ -16,12 +15,20 @@ export default {
   props: {
     items: {
       type: Array,
-      default: () => useProjects().value.map((item) => item.tags).flat(),
+      default: () => {
+        const tags = ['all'];
+        useProjects().value.map((item) => {
+          if (!tags.some(existingTag => existingTag === item.tags)) {
+            tags.push(item.tags);
+          }
+        });
+        return tags;
+      },
     },
   },
   data() {
     return {
-      activeItem: this.items[0].replace(/\s+/g, '').toLowerCase() + "0",
+      activeItem: 'all0',
     };
   },
   watch: {
