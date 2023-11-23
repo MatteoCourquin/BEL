@@ -1,19 +1,19 @@
 <template>
   <section class="min-h-screen-header">
-    <Tabs v-if="projects.length != 0" />
+    <Tabs @update:activeTab="setActiveTab" />
     <section class="mx-auto max-w-default px-x-default pb-y-default">
-      <div v-if="projects.length != 0" v-for="(project, index) in projects" :key="index" class="w-full">
+      <div v-for="(project, index) in computedProjects" :key="index" class="w-full">
         <h4 class="font-michroma text-3xl pb-10 pt-16" v-if="shouldShowYear(index)">{{ getYear(project.date) }}</h4>
         <NuxtLink :to="'/projet/' + formatSlug(project.title)"
           class="grid gap-4 grid-cols-projects h-44 pb-4 w-cards-projects ml-auto">
-          <p>
+          <div class="flex">
             <span class="font-inter-black text-5xl">{{ getDay(project.date) }}</span>
             <span class="pl-2">{{ getMonth(project.date) }}</span>
-          </p>
+          </div>
           <img class="rounded-small aspect-video object-cover h-full w-full" :src="'https:' + project.photos[0]" alt="">
           <div class="w-full">
             <p class="text-gold">#{{ project.tags }}</p>
-            <h3 class="!text-2xl py-2 whitespace-nowrap text-ellipsis w-full overflow-hidden">{{ project.title }}</h3>
+            <h3 class="!text-2xl py-2 md:whitespace-nowrap text-ellipsis w-full overflow-hidden">{{ project.title }}</h3>
             <p class="overflow-hidden text-ellipsis projects-description w-full">Lorem ipsum dolor sit amet consectetur
               adipisicing elit. Voluptas inventore rem veniam qui labore aliquam nobis modi quam dolorem est praesentium
               minima vel, asperiores fugiat magnam? Quae soluta molestias quasi architecto cupiditate totam ut voluptate
@@ -36,21 +36,19 @@
   </section>
 </template>
 
-<script setup>
-const projects = useProjects()
-</script>
 <script>
 export default {
   data() {
-    return {};
+    return {
+      activeTab: 'tous',
+    };
   },
   methods: {
-    shouldShowYear(index) {
-      return index === 0 || this.getYear(useProjects().value[index - 1].date) !== this.getYear(useProjects().value[index].date)
+    setActiveTab(activeTab) {
+      this.activeTab = activeTab;
     },
     shouldShowYear(index) {
-      const projects = useProjects().value;
-      return index === 0 || projects[index - 1].date.slice(0, 4) !== projects[index].date.slice(0, 4);
+      return index === 0 || this.getYear(useProjects().value[index - 1].date) !== this.getYear(useProjects().value[index].date)
     },
     getDay(dateString) {
       const dateObj = new Date(dateString);
@@ -66,6 +64,14 @@ export default {
       const dateObj = new Date(dateString);
       const options = { year: "numeric" };
       return dateObj.toLocaleDateString("fr-FR", options);
+    }
+  },
+  computed: {
+    computedProjects() {
+      if (this.activeTab === 'tous') {
+        return useProjects().value
+      }
+      return useProjects().value.filter(project => formatSlug(project.tags) === this.activeTab)
     }
   }
 };
@@ -98,4 +104,5 @@ export default {
   @media screen and (max-width: 768px) {
     width: 100%;
   }
-}</style>
+}
+</style>

@@ -3,7 +3,7 @@
     <Arrow :class="[currentArticle <= 0 ? 'opacity-30' : 'opacity-100']" direction="left" color="black"
       @click="swiper.slidePrev()" />
     <div class="flex h-6 overflow-hidden">
-      <div class="h-full no-scrollbar transition-all"
+      <div class="h-full transition-all"
         :style="{ transform: `translateY(calc(-24px * ${currentArticle}))` }">
         <p class="font-michroma" v-for="(index) in swiper.slides.length" :key="index">{{ index <= 9 ? `0${index}` : index
         }}</p>

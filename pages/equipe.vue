@@ -22,17 +22,30 @@
   </section>
 </template>
 
-<script setup>
-const team = Array(3).fill({
-  name: "Audes Legravre",
-  job: "CEO",
-  image: "/images/profil.png",
-});
-</script>
-
 <script>
 export default {
   name: "Equipe",
+  data() {
+    return {
+      team: [
+        {
+          name: "Audes Legravre",
+          job: "SEO",
+          image: "/images/profil.png",
+        },
+        {
+          name: "Audes Legravre",
+          job: "CEO",
+          image: "/images/profil.png",
+        },
+        {
+          name: "Audes Legravre",
+          job: "CTO",
+          image: "/images/profil.png",
+        },
+      ]
+    };
+  },
 };
 </script>
 

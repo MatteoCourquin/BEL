@@ -1,20 +1,19 @@
 <template>
-  <div v-if="project" class="">
-    <!-- <div class="h-screen-header pl-x-default py-y-default grid grid-cols-2 grid-rows-[100%] gap-10"> -->
-    <div class="h-screen-header py-y-default flex gap-10 overflow-hidden ml-hero-project">
-      <div class="w-1/2 overflow-y-scroll no-scrollbar">
-        <p class="!text-gold pb-2 md:pb-4">#{{ project.tags }}</p>
-        <h3 class="pb-10">{{ project.title }}</h3>
-        <p v-html="project.description"></p>
+  <div>
+    <div class="md:h-screen-header py-y-default flex flex-col md:flex-row gap-10 overflow-hidden pr-x-default md:px-0 ml-hero-project">
+      <div class="md:w-1/2 overflow-y-scroll no-scrollbar">
+        <p class="!text-gold pb-2 md:pb-4">#{{ computedProject.tags }}</p>
+        <h3 class="pb-10">{{ computedProject.title }}</h3>
+        <p v-html="computedProject.description"></p>
       </div>
-      <div class="flex flex-col h-full w-1/2 justify-center">
+      <div class="flex-col h-full w-1/2 justify-center md:flex hidden">
         <div class="border-image translate-x-4 h-2/5 pb-5">
-          <img :src="'https:' + project.photos[0]" :alt="'photos du projet' + project.title"
+          <img :src="'https:' + computedProject.photos[0]" :alt="'photos du projet' + computedProject.title"
             class="rounded-small w-full h-full object-cover" />
         </div>
         <div class="h-2/5 pt-5">
-          <img class="object-cover w-full h-full translate-x-4 rounded-small" :src="'https:' + project.photos[1]"
-            :alt="'photos du projet' + project.title">
+          <img class="object-cover w-full h-full translate-x-4 rounded-small" :src="'https:' + computedProject.photos[1]"
+            :alt="'photos du projet' + computedProject.title">
         </div>
       </div>
     </div>
@@ -26,8 +25,8 @@
     </div>
     <Section variant="heading3" title="Le projet en image">
       <div class="max-w-default mx-auto px-x-default flex flex-wrap gap-4 gallery">
-        <div v-for="(photo, index) in project.photos" :key="index" class="list-none grow h-64">
-          <img @click="onpenImage(photo)" :src="photo" :alt="'photos du projet' + project.title"
+        <div v-for="(photo, index) in computedProject.photos" :key="index" class="list-none grow h-64">
+          <img @click="onpenImage(photo)" :src="photo" :alt="'photos du projet' + computedProject.title"
             class="rounded-small w-full h-full object-cover hover:scale-[1.02] cursor-pointer transition-all">
         </div>
       </div>
@@ -35,10 +34,6 @@
   </div>
 </template>
 
-<script setup>
-const route = useRoute();
-const project = useProjects().value.find((project) => formatSlug(project.title) === formatSlug(route.params.projet));
-</script>
 <script>
 export default {
   name: 'Project',
@@ -53,6 +48,11 @@ export default {
       this.isImageOpen = true;
       this.urlImage = urlImage;
     },
+  },
+  computed: {
+    computedProject() {
+      return useProjects().value.find((project) => formatSlug(project.title) === formatSlug(useRoute().params.projet))
+    }
   }
 }
 </script>

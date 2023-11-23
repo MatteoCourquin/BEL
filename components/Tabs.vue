@@ -1,34 +1,20 @@
 <template>
   <div ref="wrapper" class="flex w-screen overflow-x-scroll no-scrollbar pt-y-default">
-    <div v-for="(item, index) in items" :key="index"
+    <div v-for="(tab, index) in computedTabs" :key="index"
       class="cursor-pointer px-2 md:px-4 last-of-type:pr-0 first-of-type:pl-0 border-b border-gray margin-x-slider relative"
-      :ref="formatSlug(item) + index" @click="activeItem = formatSlug(item) + index">
+      :ref="formatSlug(tab)" @click="setActiveItem(formatSlug(tab))">
       <p
-        :class="['whitespace-nowrap relative font-michroma', formatSlug(item) + index === activeItem ? 'border-tabs-items-gold !text-gold' : 'text-black']">
-        {{ item }}</p>
+        :class="['whitespace-nowrap relative font-michroma', formatSlug(tab) === activeTab ? 'border-tabs-items-gold !text-gold' : 'text-black']">
+        {{ tab }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    items: {
-      type: Array,
-      default: () => {
-        const tags = ['all'];
-        useProjects().value.map((item) => {
-          if (!tags.some(existingTag => existingTag === item.tags)) {
-            tags.push(item.tags);
-          }
-        });
-        return tags;
-      },
-    },
-  },
   data() {
     return {
-      activeItem: 'all0',
+      activeTab: 'tous',
     };
   },
   watch: {
@@ -37,8 +23,12 @@ export default {
     },
   },
   methods: {
+    setActiveItem(tab) {
+      this.activeTab = tab;
+      this.$emit('update:activeTab', tab);
+    },
     scrollToItem() {
-      const item = this.$refs[this.activeItem][0].getBoundingClientRect();
+      const item = this.$refs[this.activeTag][0].getBoundingClientRect();
       const wrapper = this.$refs.wrapper.getBoundingClientRect();
       this.$refs.wrapper.scrollTo({
         left: (item.left - wrapper.left + this.$refs.wrapper.scrollLeft) - window.innerWidth / 2 + item.width / 2,
@@ -46,6 +36,17 @@ export default {
       });
     },
   },
+  computed: {
+    computedTabs() {
+      const tags = ['Tous'];
+      useProjects().value.map((item) => {
+        if (!tags.some(existingTab => existingTab === item.tags)) {
+          tags.push(item.tags);
+        }
+      });
+      return tags;
+    }
+  }
 };
 </script>
 

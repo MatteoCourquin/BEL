@@ -38,16 +38,18 @@
   </div>
 </template>
 
-<script setup>
-const projects = useProjects();
-</script >
 <script>
 export default {
   name: 'Sample',
   data() {
     return {};
   },
-  methods: {}
+  methods: {},
+  computed: {
+    computedProjects() {
+      return useProjects().value
+    }
+  }
 }
 </script>
 
