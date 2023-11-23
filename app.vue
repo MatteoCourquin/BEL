@@ -37,22 +37,30 @@ const wrapInParagraph = (content) => `<p class="pb-4">${content.join('')}</p>`;
 
 const fetchData = async ($client) => {
   try {
-    const { data } = await useAsyncData('projects', () => $client.getEntries())
-    return data._rawValue.items.map((item) =>
-    ({
+    const { data } = await useAsyncData('projects', () => $client.getEntries());
+
+    const sortedData = data._rawValue.items.sort((a, b) => {
+      const dateA = new Date(a.fields.date);
+      const dateB = new Date(b.fields.date);
+      return dateB - dateA;
+    });
+
+    const formattedData = sortedData.map((item) => ({
       title: item.fields.nom,
+      date: item.fields.date,
       tags: item.fields.tags,
       description: formatContentfulData(item.fields.description.content),
+      photos: item.fields.photos.map((photo) => photo.fields.file.url).flat()
     }));
+
+    return formattedData;
   } catch (error) {
     console.error('Error fetching data:', error);
     return [];
   }
 };
 
-const projects = useProjects();
-
 fetchData($client).then((data) => {
-  projects.value = data;
+  useProjects().value = data;
 });
 </script>

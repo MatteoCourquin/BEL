@@ -15,25 +15,27 @@
     </div>
   </section>
   <Section title="projets">
-    <div ref="slider" class="flex gap-8 md:gap-14 overflow-x-scroll md:pt-10 no-srollbar">
-      <Nuxt-Link ref="sliderItem" v-for="(project, index) in projects" :key="index"
-        :to="'projet/' + project.title.replace(/\s+/g, '-').toLowerCase()"
+    <div ref="slider" class="flex gap-8 md:gap-14 overflow-x-scroll md:pt-10 no-scrollbar">
+      <div ref="sliderItem" v-for="(project, index) in computedProjects" :key="index"
         class="margin-x-slider w-3/4 sm:w-2/4 lg:w-1/3 min-w-[200px] aspect-square shrink-0 rounded-bl-small rounded-tr-small relative group max-w-md">
-        <img src="/circles/projects.svg" alt=""
-          class="hidden md:block w-24 h-24 rounded-full absolute top-0 right-0 translate-x-10 -translate-y-10 z-10">
-        <img
-          class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small rounded-tr-small overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500"
-          src="/images/architect.jpg" :alt="'Illustration du projet ' + project.title">
-        <div
-          class="absolute bottom-0 h-1/2 w-full bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 rounded-bl-small">
-          <h4 class="!text-white pb-2 md:pb-4 whitespace-nowrap overflow-hidden text-ellipsis">{{ project.title }}</h4>
-          <p class="!text-gray md:pb-2 whitespace-nowrap overflow-hidden text-ellipsis">#{{ project.tags }}</p>
-        </div>
-      </Nuxt-Link>
+        <NuxtLink :to="'projet/' + formatSlug(project.title)">
+          <div class="hidden md:block w-24 h-24 rounded-full absolute top-0 right-0 translate-x-10 -translate-y-10 z-10">
+            <img src="/circles/projects.svg" alt="" class="animate-spin-circle">
+          </div>
+          <img
+            class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small rounded-tr-small overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500"
+            src="/images/architect.jpg" :alt="'Illustration du projet ' + project.title">
+          <div
+            class="absolute bottom-0 h-1/2 w-full bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 rounded-bl-small">
+            <h4 class="!text-white pb-2 md:pb-4 whitespace-nowrap overflow-hidden text-ellipsis">{{ project.title }}</h4>
+            <p class="!text-gray md:pb-2 whitespace-nowrap overflow-hidden text-ellipsis">#{{ project.tags }}</p>
+          </div>
+        </NuxtLink>
+      </div>
     </div>
     <div class="flex gap-10 justify-center pt-10 items-center">
-      <Arrow direction="left" @click="scrollLeft" />
-      <Arrow direction="right" @click="scrollRight" />
+      <Arrow color="black" direction="left" @click="scrollLeft" />
+      <Arrow color="black" direction="right" @click="scrollRight" />
     </div>
   </Section>
   <Section title="valeurs">
@@ -93,84 +95,6 @@
   </Section>
 </template>
 
-<script setup>
-const projects = useProjects();
-const advantages = [
-  {
-    title: "Communication",
-    description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
-    logo: "/communication.svg"
-  },
-  {
-    title: "Vitesse de décision",
-    description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
-    logo: "/decision.svg"
-  },
-  {
-    title: "Flexibilité",
-    description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
-    logo: "/flexibility.svg"
-  }
-]
-const services = [
-  {
-    title: "Aménagements urbains",
-    logo: "/map.svg"
-  },
-  {
-    title: "Lotissement",
-    logo: "/house.svg"
-  },
-  {
-    title: "Aménagements paysagers",
-    logo: "/landscape.svg"
-  },
-  {
-    title: "Equipements sportifs",
-    logo: "/run.svg"
-  },
-  {
-    title: "Cimetière",
-    logo: "/cemetery.svg"
-  },
-  {
-    title: "Equipements collectifs",
-    logo: "/building.svg"
-  },
-]
-const partenaires = [
-  {
-    img: "/staze.svg",
-  },
-  {
-    img: "/daasity.svg",
-  },
-  {
-    img: "/photoaid.svg",
-  },
-  {
-    img: "/promoted.svg",
-  },
-  {
-    img: "/waydev.svg",
-  },
-  {
-    img: "/staze.svg",
-  },
-  {
-    img: "/daasity.svg",
-  },
-  {
-    img: "/photoaid.svg",
-  },
-  {
-    img: "/promoted.svg",
-  },
-  {
-    img: "/waydev.svg",
-  },
-];
-</script>
 <script>
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -181,6 +105,81 @@ export default {
   data() {
     return {
       paddingProjects: 0,
+      partenaires: [
+        {
+          img: "/staze.svg",
+        },
+        {
+          img: "/daasity.svg",
+        },
+        {
+          img: "/photoaid.svg",
+        },
+        {
+          img: "/promoted.svg",
+        },
+        {
+          img: "/waydev.svg",
+        },
+        {
+          img: "/staze.svg",
+        },
+        {
+          img: "/daasity.svg",
+        },
+        {
+          img: "/photoaid.svg",
+        },
+        {
+          img: "/promoted.svg",
+        },
+        {
+          img: "/waydev.svg",
+        },
+      ],
+      services: [
+        {
+          title: "Aménagements urbains",
+          logo: "/map.svg"
+        },
+        {
+          title: "Lotissement",
+          logo: "/house.svg"
+        },
+        {
+          title: "Aménagements paysagers",
+          logo: "/landscape.svg"
+        },
+        {
+          title: "Equipements sportifs",
+          logo: "/run.svg"
+        },
+        {
+          title: "Cimetière",
+          logo: "/cemetery.svg"
+        },
+        {
+          title: "Equipements collectifs",
+          logo: "/building.svg"
+        },
+      ],
+      advantages: [
+        {
+          title: "Communication",
+          description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
+          logo: "/communication.svg"
+        },
+        {
+          title: "Vitesse de décision",
+          description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
+          logo: "/decision.svg"
+        },
+        {
+          title: "Flexibilité",
+          description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
+          logo: "/flexibility.svg"
+        }
+      ]
     };
   },
   methods: {
@@ -232,6 +231,11 @@ export default {
       });
     });
   },
+  computed: {
+    computedProjects() {
+      return useProjects().value
+    }
+  }
 };
 </script>
 
@@ -266,35 +270,11 @@ export default {
   }
 }
 
-.margin-x-slider {
-  &:last-of-type {
-    margin-right: calc(((100vw - $max-width) / 2) + $padding-x-default);
-  }
-
-  &:first-of-type {
-    margin-left: calc(((100vw - $max-width) / 2) + $padding-x-default);
-  }
-
-  @media screen and (max-width: $max-width) {
-    &:last-of-type {
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: $padding-x-default;
-        transform: translateX(100%);
-        height: 100%;
-      }
-    }
-
-    &:first-of-type {
-      margin-left: $padding-x-default;
-    }
-  }
-}
-
 .grid-services {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.animate-spin-circle {
+  animation: spin-circle 4s linear infinite;
 }
 </style>
