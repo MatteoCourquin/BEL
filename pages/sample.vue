@@ -19,8 +19,8 @@
     <div class="w-20 h-20 inline-block border bg-gold"></div>
     <hr>
     <img src='/images/architect.jpg' alt='Background Hero' />
-    <!-- <a class="block" v-for="(project, index) in projects" :key="index"
-      :href="'/projects/' + project.title.replace(/\s+/g, '-').toLowerCase()">{{ project.title }}</a> -->
+    <a class="block" v-for="(project, index) in projects" :key="index" :href="'/projet/' + formatSlug(project.title)">{{
+      project.title }}</a>
     <hr>
     <Section title="Test">
       <!-- Mon contenu -->
@@ -38,16 +38,18 @@
   </div>
 </template>
 
-<script setup>
-const projects = useProjects();
-</script >
 <script>
 export default {
   name: 'Sample',
   data() {
     return {};
   },
-  methods: {}
+  methods: {},
+  computed: {
+    computedProjects() {
+      return useProjects().value
+    }
+  }
 }
 </script>
 
