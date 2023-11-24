@@ -1,47 +1,55 @@
 <template>
   <section
-    class="h-screen-header min-h-[800px] max-w-default py-y-default px-x-default mx-auto flex flex-col lg:flex-row justify-between items-center">
-    <div v-if="!isFormSend" class="flex flex-col w-full lg:w-1/2 ">
-      <h3>Demander un devis</h3>
-      <form method='' ref='form' @submit.prevent='sendEmail'>
+    class="min-h-screen-header max-w-default py-y-default px-x-default mx-auto grid lg:grid-cols-2 grid-cols-1 gap-10">
+    <div v-if="!isFormSend" class="w-full">
+      <h3 class="pb-10">Demander un devis</h3>
+      <div>
+        <div class="w-full flex flex-wrap sm:flex-nowrap gap-4">
+          <div class="w-full flex flex-col items-start relative">
+            <label for='firstname' class="font-michroma text-sm pb-2">Prénom <span class="!text-red-500">*</span></label>
+            <input type='text' placeholder='Jean'
+              class="placeholder-input w-full p-2 rounded-md bg-white focus:outline-gold border-gray border-dark-grey border"
+              ref="firstname" name="firstname" />
+            <span v-if="isError.firstname" class="!text-red-500 text-sm pt-2">Le prénom est requis</span>
+          </div>
+          <div class="w-full flex flex-col items-start relative">
+            <label for='lastname' class="font-michroma text-sm pb-2">Nom</label>
+            <input type='text' placeholder='Dupont'
+              class="placeholder-input w-full  p-2 rounded-md bg-white focus:outline-gold border-gray border-dark-grey border"
+              ref="lastname" name="lastname" />
+          </div>
+        </div>
         <div class="w-full flex flex-wrap sm:flex-nowrap gap-4 mt-4">
-          <div class="w-full flex flex-col items-start">
-            <label for='firstname' class="w-full">Prénom</label>
-            <input type='text' placeholder='Jean'  class="w-full p-2 rounded-md bg-white border-dark-grey border focus-border-gold invalid:border-red-500" ref="firstname"
-              name="firstname" v-model="formData.firstname" @input="validateForm" />
+          <div class="w-full flex flex-col items-start relative">
+            <label for='email' class="font-michroma text-sm pb-2">Mail <span class="!text-red-500">*</span></label>
+            <input type='email' placeholder='jean.dupont@gmail.com'
+              class="placeholder-input w-full p-2 rounded-md bg-white focus:outline-gold border-gray border-dark-grey border"
+              ref="email" name="email" />
+            <span v-if="isError.email" class="!text-red-500 text-sm pt-2">Le mail est requis</span>
+            <span v-if="isError.isValidEmail" class="!text-red-500 text-sm pt-2">Votre email n'est pas valide</span>
           </div>
-          <div class="w-full flex flex-col items-start">
-            <label for='lastname' class="w-full">Nom</label>
-            <input type='text' placeholder='Dupont' class="w-full  p-2 rounded-md bg-white border-dark-grey border focus-border-gold invalid:border-red-500" ref="lastname"
-              name="lastname" v-model="formData.lastname" @input="validateForm" />
-          </div>
-        </div>
-        <div class="w-full flex flex-wrap sm:flex-nowrap gap-4 mt-4">
-          <div class="w-1/2 flex flex-col items-start">
-            <label for='mail' class="w-full">Mail</label>
-            <input type='email' placeholder='jean.dupont@gmail.com' class="w-full p-2 rounded-md bg-white border-dark-grey border focus-border-gold invalid:border-red-500"
-              ref="mail" name="mail" v-model="formData.mail" @input="validateForm" />
-          </div>
-          <div class="w-1/2 flex flex-col items-start">
-            <label for='tel' class="w-full">Téléphone</label>
-            <input type='tel' placeholder='0612121212' class="w-full p-2 rounded-md bg-white border-dark-grey border focus-border-gold invalid:border-red-500" ref="tel"
-              name="tel" v-model="formData.tel" @input="validateForm" />
+          <div class="w-full flex flex-col items-start relative">
+            <label for='tel' class="font-michroma text-sm pb-2">Téléphone</label>
+            <input type='tel' placeholder='06 00 00 00 00'
+              class="placeholder-input w-full p-2 rounded-md bg-white focus:outline-gold border-gray border-dark-grey border"
+              ref="tel" name="tel" />
           </div>
         </div>
-        <div class="w-full mt-4 flex flex-col items-start">
-          <label for='description' class="w-full">Description</label>
-          <textarea placeholder='Je vous contact pour ...' class="w-full p-2 rounded-md bg-white border-dark-grey border focus-border-gold invalid:border-red-500"
-            ref="description" name="description" v-model="formData.description" @input="validateForm"></textarea>
+        <div class="w-full mt-4 flex flex-col items-start relative">
+          <label for='description' class="font-michroma text-sm pb-2">Description</label>
+          <textarea placeholder='Je vous contact pour...'
+            class="placeholder-input w-full p-2 min-h-[120px] rounded-md bg-white focus:outline-gold border-gray border-dark-grey border focus-border-gold"
+            ref="description" name="description"></textarea>
         </div>
-        <button type='submit' :class="{ 'bg-gold': isFormValid, 'bg-dark-gray': !isFormValid }" :disabled="!isFormValid"
-          class="mt-6 px-10 py-1 !text-white rounded-md">Envoyer</button>
-      </form>
+        <button @click="sendEmail"
+          class="hover:bg-gray transition-colors cursor-pointer mt-10 w-full md:w-auto px-10 !text-white py-1 rounded-small uppercase font-inter-semi-bold bg-gold">Envoyer</button>
+      </div>
     </div>
-    <div v-else class="flex flex-col w-full lg:w-1/2 ">
+    <div v-else class="flex flex-col w-full">
       <h3>Merci, nous vous recontacterons très vite !</h3>
     </div>
-    <div class="flex justify-end w-full lg:w-1/2">
-      <div class="border-image m-4 w-full lg:w-1/2 min-w-[250px] h-48 min-h-[16vh] sm:h-[30vh]  -translate-x-4">
+    <div class="lg:flex justify-end hidden h-2/3 min-h-[200px] max-h-[450px] self-end -translate-x-4 -translate-y-4">
+      <div class="border-image w-8/12 h-full translate-x-4">
         <img src="/images/architect.jpg" alt="illustration d'architecture"
           class="rounded-small object-cover w-full h-full" />
       </div>
@@ -56,47 +64,54 @@ export default {
   name: 'Contact',
   data() {
     return {
-      isFormValid: false,
       isFormSend: false,
-      formData: {
-        firstname: '',
-        lastname: '',
-        mail: '',
-        tel: '',
-        description: '',
-      },
+      isError: { firstname: false, email: false, isValidEmail: false },
     };
   },
   methods: {
-    validateForm() {
-      // verifie que formData.tel est bien un numero de tel avec une regex
-      this.isFormValid = Object.values(this.formData).every(value => value !== '');
+    isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     },
     sendEmail() {
-      emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, this.formData, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
-        .then((result) => {
-          console.log('SUCCESS!', result.status, result.text);
-          this.isFormSend = true;
-          setTimeout(() => {
-            this.$router.push('/');
-          }, 2000);
-        }, (error) => {
-          console.log('FAILED GROS NUL', error);
-          alert('Une erreur est survenue, veuillez réessayer');
-        });
-    },
+      const templateParams = {
+        firstname: this.$refs.firstname.value,
+        lastname: this.$refs.lastname.value,
+        email: this.$refs.email.value,
+        tel: this.$refs.tel.value,
+        description: this.$refs.description.value,
+      };
+
+      templateParams.firstname ? this.isError.firstname = false : this.isError.firstname = true
+      templateParams.email ? this.isError.email = false : this.isError.email = true
+      !this.isValidEmail(templateParams.email) && templateParams.email ? this.isError.isValidEmail = true : this.isError.isValidEmail = false
+
+      if (templateParams.firstname && this.isValidEmail(templateParams.email) && templateParams.email)
+        emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, templateParams, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+          .then(() => {
+            this.isFormSend = true;
+            setTimeout(() => {
+              this.$router.push('/');
+            }, 4000);
+          }, (error) => {
+            console.error('FAILED : ', error);
+            alert('Une erreur est survenue, veuillez réessayer');
+          });
+    }
   }
 }
 </script>
 
 <style scoped lang='scss'>
 @import "@/scss/main.scss";
-.focus-border-gold:focus {
-  border-color: gold;
+
+.placeholder-input::placeholder {
+  color: $color-gray;
+  font-family: $font-inter;
+  font-weight: $font-light;
+  font-size: 14px;
 }
 
 .border-image {
-
   &::before {
     content: "";
     position: absolute;

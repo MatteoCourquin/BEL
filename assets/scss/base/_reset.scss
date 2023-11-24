@@ -5,6 +5,20 @@
   color: $color-black;
 }
 
+*:focus {
+  outline-color: $color-gold;
+}
+
+*::-moz-selection {
+  color: $color-white;
+  background: #a7904a9d;
+}
+
+*::selection {
+  color: $color-white;
+  background: #a7904a9d;
+}
+
 .no-srollbar::-webkit-scrollbar {
   display: none;
 }
