@@ -3,12 +3,13 @@
     <Tabs @update:activeTab="setActiveTab" />
     <section class="mx-auto max-w-default px-x-default pb-y-default">
       <div v-for="(project, index) in computedProjects" :key="index" class="w-full">
-        <div v-if="shouldShowYear(index)" class="flex pb-10 pt-16 items-center gap-4">
+        <div v-if="shouldShowYear(index)" class="flex items-center gap-4 pb-10 pt-16">
+          <div class="w-full bg-gray h-[1px]"></div>
           <h4 class="font-michroma text-3xl">{{ getYear(project.date) }}</h4>
-          <div class="w-full md:hidden bg-gray h-[1px]"></div>
+          <div class="hidden md:block w-1/6 bg-gray h-[1px]"></div>
         </div>
         <NuxtLink :to="'/projet/' + formatSlug(project.title)"
-          class="grid gap-4 grid-cols-projects h-44 pb-4 w-cards-projects ml-auto">
+          class="grid gap-4 grid-cols-projects h-44 pb-4 ml-auto">
           <div class="flex">
             <span class="font-inter-black text-5xl">{{ getDay(project.date) }}</span>
             <span class="pl-2">{{ getMonth(project.date) }}</span>

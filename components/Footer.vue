@@ -2,17 +2,19 @@
   <footer class="bg-black py-16">
     <div class="max-w-default h-fit mx-auto px-x-default">
       <div class="w-full flex flex-col md:flex-row justify-between items-start md:items-center my-6">
-        <svg width="97" height="40" viewBox="0 0 97 40" fill="none" xmlns="http://www.w3.org/2000/svg"
-          class="stroke-white hover:stroke-gold transition-colors">
-          <path d="M7.84616 20.7692V21.7692H8.84616H29.3846V39H1V1H29.3846V17.0769H8.84616H7.84616V18.0769V20.7692Z"
-            stroke-width="2" />
-          <path
-            d="M40.9228 23.8462V24.8462H41.9228H62.0767V39H34.0767V1H62.0767V13.6154H41.9228H40.9228V14.6154V18.0769V19.0769H41.9228H47.8459V19.7692H41.9228H40.9228V20.7692V23.8462Z"
-            stroke-width="2" />
-          <path d="M72.3442 20.7692V21.7692H73.3442H95.5384V39H67.1538V1H72.3442V20.7692Z" stroke-width="2" />
-          <line x1="11" y1="9" x2="19" y2="9" stroke-width="2" />
-          <line x1="11" y1="30" x2="19" y2="30" stroke-width="2" />
-        </svg>
+        <NuxtLink to="/">
+          <svg width="97" height="40" viewBox="0 0 97 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="stroke-white hover:stroke-gold transition-colors">
+            <path d="M7.84616 20.7692V21.7692H8.84616H29.3846V39H1V1H29.3846V17.0769H8.84616H7.84616V18.0769V20.7692Z"
+              stroke-width="2" />
+            <path
+              d="M40.9228 23.8462V24.8462H41.9228H62.0767V39H34.0767V1H62.0767V13.6154H41.9228H40.9228V14.6154V18.0769V19.0769H41.9228H47.8459V19.7692H41.9228H40.9228V20.7692V23.8462Z"
+              stroke-width="2" />
+            <path d="M72.3442 20.7692V21.7692H73.3442H95.5384V39H67.1538V1H72.3442V20.7692Z" stroke-width="2" />
+            <line x1="11" y1="9" x2="19" y2="9" stroke-width="2" />
+            <line x1="11" y1="30" x2="19" y2="30" stroke-width="2" />
+          </svg>
+        </NuxtLink>
         <h4 class="text-white text-xl  mt-6 md:mt-0">Demander un devis</h4>
       </div>
       <div class="w-full flex flex-col-reverse md:flex-row justify-between items-start md:items-center my-6">
@@ -28,7 +30,7 @@
                   fill="white" />
               </svg>
             </span>
-            contact@be-legavre.fr
+            <a href="mailto:contact@be-legavre.fr">contact@be-legavre.fr</a>
           </p>
           <p class="text-white flex items-center mr-8">
             <span class="mr-2">
@@ -48,7 +50,7 @@
                   fill="white" />
               </svg>
             </span>
-            06 06 06 06 06
+            <a href="tel:0606060606">06 06 06 06 06</a>
           </p>
         </div>
         <NuxtLink to="/contact" class="bg-white hover:bg-gold !text-black hover:!text-white transition-colors px-10 py-1 rounded-small uppercase font-inter-semi-bold">

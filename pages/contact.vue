@@ -47,6 +47,13 @@
     </div>
     <div v-else class="flex flex-col w-full">
       <h3>Merci, nous vous recontacterons très vite !</h3>
+      <p class="py-2 md:py-4">Si vous ne faites rien, vous allez être redirigé sur la page d'accueil dans {{ timeout }} {{
+        timeout === 1 ?
+        'seconde' : 'secondes' }}
+      </p>
+      <NuxtLink to="/"
+        class="bg-gold hover:bg-gray transition-colors px-10 !text-white py-1 rounded-small uppercase font-inter-semi-bold w-fit">
+        accueil</NuxtLink>
     </div>
     <div class="lg:flex justify-end hidden h-2/3 min-h-[200px] max-h-[450px] self-end -translate-x-4 -translate-y-4">
       <div class="border-image w-8/12 h-full translate-x-4">
@@ -66,6 +73,63 @@ export default {
     return {
       isFormSend: false,
       isError: { firstname: false, email: false, isValidEmail: false },
+      timeout: 10,
+      intervalId: null,
+    };
+  },
+  methods: {
+    isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    },
+    startCountdown() {
+      this.intervalId = setInterval(() => {
+        this.timeout--;
+        if (this.timeout <= 0) {
+          clearInterval(this.intervalId);
+          this.$router.push('/');
+        }
+      }, 1000);
+    },
+    sendEmail() {
+      const templateParams = {
+        firstname: this.$refs.firstname.value,
+        lastname: this.$refs.lastname.value,
+        email: this.$refs.email.value,
+        tel: this.$refs.tel.value,
+        description: this.$refs.description.value,
+      };
+
+      templateParams.firstname ? this.isError.firstname = false : this.isError.firstname = true
+      templateParams.email ? this.isError.email = false : this.isError.email = true
+      !this.isValidEmail(templateParams.email) && templateParams.email ? this.isError.isValidEmail = true : this.isError.isValidEmail = false
+
+      if (templateParams.firstname && this.isValidEmail(templateParams.email) && templateParams.email) {
+        emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, templateParams, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+          .then(() => {
+            this.isFormSend = true;
+            this.startCountdown();
+          })
+          .catch((error) => {
+            console.error('FAILED : ', error);
+            alert('Une erreur est survenue, veuillez réessayer');
+          });
+      }
+    },
+  },
+};
+</script>
+
+
+<!-- <script>
+import emailjs from '@emailjs/browser';
+
+export default {
+  name: 'Contact',
+  data() {
+    return {
+      isFormSend: false,
+      isError: { firstname: false, email: false, isValidEmail: false },
+      timeout: 10000
     };
   },
   methods: {
@@ -91,7 +155,7 @@ export default {
             this.isFormSend = true;
             setTimeout(() => {
               this.$router.push('/');
-            }, 4000);
+            }, this.timeout);
           }, (error) => {
             console.error('FAILED : ', error);
             alert('Une erreur est survenue, veuillez réessayer');
@@ -99,7 +163,7 @@ export default {
     }
   }
 }
-</script>
+</script> -->
 
 <style scoped lang='scss'>
 @import "@/scss/main.scss";

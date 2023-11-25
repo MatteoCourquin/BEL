@@ -1,14 +1,16 @@
 <template>
-  <section class="h-screen-header min-h-[800px] max-w-default pt-y-default mx-auto flex flex-col px-x-default">
-    <h3 class="pb-4">Lorem ipsum dolor - Bureau d’études legavre</h3>
-    <p>
+  <section class="min-h-screen-header max-w-default pt-y-default mx-auto flex flex-col px-x-default">
+    <h3 class="pb-4 grow-0">Lorem ipsum dolor - Bureau d’études legavre</h3>
+    <p class="grow-0">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. At repudiandae
       neque harum porro excepturi maiores molestiae consequuntur alias cum
-      deserunt minus, ad modi temporibus fugiat,
+      deserunt minus, ad modi temporibus fugiat.
     </p>
-    <div class="translate-y-10 h-full">
-      <Circle orientation="bottom" @click="scroll" className="cursor-pointer hidden md:block top-1/3 right-1 translate-x-1/2 -translate-y-1/2" variant="team"></Circle>
-      <img src="/images/equipe.png" alt="Équipe du Bureau d'études Legavre" class="rounded-md object-cover h-full" />
+    <div class="translate-y-10 h-full grow flex">
+      <Circle orientation="bottom" @click="scroll"
+        className="cursor-pointer hidden md:block top-1/3 right-1 translate-x-1/2 -translate-y-1/2" variant="team">
+      </Circle>
+      <img src="/images/equipe.png" alt="Équipe du Bureau d'études Legavre" class="rounded-md object-cover" />
     </div>
   </section>
   <section
