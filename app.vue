@@ -11,7 +11,7 @@
 <script setup>
 const { $client } = useNuxtApp();
 
-const formatContentfulData = (contentfulData) => {
+const formatDescription = (contentfulData) => {
   const formattedParagraphs = contentfulData.map((entry) => {
     const paragraphs = entry.content.map((paragraph) => {
       if (!isHyperlinkNode(paragraph)) {
@@ -28,6 +28,22 @@ const formatContentfulData = (contentfulData) => {
 
   return formattedParagraphs.join('');
 };
+
+const formatShortDescription = (contentfulData) => {
+  const formattedParagraphs = contentfulData.map((entry) => {
+    const paragraphs = entry.content.map((paragraph) => {
+      if (!isHyperlinkNode(paragraph)) {
+        return paragraph.value;
+      }
+      return paragraph.content[0].value
+    });
+    const nonEmptyParagraphs = paragraphs.filter(Boolean);
+    const formattedEntry = nonEmptyParagraphs.join('');
+    return formattedEntry;
+  });
+  return formattedParagraphs.join(' ');
+};
+
 
 const isTextNode = (node) => node.nodeType === 'text';
 const isHyperlinkNode = (node) => node.nodeType === 'hyperlink' && node.data && node.data.uri;
@@ -49,7 +65,8 @@ const fetchData = async ($client) => {
       title: item.fields.nom,
       date: item.fields.date,
       tags: item.fields.tags,
-      description: formatContentfulData(item.fields.description.content),
+      shortdescription: formatShortDescription(item.fields.description.content),
+      description: formatDescription(item.fields.description.content),
       photos: item.fields.photos.map((photo) => photo.fields.file.url).flat()
     }));
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 473.35 473.35">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        font-family: Michroma-Regular, Michroma;
+        font-size: 48px;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        fill: #a79049;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <circle class="cls-3" cx="236.68" cy="236.68" r="236.68"/>
+  <text class="cls-1" transform="translate(304.27 404.84) rotate(164.21)"><tspan x="0" y="0">p</tspan></text>
+  <text class="cls-1" transform="translate(268.49 414.42) rotate(173.59)"><tspan x="0" y="0">r</tspan></text>
+  <text class="cls-1" transform="translate(246.81 417.52) rotate(-177.3)"><tspan x="0" y="0">o</tspan></text>
+  <text class="cls-1" transform="translate(210.51 415.13) rotate(-169.22)"><tspan x="0" y="0">j</tspan></text>
+  <text class="cls-1" transform="translate(195.95 413.19) rotate(-161.19)"><tspan x="0" y="0">e</tspan></text>
+  <text class="cls-1" transform="translate(162.59 401.66) rotate(-150.95)"><tspan x="0" y="0">t</tspan></text>
+  <text class="cls-1" transform="translate(169.08 68.51) rotate(-15.79)"><tspan x="0" y="0">p</tspan></text>
+  <text class="cls-1" transform="translate(204.86 58.93) rotate(-6.41)"><tspan x="0" y="0">r</tspan></text>
+  <text class="cls-1" transform="translate(226.55 55.83) rotate(2.7)"><tspan x="0" y="0">o</tspan></text>
+  <text class="cls-1" transform="translate(262.84 58.22) rotate(10.78)"><tspan x="0" y="0">j</tspan></text>
+  <text class="cls-1" transform="translate(277.4 60.17) rotate(18.81)"><tspan x="0" y="0">e</tspan></text>
+  <text class="cls-1" transform="translate(310.76 71.69) rotate(29.05)"><tspan x="0" y="0">t</tspan></text>
+  <path class="cls-2" d="m358.57,84.31c46.25,37,73.23,93.13,73.23,152.36,0,71.52-39.32,137.52-102.2,171.58"/>
+  <path class="cls-2" d="m115.56,389.66c-46.72-36.98-74.01-93.4-74.01-152.98,0-73.04,41.01-140.2,105.97-173.56"/>
+</svg>
