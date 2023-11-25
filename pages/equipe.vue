@@ -6,12 +6,14 @@
       neque harum porro excepturi maiores molestiae consequuntur alias cum
       deserunt minus, ad modi temporibus fugiat,
     </p>
-    <img src="/images/equipe.png" alt="Équipe du Bureau d'études Legavre"
-      class="rounded-md object-cover translate-y-10 h-full" />
+    <div class="translate-y-10 h-full">
+      <Circle orientation="bottom" @click="scroll" className="cursor-pointer hidden md:block top-1/3 right-1 translate-x-1/2 -translate-y-1/2" variant="team"></Circle>
+      <img src="/images/equipe.png" alt="Équipe du Bureau d'études Legavre" class="rounded-md object-cover h-full" />
+    </div>
   </section>
   <section
     class="flex flex-col justify-center sm:items-start min-h-[800px] max-w-default py-y-default mx-auto items-center px-x-default">
-    <h3 class="pb-10">Notre équipe d'expers</h3>
+    <h3 class="py-10">Notre équipe d'expers</h3>
     <div class="w-full grid grid-equipe justify-items-center justify-center gap-10">
       <div v-for="(member, index) in team" :key="index" class="w-full">
         <img :src="member.image" :alt="'Photo de ' + member.name" class="rounded-md h-auto w-full" />
