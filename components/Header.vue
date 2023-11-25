@@ -8,7 +8,7 @@
           isMenuOpen
             ? '-translate-y-[140px] opacity-0 md:opacity-100 md:-translate-y-0'
             : 'opacity-100 -translate-y-0',
-        ]" to="/" ref="index">
+        ]" to="/" ref="index" aria-label="Logo de l'entreprise BEL">
           <svg width="97" height="41" viewBox="0 0 97 41" fill="none" xmlns="http://www.w3.org/2000/svg" class="stroke-gold hover:stroke-gray transition-colors">
             <path d="M8.84615 22.2692H29.3846V39.5H1V1.5H29.3846V17.5769H8.84615H7.84615V18.5769V21.2692V22.2692H8.84615Z" stroke-width="2" />
             <path
@@ -17,13 +17,13 @@
           </svg>
         </NuxtLink>
         <div class="hidden md:flex gap-10">
-          <NuxtLink to="/projets" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="projets">
+          <NuxtLink to="/projets" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="projets" aria-label="Page des projets">
             Projets
           </NuxtLink>
-          <NuxtLink to="/presse" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="presse">
+          <NuxtLink to="/presse" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="presse" aria-label="Page de la presse">
             Presse
           </NuxtLink>
-          <NuxtLink to="/equipe" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="equipe">
+          <NuxtLink to="/equipe" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="equipe" aria-label="Page de l'équipe">
             Équipe
           </NuxtLink>
         </div>

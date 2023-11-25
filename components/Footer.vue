@@ -11,7 +11,7 @@
           <path d="M73.3442 22.2692H95.5384V39.5H67.1538V1.5H72.3442V21.2692V22.2692H73.3442Z" stroke="white"
             stroke-width="2" />
         </svg>
-        <h4 class="text-white text-xl  mt-6 md:mt-0">Demander un devis</h4>
+        <p class="devis text-white text-xl  mt-6 md:mt-0">Demander un devis</p>
       </div>
       <div class="w-full flex flex-col-reverse md:flex-row justify-between items-start md:items-center my-6">
         <div class="flex flex-wrap  mt-3 md:mt-0">
@@ -74,4 +74,10 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+
+.devis {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: clamp(1.5rem, 3vw, 2rem);
+}
+</style>
