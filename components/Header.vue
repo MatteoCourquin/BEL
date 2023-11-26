@@ -8,7 +8,7 @@
           isMenuOpen
             ? '-translate-y-[140px] opacity-0 md:opacity-100 md:-translate-y-0'
             : 'opacity-100 -translate-y-0',
-        ]" to="/" ref="index">
+        ]" to="/" ref="index" aria-label="Logo de l'entreprise BEL">
           <svg width="97" height="40" viewBox="0 0 97 40" fill="none" xmlns="http://www.w3.org/2000/svg"
             class="stroke-gold hover:stroke-gray transition-colors">
             <path d="M7.84616 20.7692V21.7692H8.84616H29.3846V39H1V1H29.3846V17.0769H8.84616H7.84616V18.0769V20.7692Z"
@@ -22,13 +22,16 @@
           </svg>
         </NuxtLink>
         <div class="hidden md:flex gap-10">
-          <NuxtLink to="/realisations" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="realisations">
+          <NuxtLink to="/realisations" class="uppercase hover:text-gray transition-colors font-inter-semi-bold"
+            ref="realisations" aria-label="Page réalisations">
             Réalisations
           </NuxtLink>
-          <NuxtLink to="/equipe" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="equipe">
+          <NuxtLink to="/equipe" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="equipe"
+            aria-label="Page équipe">
             Équipe
           </NuxtLink>
-          <NuxtLink to="/presse" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="presse">
+          <NuxtLink to="/presse" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="presse"
+            aria-label="Page presse">
             Presse
           </NuxtLink>
         </div>
@@ -40,7 +43,7 @@
           }"></span>
       </div>
       <div class="md:hidden flex items-center gap-4">
-        <button @click="toggleMenu" class="flex flex-col justify-between items-end group gap-3">
+        <button @click="toggleMenu" class="flex flex-col justify-between items-end group gap-3" aria-label="Menu Burger">
           <div :class="[
             'transition-all h-[2px] bg-black',
             isMenuOpen ? '-rotate-45 translate-y-[7px] w-8' : 'w-14',

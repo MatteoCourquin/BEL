@@ -1,6 +1,13 @@
 <template>
   <section
     class="min-h-screen-header max-w-default py-y-default px-x-default mx-auto grid lg:grid-cols-2 grid-cols-1 gap-10">
+    <Head>
+      <Title>Contact • BEL Bureau d'Études Legavre</Title>
+      <Meta name="title" content="Contact • BEL Bureau d'Études Legavre" />
+      <Meta name="description" content="Formulaire de contact et demande de devis pour Bureau d'Études Legavre." />
+      <Meta name="robots" content="index" />
+      <Link rel="canonical" href="https://www.be-legavre.com/contact" />
+    </Head>
     <div v-if="!isFormSend" class="w-full">
       <h3 class="pb-10">Demander un devis</h3>
       <div>
