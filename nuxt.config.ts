@@ -9,15 +9,14 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: "msapplication-TileColor", content: "#da532c"},
+        { name: "msapplication-TileColor", content: "#a7904a"},
         { name: "theme-color", content: "#ffffff"},
         { name: "keywords", content: "bureau etudes legavre vrd vannes" },
-        { name: 'robots', content: 'index, follow' },
         
         // OG TAG
         { hid: 'og:title', property: 'og:title', content: "BEL Bureau d'Études Legavre" },
         { hid: 'og:description', property: 'og:description', content: "BEL Bureau d'Études Legavre" },
-        { hid: 'og:image', property: 'og:image', content: '/favicon/ogimage.png' },
+        { hid: 'og:image', property: 'og:image', content: '/ogimage.png' },
         { hid: 'og:url', property: 'og:url', content: 'https://bel-self.vercel.app/' },
       ],
       link: [

@@ -2,8 +2,8 @@
   <section
     class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-1 max-w-default px-0 lg:px-x-default py-y-default mx-auto min-h-screen-header lg:min-h-fit lg:h-screen-header">
     <Head>
-      <Title>Presse - BEL Bureau d'Études Legavre</Title>
-      <Meta name="title" content="Presse - BEL Bureau d'Études Legavre" />
+      <Title>Presse • BEL Bureau d'Études Legavre</Title>
+      <Meta name="title" content="Presse • BEL Bureau d'Études Legavre" />
       <Meta name="description" content="Article de presse de BEL Bureau d'Études Legavre" />
       <Link rel="canonical" href="https://bel-self.vercel.app/presse" />
     </Head>

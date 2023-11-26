@@ -15,7 +15,7 @@
             <line x1="11" y1="30" x2="19" y2="30" stroke-width="2" />
           </svg>
         </NuxtLink>
-        <p class="devis text-white text-xl  mt-6 md:mt-0">Demander un devis</p>
+        <p class="text-white text-xl  mt-6 md:mt-0">Demander un devis</p>
       </div>
       <div class="w-full flex flex-col-reverse md:flex-row justify-between items-start md:items-center my-6">
         <div class="flex flex-wrap  mt-3 md:mt-0">
@@ -78,10 +78,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-
-.devis {
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  line-height: clamp(1.5rem, 3vw, 2rem);
-}
-</style>
+<style scoped lang="scss"></style>

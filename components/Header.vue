@@ -22,13 +22,13 @@
           </svg>
         </NuxtLink>
         <div class="hidden md:flex gap-10">
-          <NuxtLink to="/projets" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="projets" aria-label="Page des projets">
+          <NuxtLink to="/projets" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="projets" aria-label="Page projets">
             Projets
           </NuxtLink>
-          <NuxtLink to="/presse" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="presse" aria-label="Page de la presse">
+          <NuxtLink to="/presse" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="presse" aria-label="Page presse">
             Presse
           </NuxtLink>
-          <NuxtLink to="/equipe" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="equipe" aria-label="Page de l'équipe">
+          <NuxtLink to="/equipe" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="equipe" aria-label="Page équipe">
             Équipe
           </NuxtLink>
         </div>

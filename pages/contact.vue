@@ -2,8 +2,8 @@
   <section
     class="min-h-screen-header max-w-default py-y-default px-x-default mx-auto grid lg:grid-cols-2 grid-cols-1 gap-10">
     <Head>
-      <Title>Contact - BEL Bureau d'Études Legavre</Title>
-      <Meta name="title" content="Contact - BEL Bureau d'Études Legavre" />
+      <Title>Contact • BEL Bureau d'Études Legavre</Title>
+      <Meta name="title" content="Contact • BEL Bureau d'Études Legavre" />
       <Meta name="description" content="Formulaire de contact pour BEL Bureau d'Études Legavre" />
       <Link rel="canonical" href="https://bel-self.vercel.app/contact" />
     </Head>

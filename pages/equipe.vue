@@ -1,8 +1,8 @@
 <template>
   <section class="min-h-screen-header max-w-default pt-y-default mx-auto flex flex-col px-x-default">
     <Head>
-      <Title>Équipe - BEL Bureau d'Études Legavre</Title>
-      <Meta name="title" content="Équipe - BEL Bureau d'Études Legavre" />
+      <Title>Équipe • BEL Bureau d'Études Legavre</Title>
+      <Meta name="title" content="Équipe • BEL Bureau d'Études Legavre" />
       <Meta name="description" content="Présentation de l'équipe de BEL Bureau d'Études Legavre" />
       <Link rel="canonical" href="https://bel-self.vercel.app/equipe" />
     </Head>

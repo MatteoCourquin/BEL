@@ -1,9 +1,10 @@
 <template>
   <div v-if="computedProject">
     <Head>
-      <Title>{{ computedProject.title }} - BEL Bureau d'Études Legavre</Title>
-      <Meta name="title" :content="`${computedProject.title} - BEL Bureau d'Études Legavre`" />
-      <Meta :name="'description'" :content="`${computedProject.title} de BEL Bureau d'Études Legavre`" />
+      <Title>{{ computedProject.title }} • BEL Bureau d'Études Legavre</Title>
+      <Meta name="title" :content="`${computedProject.title} • BEL Bureau d'Études Legavre`" />
+      <Meta name="description" :content="`${computedProject.title} de BEL Bureau d'Études Legavre`" />
+      <Meta name="robots" content="noindex" />
     </Head>
     <div
       class="md:h-screen-header py-y-default flex flex-col md:flex-row gap-10 overflow-hidden pr-x-default md:px-0 ml-hero-project">
