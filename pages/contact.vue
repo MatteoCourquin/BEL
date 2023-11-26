@@ -4,8 +4,9 @@
     <Head>
       <Title>Contact • BEL Bureau d'Études Legavre</Title>
       <Meta name="title" content="Contact • BEL Bureau d'Études Legavre" />
-      <Meta name="description" content="Formulaire de contact pour BEL Bureau d'Études Legavre" />
-      <Link rel="canonical" href="https://bel-self.vercel.app/contact" />
+      <Meta name="description" content="Formulaire de contact et demande de devis pour Bureau d'Études Legavre." />
+      <Meta name="robots" content="index" />
+      <Link rel="canonical" href="https://www.be-legavre.com/contact" />
     </Head>
     <div v-if="!isFormSend" class="w-full">
       <h3 class="pb-10">Demander un devis</h3>

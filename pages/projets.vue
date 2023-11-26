@@ -3,8 +3,9 @@
     <Head>
       <Title>Projets • BEL Bureau d'Études Legavre</Title>
       <Meta name="title" content="Projets • BEL Bureau d'Études Legavre" />
-      <Meta name="description" content="Projets réalisés par BEL Bureau d'Études Legavre" />
-      <Link rel="canonical" href="https://bel-self.vercel.app/projets" />
+      <Meta name="description" content="Projets réalisés par BEL dans le domaine de la maîtrise d’oeuvre VRD." />
+      <Meta name="robots" content="index" />  
+      <Link rel="canonical" href="https://www.be-legavre.com/projets" />
     </Head>
     <Tabs @update:activeTab="setActiveTab" />
     <section class="mx-auto max-w-default px-x-default pb-y-default">

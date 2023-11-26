@@ -4,8 +4,9 @@
     <Head>
       <Title>Presse • BEL Bureau d'Études Legavre</Title>
       <Meta name="title" content="Presse • BEL Bureau d'Études Legavre" />
-      <Meta name="description" content="Article de presse de BEL Bureau d'Études Legavre" />
-      <Link rel="canonical" href="https://bel-self.vercel.app/presse" />
+      <Meta name="description" content="Liste des articles de presse à propos des différentes réalisations BE-Legavre." />
+      <Meta name="robots" content="index" />
+      <Link rel="canonical" href="https://www.be-legavre.com/presse" />
     </Head>
     <div
       class="flex justify-center items-center pb-10 lg:pb-0 lg:col-start-2 lg:col-end-3 lg:row-end-2 overflow-hidden lg:overflow-visible px-0 lg:px-x-default">
