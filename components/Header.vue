@@ -22,7 +22,7 @@
           </svg>
         </NuxtLink>
         <div class="hidden md:flex gap-10">
-          <NuxtLink to="/projets" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="projets">
+          <NuxtLink to="/realisations" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="realisations">
             Réalisations
           </NuxtLink>
           <NuxtLink to="/equipe" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="equipe">
@@ -67,7 +67,7 @@
     isMenuOpen ? 'translate-y-0' : 'translate-header',
   ]">
     <div class="flex flex-col items-center justify-center h-full gap-y-4">
-      <NuxtLink to="/projets" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
+      <NuxtLink to="/realisations" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Réalisations
       </NuxtLink>
       <NuxtLink to="/equipe" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
@@ -105,8 +105,8 @@ export default {
     setActiveLink() {
       let link = this.$route.name;
       this.dotOpacity = '1';
-      if (link.startsWith('projet')) {
-        link = 'projets';
+      if (link.startsWith('realisation')) {
+        link = 'realisations';
       }
       if (this.$refs[link] && this.$refs[link].$el) {
         const linkRect = this.$refs[link].$el.getBoundingClientRect();

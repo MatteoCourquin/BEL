@@ -18,8 +18,7 @@
     </div>
     <div v-if="computedArticles.length != 0"
       class="flex flex-col relative lg:col-start-1 lg:col-end-2 lg:row-end-2 px-x-default lg:px-0">
-      <p v-if="computedArticles[currentArticle].subtitle" class="pb-2 lg:pb-4 font-michroma">{{
-        computedArticles[currentArticle].subtitle }}</p>
+      <p class="pb-2 lg:pb-4 font-michroma">{{ computedArticles[currentArticle].subtitle }}</p>
       <h3 class="pb-10">{{ computedArticles[currentArticle].title }}</h3>
       <div class="overflow-y-scroll article-description" v-html="computedArticles[currentArticle].content"></div>
     </div>
@@ -39,7 +38,7 @@ export default {
       this.currentArticle = swiper.activeIndex;
     },
   },
-  mounted() {
+  created() {
     this.currentArticle = 0
   },
   computed: {

@@ -14,16 +14,16 @@
         class="rounded-small object-cover w-full h-full" />
     </div>
   </section>
-  <Section variant="heading3" title="projets">
+  <Section variant="heading3" title="réalisations">
     <div ref="slider" class="flex gap-8 md:gap-14 overflow-x-scroll md:pt-10 no-scrollbar">
       <div ref="sliderItem" v-for="(project, index) in computedProjects" :key="index"
         class="margin-x-slider w-3/4 sm:w-2/4 lg:w-1/3 min-w-[200px] aspect-square shrink-0 rounded-bl-small rounded-tr-small relative group max-w-md">
-        <NuxtLink :to="'projet/' + formatSlug(project.title)">
+        <NuxtLink :to="'realisation/' + formatSlug(project.title)">
           <Circle orientation="right" className="hidden md:block top-0 right-0 translate-x-10 -translate-y-10"
             variant="project"></Circle>
           <img
             class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small rounded-tr-small overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500"
-            src="/images/architect.jpg" :alt="'Illustration du projet ' + project.title">
+            :src="'https:' + project.photos[0]" :alt="'Illustration du projet ' + project.title">
           <div
             class="absolute bottom-0 h-1/2 w-full bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 rounded-bl-small">
             <h4 class="!text-white pb-2 md:pb-4 whitespace-nowrap overflow-hidden text-ellipsis">{{ project.title }}</h4>

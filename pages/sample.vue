@@ -19,7 +19,7 @@
     <div class="w-20 h-20 inline-block border bg-gold"></div>
     <hr>
     <img src='/images/architect.jpg' alt='Background Hero' />
-    <a class="block" v-for="(project, index) in projects" :key="index" :href="'/projet/' + formatSlug(project.title)">{{
+    <a class="block" v-for="(project, index) in projects" :key="index" :href="'/realisation/' + formatSlug(project.title)">{{
       project.title }}</a>
     <hr>
     <Section title="Test">

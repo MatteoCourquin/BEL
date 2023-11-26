@@ -8,7 +8,8 @@
           <h4 class="font-michroma text-3xl">{{ getYear(project.date) }}</h4>
           <div class="hidden md:block w-1/6 bg-gray h-[1px]"></div>
         </div>
-        <NuxtLink :to="'/projet/' + formatSlug(project.title)" class="grid gap-4 grid-cols-projects h-44 pb-4 ml-auto">
+        <NuxtLink :to="'/realisation/' + formatSlug(project.title)"
+          class="grid gap-4 grid-cols-projects h-44 pb-4 ml-auto">
           <div class="flex">
             <span class="font-inter-black text-5xl">{{ getDay(project.date) }}</span>
             <span class="pl-2">{{ getMonth(project.date) }}</span>
