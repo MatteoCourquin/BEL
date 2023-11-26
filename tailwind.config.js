@@ -17,19 +17,19 @@ module.exports = {
         gray: '#DBE1EA',
       },
       padding: {
-        'x-default': 'clamp(20px, 10vw, 100px)',
-        'y-default': 'clamp(20px, 10vh, 100px)',
+        'x-default': 'clamp(20px, 8vw, 100px)',
+        'y-default': 'clamp(20px, 8vh, 100px)',
       },
       margin: {
-        'x-default': 'clamp(20px, 10vw, 100px)',
-        'y-default': 'clamp(20px, 10vh, 100px)',
+        'x-default': 'clamp(20px, 8vw, 100px)',
+        'y-default': 'clamp(20px, 8vh, 100px)',
       },
       height: {
         'screen-header': 'calc(100vh - 90px)',
       },
       spacing: {
-        'x-default': 'clamp(20px, 10vw, 100px)',
-        'y-default': 'clamp(20px, 10vh, 100px)',
+        'x-default': 'clamp(20px, 8vw, 100px)',
+        'y-default': 'clamp(20px, 8vh, 100px)',
       },
       borderRadius: {
         small: '8px',
