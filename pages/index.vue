@@ -14,12 +14,13 @@
         class="rounded-small object-cover w-full h-full" />
     </div>
   </section>
-  <Section title="projets">
+  <Section variant="heading3" title="projets">
     <div ref="slider" class="flex gap-8 md:gap-14 overflow-x-scroll md:pt-10 no-scrollbar">
       <div ref="sliderItem" v-for="(project, index) in computedProjects" :key="index"
         class="margin-x-slider w-3/4 sm:w-2/4 lg:w-1/3 min-w-[200px] aspect-square shrink-0 rounded-bl-small rounded-tr-small relative group max-w-md">
         <NuxtLink :to="'projet/' + formatSlug(project.title)">
-          <Circle orientation="right" className="hidden md:block top-0 right-0 translate-x-10 -translate-y-10" variant="project"></Circle>
+          <Circle orientation="right" className="hidden md:block top-0 right-0 translate-x-10 -translate-y-10"
+            variant="project"></Circle>
           <img
             class="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-bl-small rounded-tr-small overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500"
             src="/images/architect.jpg" :alt="'Illustration du projet ' + project.title">
@@ -36,7 +37,16 @@
       <Arrow color="black" direction="right" @click="scrollRight" />
     </div>
   </Section>
-  <Section title="valeurs">
+  <Section variant="heading3" title="Domaines d'intervention">
+    <div class="px-x-default max-w-default mx-auto grid grid-services gap-10">
+      <div v-for="(service, index) in services" :key="index" class="flex gap-4">
+        <div class="w-10 flex justify-center"><img class="w-auto" :src="'/icons/' + service.logo"
+            :alt="'icone pour ' + service.title" /></div>
+        <p>{{ service.title }}</p>
+      </div>
+    </div>
+  </Section>
+  <Section variant="heading3" title="valeurs">
     <div class="px-x-default max-w-default mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
       <div v-for="(advantage, index) in advantages" :key="index"
         class="border border-gold rounded-medium p-10 lg:last-of-type:col-start-auto lg:last-of-type:col-end-auto last-of-type:col-start-auto last-of-type:col-end-auto sm:last-of-type:col-start-1 sm:last-of-type:col-end-3">
@@ -46,7 +56,7 @@
       </div>
     </div>
   </Section>
-  <Section title="partenaires">
+  <Section variant="heading3" title="Nos clients">
     <div class="overflow-hidden">
       <div class="flex flex-nowrap">
         <div ref="partenaireContainerRight1"
@@ -79,15 +89,6 @@
               :src="'/images/partenaires/' + partenaire.img" alt="logo partenaire" />
           </div>
         </div>
-      </div>
-    </div>
-  </Section>
-  <Section title="services">
-    <div class="px-x-default max-w-default mx-auto grid grid-services gap-10">
-      <div v-for="(service, index) in services" :key="index" class="flex gap-4">
-        <div class="w-10 flex justify-center"><img class="w-auto" :src="'/icons/' + service.logo"
-            :alt="'icone pour ' + service.title" /></div>
-        <p>{{ service.title }}</p>
       </div>
     </div>
   </Section>

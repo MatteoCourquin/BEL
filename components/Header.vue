@@ -23,13 +23,13 @@
         </NuxtLink>
         <div class="hidden md:flex gap-10">
           <NuxtLink to="/projets" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="projets">
-            Projets
-          </NuxtLink>
-          <NuxtLink to="/presse" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="presse">
-            Presse
+            Réalisations
           </NuxtLink>
           <NuxtLink to="/equipe" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="equipe">
             Équipe
+          </NuxtLink>
+          <NuxtLink to="/presse" class="uppercase hover:text-gray transition-colors font-inter-semi-bold" ref="presse">
+            Presse
           </NuxtLink>
         </div>
         <span
@@ -68,13 +68,13 @@
   ]">
     <div class="flex flex-col items-center justify-center h-full gap-y-4">
       <NuxtLink to="/projets" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
-        Projets
-      </NuxtLink>
-      <NuxtLink to="/presse" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
-        Presse
+        Réalisations
       </NuxtLink>
       <NuxtLink to="/equipe" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Équipe
+      </NuxtLink>
+      <NuxtLink to="/presse" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
+        Presse
       </NuxtLink>
       <NuxtLink to="/contact" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Contact
