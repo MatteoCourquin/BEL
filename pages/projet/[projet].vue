@@ -23,7 +23,8 @@
     <div
       :class="['fixed w-screen h-screen top-0 left-0 transition-all z-[210]', isImageOpen ? 'visible opacity-100' : 'invisible opacity-0']">
       <div @click="isImageOpen = false"
-        :class="['absolute w-full h-full layer-image transition-all', isImageOpen ? 'visible opacity-100' : 'invisible opacity-0']"></div>
+        :class="['absolute w-full h-full layer-image transition-all', isImageOpen ? 'visible opacity-100' : 'invisible opacity-0']">
+      </div>
       <div
         :class="['controls-slider overflow-hidden rounded-small max-h-fit max-w-fit absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-transform', isImageOpen ? 'scale-100' : 'scale-0']">
         <div @click="previousImage()"
@@ -43,11 +44,15 @@
         </div>
       </div>
     </div>
-    <Section variant="heading3" title="Le projet en image">
-      <div class="max-w-default mx-auto px-x-default flex flex-wrap gap-4 gallery">
-        <div v-for="(photo, index) in computedProject.photos" :key="index" class="list-none grow h-64">
-          <img @click="openImage(photo)" :src="photo" :alt="'photos du projet' + computedProject.title"
-            class="rounded-small w-full h-full object-cover hover:scale-[1.02] cursor-pointer transition-all">
+    <Section variant="heading3" title="Le projet en images">
+      <div class="max-w-default mx-auto px-x-default">
+        <video v-if="computedProject.video != undefined" class="rounded-small mb-10" controls autoplay loop muted
+          :src="'https:' + computedProject.video"></video>
+        <div class="flex flex-wrap gap-4 gallery">
+          <div v-for="(photo, index) in computedProject.photos" :key="index" class="list-none grow h-64">
+            <img @click="openImage(photo)" :src="photo" :alt="'photos du projet' + computedProject.title"
+              class="rounded-small w-full h-full object-cover hover:scale-[1.02] cursor-pointer transition-all">
+          </div>
         </div>
       </div>
     </Section>

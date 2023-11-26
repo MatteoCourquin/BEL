@@ -51,33 +51,53 @@ const extractTextContent = (node) => node.content.map((content) => content.value
 const createHyperlink = (url, text) => `<a target="_blank" href="${url}">${text}</a>`;
 const wrapInParagraph = (content) => `<p class="pb-4">${content.join('')}</p>`;
 
-const fetchData = async ($client) => {
+const fetchProjects = async ($client) => {
   try {
-    const { data } = await useAsyncData('projects', () => $client.getEntries());
+    const { data: projects } = await useAsyncData('projects', () => $client.getEntries({
+      content_type: "projets",
+      order: "-fields.date"
+    }));
 
-    const sortedData = data._rawValue.items.sort((a, b) => {
-      const dateA = new Date(a.fields.date);
-      const dateB = new Date(b.fields.date);
-      return dateB - dateA;
-    });
-
-    const formattedData = sortedData.map((item) => ({
-      title: item.fields.nom,
+    const formattedData = projects._rawValue.items.map((item) => ({
+      title: item.fields.name,
       date: item.fields.date,
       tags: item.fields.tags,
       shortdescription: formatShortDescription(item.fields.description.content),
       description: formatDescription(item.fields.description.content),
-      photos: item.fields.photos.map((photo) => photo.fields.file.url).flat()
+      photos: item.fields.photos.map((photo) => photo.fields.file.url).flat(),
+      video: item.fields.video ? item.fields.video.fields.file.url : undefined
     }));
 
     return formattedData;
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error('Error fetching projects:', error);
     return [];
   }
 };
 
-fetchData($client).then((data) => {
-  useProjects().value = data;
+fetchProjects($client).then((projects) => {
+  useProjects().value = projects;
+});
+
+const fetchArticles = async ($client) => {
+  try {
+    const { data: articles } = await useAsyncData('articles', () => $client.getEntries({ content_type: "articles" }));
+
+    const formattedData = articles._rawValue.items.map((item) => ({
+      title: item.fields.title,
+      subtitle: item.fields.subtitle,
+      content: formatDescription(item.fields.content.content),
+      photo: item.fields.photo.fields.file.url
+    }));
+
+    return formattedData;
+  } catch (error) {
+    console.error('Error fetching articles:', error);
+    return [];
+  }
+};
+
+fetchArticles($client).then((articles) => {
+  useArticles().value = articles;
 });
 </script>
