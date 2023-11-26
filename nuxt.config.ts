@@ -14,14 +14,6 @@ export default defineNuxtConfig({
         { name: "keywords", content: "bureau etudes legavre vrd vannes" },
         { name: 'robots', content: 'index, follow' },
         
-        // dont know
-        // { name: 'msapplication-TileImage', content: '/favicon/ms-icon-144x144.png' },
-        // { name: 'msapplication-config', content: '/favicon/browserconfig.xml' },
-        // { name: 'apple-mobile-web-app-title', content: "BEL Bureau d'Études Legavre" },
-        // { name: 'application-name', content: "BEL Bureau d'Études Legavre" },
-        // { name: 'msapplication-tooltip', content: "BEL Bureau d'Études Legavre" },
-        // { name: 'msapplication-starturl', content: '/' },
-        
         // OG TAG
         { hid: 'og:title', property: 'og:title', content: "BEL Bureau d'Études Legavre" },
         { hid: 'og:description', property: 'og:description', content: "BEL Bureau d'Études Legavre" },
