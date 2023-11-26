@@ -70,6 +70,9 @@
     isMenuOpen ? 'translate-y-0' : 'translate-header',
   ]">
     <div class="flex flex-col items-center justify-center h-full gap-y-4">
+      <NuxtLink to="/" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
+        Accueil
+      </NuxtLink>
       <NuxtLink to="/realisations" class="text-black font-inter-medium text-5xl mb-4 uppercase" @click="toggleMenu">
         Réalisations
       </NuxtLink>

@@ -1,17 +1,18 @@
 <template>
-  <section
+  <section itemscope itemtype="http://schema.org/Organization"
     class="h-screen-header min-h-[800px] max-w-default py-y-default mx-auto px-x-default relative flex sm:block flex-col gap-20 justify-between">
     <Head>
-      <Title>BEL Bureau d'Études Legavre</Title>
+      <Title itemprop="name">BEL Bureau d'Études Legavre</Title>
       <Meta name="title" content="BEL Bureau d'Études Legavre" />
-      <Meta name="description" content="BEL développe ses compétences et améliore ses moyens techniques dans le domaine de la maîtrise d’oeuvre VRD." />
+      <Meta name="description"
+        content="BEL développe ses compétences et améliore ses moyens techniques dans le domaine de la maîtrise d’oeuvre VRD." />
       <Meta name="robots" content="index" />
       <Link rel="canonical" href="https://www.be-legavre.com/" />
     </Head>
-    <div>
-      <p class="font-michroma">Maitres d'oeuvre depuis 1988</p>
-      <h1 class="uppercase py-8 sm:whitespace-nowrap">Bureau d'études <br>Legavre</h1>
-      <p class="w-full sm:w-2/3 pb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus velit quos sint
+    <div itemprop="additionalProperty">
+      <p  itemprop="value" class="font-michroma">Maitres d'oeuvre depuis 1988</p>
+      <h1 itemprop="name" class="uppercase py-8 sm:whitespace-nowrap">Bureau d'études <br>Legavre</h1>
+      <p itemprop="description" class="w-full sm:w-2/3 pb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus velit quos sint
         laborum placeat optio voluptatibus veritatis aliquid accusamus dolorem.</p>
       <ButtonScroll />
     </div>
