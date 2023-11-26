@@ -2,7 +2,7 @@
   <footer class="bg-black py-16">
     <div class="max-w-default h-fit mx-auto px-x-default">
       <div class="w-full flex flex-col md:flex-row justify-between items-start md:items-center my-6">
-        <NuxtLink to="/">
+        <NuxtLink to="/" aria-label="Logo de l'entreprise BEL">
           <svg width="97" height="40" viewBox="0 0 97 40" fill="none" xmlns="http://www.w3.org/2000/svg"
             class="stroke-white hover:stroke-gold transition-colors">
             <path d="M7.84616 20.7692V21.7692H8.84616H29.3846V39H1V1H29.3846V17.0769H8.84616H7.84616V18.0769V20.7692Z"
@@ -15,7 +15,7 @@
             <line x1="11" y1="30" x2="19" y2="30" stroke-width="2" />
           </svg>
         </NuxtLink>
-        <h4 class="text-white text-xl  mt-6 md:mt-0">Demander un devis</h4>
+        <p class="text-white text-xl  mt-6 md:mt-0">Demander un devis</p>
       </div>
       <div class="w-full flex flex-col-reverse md:flex-row justify-between items-start md:items-center my-6">
         <div class="flex flex-wrap  mt-3 md:mt-0">

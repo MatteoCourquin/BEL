@@ -1,6 +1,13 @@
 <template>
   <section
     class="h-screen-header min-h-[800px] max-w-default py-y-default mx-auto px-x-default relative flex sm:block flex-col gap-20 justify-between">
+    <Head>
+      <Title>BEL Bureau d'Études Legavre</Title>
+      <Meta name="title" content="BEL Bureau d'Études Legavre" />
+      <Meta name="description" content="BEL développe ses compétences et améliore ses moyens techniques dans le domaine de la maîtrise d’oeuvre VRD." />
+      <Meta name="robots" content="index" />
+      <Link rel="canonical" href="https://www.be-legavre.com/" />
+    </Head>
     <div>
       <p class="font-michroma">Maitres d'oeuvre depuis 1988</p>
       <h1 class="uppercase py-8 sm:whitespace-nowrap">Bureau d'études <br>Legavre</h1>
@@ -51,7 +58,7 @@
       <div v-for="(advantage, index) in advantages" :key="index"
         class="border border-gold rounded-medium p-10 lg:last-of-type:col-start-auto lg:last-of-type:col-end-auto last-of-type:col-start-auto last-of-type:col-end-auto sm:last-of-type:col-start-1 sm:last-of-type:col-end-3">
         <img :src="'icons' + advantage.logo" :alt="'icone pour ' + advantage.title">
-        <h4 class="py-4 !text-gold !text-lg">{{ advantage.title }}</h4>
+        <p class="py-4 !text-gold !text-xl font-inter-bold">{{ advantage.title }}</p>
         <p class="!text-gold !text-sm">{{ advantage.description }}</p>
       </div>
     </div>

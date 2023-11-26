@@ -1,5 +1,12 @@
 <template>
   <section class="min-h-screen-header max-w-default pt-y-default mx-auto flex flex-col px-x-default">
+    <Head>
+      <Title>Équipe • BEL Bureau d'Études Legavre</Title>
+      <Meta name="title" content="Équipe • BEL Bureau d'Études Legavre" />
+      <Meta name="description" content="Présentation de nos maîtres d'oeuvre VRD et des membres de l'équipe BEL." />
+      <Meta name="robots" content="index" />
+      <Link rel="canonical" href="https://www.be-legavre.com/equipe" />
+    </Head>
     <h3 class="pb-4 grow-0">Lorem ipsum dolor - Bureau d’études legavre</h3>
     <p class="grow-0">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. At repudiandae
