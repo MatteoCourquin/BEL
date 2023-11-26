@@ -1,11 +1,21 @@
 <template>
   <section class="min-h-screen-header">
+    <Head>
+      <Title>Projets - BEL Bureau d'Études Legavre</Title>
+      <Meta name="title" content="Projets - BEL Bureau d'Études Legavre" />
+      <Meta name="description" content="Projets réalisés par BEL Bureau d'Études Legavre" />
+      <Link rel="canonical" href="https://bel-self.vercel.app/projets" />
+    </Head>
     <Tabs @update:activeTab="setActiveTab" />
     <section class="mx-auto max-w-default px-x-default pb-y-default">
       <div v-for="(project, index) in computedProjects" :key="index" class="w-full">
-        <h4 class="font-michroma text-3xl pb-10 pt-16" v-if="shouldShowYear(index)">{{ getYear(project.date) }}</h4>
+        <div v-if="shouldShowYear(index)" class="flex items-center gap-4 pb-10 pt-16">
+          <div class="w-full bg-gray h-[1px]"></div>
+          <h4 class="font-michroma text-3xl">{{ getYear(project.date) }}</h4>
+          <div class="hidden md:block w-1/6 bg-gray h-[1px]"></div>
+        </div>
         <NuxtLink :to="'/projet/' + formatSlug(project.title)"
-          class="grid gap-4 grid-cols-projects h-44 pb-4 w-cards-projects ml-auto">
+          class="grid gap-4 grid-cols-projects h-44 pb-4 ml-auto">
           <div class="flex">
             <span class="font-inter-black text-5xl">{{ getDay(project.date) }}</span>
             <span class="pl-2">{{ getMonth(project.date) }}</span>
@@ -14,21 +24,7 @@
           <div class="w-full">
             <p class="text-gold">#{{ project.tags }}</p>
             <h3 class="!text-2xl py-2 md:whitespace-nowrap text-ellipsis w-full overflow-hidden">{{ project.title }}</h3>
-            <p class="overflow-hidden text-ellipsis projects-description w-full">Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Voluptas inventore rem veniam qui labore aliquam nobis modi quam dolorem est praesentium
-              minima vel, asperiores fugiat magnam? Quae soluta molestias quasi architecto cupiditate totam ut voluptate
-              et. Magni modi excepturi vel possimus nesciunt itaque aliquam distinctio corrupti. Esse officiis magni minus
-              inventore ipsa obcaecati error repudiandae facere non voluptate, optio maiores, in illum reiciendis
-              explicabo quis asperiores maxime suscipit corrupti corporis laborum quod quaerat rem? Repellendus quo rem ab
-              alias distinctio cumque, delectus voluptatibus atque sapiente iure modi quisquam nostrum et voluptas culpa,
-              aliquid molestias ea nam aperiam minima! Laboriosam sunt eos ad nulla excepturi, illum nihil explicabo
-              consequuntur deserunt architecto rem aspernatur odit quaerat possimus culpa placeat temporibus vel ratione!
-              Expedita recusandae hic repellat omnis libero? Obcaecati accusamus voluptates fuga nihil fugiat culpa soluta
-              eos quibusdam? Iure laborum rerum eius facilis harum assumenda similique quae nesciunt aliquid consectetur,
-              id labore perspiciatis sit distinctio rem illo ab neque. Illo maxime ad dolorum sint voluptas dignissimos
-              voluptatibus corrupti dolor placeat, cum soluta aspernatur. Ullam nam eaque, soluta possimus dicta cumque
-              accusamus et itaque provident repellat ab asperiores laboriosam molestias rerum nemo praesentium dolor hic,
-              quidem adipisci cupiditate quia iure vitae rem ut.</p>
+            <p class="overflow-hidden text-ellipsis projects-description w-full">{{ project.shortdescription }}</p>
           </div>
         </NuxtLink>
       </div>

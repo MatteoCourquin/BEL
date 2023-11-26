@@ -1,17 +1,27 @@
 <template>
-  <section class="h-screen-header min-h-[800px] max-w-default pt-y-default mx-auto flex flex-col px-x-default">
-    <h3 class="pb-4">Lorem ipsum dolor - Bureau d’études legavre</h3>
-    <p>
+  <section class="min-h-screen-header max-w-default pt-y-default mx-auto flex flex-col px-x-default">
+    <Head>
+      <Title>Équipe - BEL Bureau d'Études Legavre</Title>
+      <Meta name="title" content="Équipe - BEL Bureau d'Études Legavre" />
+      <Meta name="description" content="Présentation de l'équipe de BEL Bureau d'Études Legavre" />
+      <Link rel="canonical" href="https://bel-self.vercel.app/equipe" />
+    </Head>
+    <h3 class="pb-4 grow-0">Lorem ipsum dolor - Bureau d’études legavre</h3>
+    <p class="grow-0">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. At repudiandae
       neque harum porro excepturi maiores molestiae consequuntur alias cum
-      deserunt minus, ad modi temporibus fugiat,
+      deserunt minus, ad modi temporibus fugiat.
     </p>
-    <img src="/images/equipe.png" alt="Équipe du Bureau d'études Legavre"
-      class="rounded-md object-cover translate-y-10 h-full" />
+    <div class="translate-y-10 h-full grow flex">
+      <Circle orientation="bottom" @click="scroll"
+        className="cursor-pointer hidden md:block top-1/3 right-1 translate-x-1/2 -translate-y-1/2" variant="team">
+      </Circle>
+      <img src="/images/equipe.png" alt="Équipe du Bureau d'études Legavre" class="rounded-md object-cover" />
+    </div>
   </section>
   <section
     class="flex flex-col justify-center sm:items-start min-h-[800px] max-w-default py-y-default mx-auto items-center px-x-default">
-    <h3 class="pb-10">Notre équipe d'expers</h3>
+    <h3 class="py-10">Notre équipe d'expers</h3>
     <div class="w-full grid grid-equipe justify-items-center justify-center gap-10">
       <div v-for="(member, index) in team" :key="index" class="w-full">
         <img :src="member.image" :alt="'Photo de ' + member.name" class="rounded-md h-auto w-full" />

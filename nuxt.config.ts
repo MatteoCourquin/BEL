@@ -11,8 +11,6 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: "msapplication-TileColor", content: "#da532c"},
         { name: "theme-color", content: "#ffffff"},
-        { hid: 'title', name: 'title', content: "BEL Bureau d'Études Legavre" },
-        { hid: 'description', name: 'description', content: "BEL Bureau d'Études Legavre" },
         { name: "keywords", content: "bureau etudes legavre vrd vannes" },
         { name: 'robots', content: 'index, follow' },
         
@@ -31,6 +29,7 @@ export default defineNuxtConfig({
         { hid: 'og:url', property: 'og:url', content: 'https://bel-self.vercel.app/' },
       ],
       link: [
+        { rel: "canonical", href: 'https://bel-self.vercel.app/' },
         // FAVICON
         { rel: "apple-touch-icon", sizes: "180x180", href: "/favicon/apple-touch-icon.png"},
         { rel: "icon", type: "image/png", sizes: "32x32", href:"/favicon/favicon-32x32.png"},

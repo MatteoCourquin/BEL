@@ -29,12 +29,6 @@ export default {
     return {};
   },
   methods: {
-    scroll() {
-      window.scrollTo({
-        top: window.innerHeight - 90,
-        behavior: 'smooth',
-      });
-    },
   }
 }
 
