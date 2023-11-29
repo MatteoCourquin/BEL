@@ -13,8 +13,7 @@
       <p itemprop="value" class="font-michroma">Maitres d'oeuvre depuis 1988</p>
       <h1 itemprop="name" class="uppercase py-8 sm:whitespace-nowrap">Bureau d'études <br>Legavre</h1>
       <p itemprop="description" class="w-full sm:w-2/3 pb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Ducimus velit quos sint
-        laborum placeat optio voluptatibus veritatis aliquid accusamus dolorem.</p>
+        Ducimus velit quos sint laborum placeat optio voluptatibus veritatis aliquid accusamus dolorem.</p>
       <ButtonScroll />
     </div>
     <div
