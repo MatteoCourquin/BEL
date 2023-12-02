@@ -48,7 +48,7 @@ const formatShortDescription = (contentfulData) => {
 const isTextNode = (node) => node.nodeType === 'text';
 const isHyperlinkNode = (node) => node.nodeType === 'hyperlink' && node.data && node.data.uri;
 const extractTextContent = (node) => node.content.map((content) => content.value).join('');
-const createHyperlink = (url, text) => `<a target="_blank" href="${url}">${text}</a>`;
+const createHyperlink = (url, text) => `<a class="link" target="_blank" href="${url}">${text}</a>`;
 const wrapInParagraph = (content) => `<p class="pb-4">${content.join('')}</p>`;
 
 const fetchProjects = async ($client) => {

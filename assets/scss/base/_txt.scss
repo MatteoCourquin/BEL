@@ -76,3 +76,24 @@ a {
   font-family: $font-inter;
   font-weight: $font-black;
 }
+
+.link {
+  color: $color-black;
+  text-decoration: none;
+  transition: color 0.1s ease-in-out;
+  font-family: $font-inter;
+  font-weight: $font-medium;
+  &::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: $color-black;
+    transition: width 0.1s ease-in-out;
+  }
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+}

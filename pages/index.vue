@@ -1,24 +1,25 @@
 <template>
+  <Head>
+    <Title itemprop="name">BEL Bureau d'Études Legavre</Title>
+    <Meta name="title" content="BEL Bureau d'Études Legavre" />
+    <Meta name="description"
+      content="BEL développe ses compétences et améliore ses moyens techniques dans le domaine de la maîtrise d’oeuvre VRD." />
+    <Meta name="robots" content="index" />
+    <Link rel="canonical" href="https://www.be-legavre.com/" />
+  </Head>
   <section itemscope itemtype="http://schema.org/Organization"
     class="h-screen-header min-h-[800px] max-w-default py-y-default mx-auto px-x-default relative flex sm:block flex-col gap-20 justify-between">
-    <Head>
-      <Title itemprop="name">BEL Bureau d'Études Legavre</Title>
-      <Meta name="title" content="BEL Bureau d'Études Legavre" />
-      <Meta name="description"
-        content="BEL développe ses compétences et améliore ses moyens techniques dans le domaine de la maîtrise d’oeuvre VRD." />
-      <Meta name="robots" content="index" />
-      <Link rel="canonical" href="https://www.be-legavre.com/" />
-    </Head>
     <div itemprop="additionalProperty">
       <p itemprop="value" class="font-michroma">Maitres d'oeuvre depuis 1988</p>
       <h1 itemprop="name" class="uppercase py-8 sm:whitespace-nowrap">Bureau d'études <br>Legavre</h1>
-      <p itemprop="description" class="w-full sm:w-2/3 pb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Ducimus velit quos sint laborum placeat optio voluptatibus veritatis aliquid accusamus dolorem.</p>
+      <p itemprop="description" class="w-full sm:w-2/3 pb-8">Notre bureau d’études n’a de cesse de développer ses
+        compétences et d’améliorer sa technicité dans le domaine de la maîtrise d’oeuvre des infrastructures VRD (Voirie
+        et Réseaux Divers) pour l’aménagement des territoires Morbihannais, Breton et limitrophe</p>
       <ButtonScroll />
     </div>
     <div
       class="border-image m-4 relative sm:absolute w-full sm:w-[30vw] h-52 -translate-x-4 min-w-[250px] sm:h-[30vh] min-h-[150px] sm:bottom-[10%] sm:right-x-default">
-      <img src="/images/architect.jpg" alt="illustration d'architecture"
+      <img src="/images/architect.webp" alt="illustration d'architecture"
         class="rounded-small object-cover w-full h-full" />
     </div>
   </section>
@@ -48,9 +49,9 @@
   <Section variant="heading3" title="Domaines d'intervention">
     <div class="px-x-default max-w-default mx-auto grid grid-services gap-8 md:gap-10">
       <div v-for="(service, index) in services" :key="index" class="flex gap-2 md:gap-4">
-        <div class="w-10 flex justify-center"><img class="w-auto" :src="'/icons/' + service.logo"
+        <div class="w-10 shrink-0 flex justify-center"><img class="h-6" :src="'/icons/' + service.logo"
             :alt="'icone pour ' + service.title" /></div>
-        <p>{{ service.title }}</p>
+        <p class="shrink">{{ service.title }}</p>
       </div>
     </div>
   </Section>
@@ -112,6 +113,45 @@ export default {
   data() {
     return {
       paddingProjects: 0,
+      services: [
+        {
+          title: "Aménagements urbains",
+          logo: "/map.svg"
+        },
+        {
+          title: "Aménagements autour de l’habitat",
+          logo: "/house.svg"
+        },
+        {
+          title: "Zones d’activités et centres techniques",
+          logo: "/landscape.svg"
+        },
+        {
+          title: "Aménagements paysagers autour d’Equipements Publics",
+          logo: "/run.svg"
+        },
+        {
+          title: "Programmes de voirie communales",
+          logo: "/building.svg"
+        },
+      ],
+      advantages: [
+        {
+          title: "Proximité",
+          description: "Connaissance du territoire, des concessionnaires, des syndicats, des entreprises. 80 % de nos projets se font dans le Morbihan.",
+          logo: "/communication.svg"
+        },
+        {
+          title: "Réactivité",
+          description: "Communication fluide et directe. Chaque projet est identifié et personnalisé. Un seul intervenant par opération.",
+          logo: "/decision.svg"
+        },
+        {
+          title: "Responsabilité",
+          description: "Nous accompagnons le maître d’ouvrage du début à la fin de chaque projet dans un soucis constant d’exécuter chaque tâche dans les règles de l’Art.",
+          logo: "/flexibility.svg"
+        }
+      ],
       partenaires: [
         {
           img: "/staze.svg",
@@ -144,49 +184,6 @@ export default {
           img: "/waydev.svg",
         },
       ],
-      services: [
-        {
-          title: "Aménagements urbains",
-          logo: "/map.svg"
-        },
-        {
-          title: "Lotissement",
-          logo: "/house.svg"
-        },
-        {
-          title: "Aménagements paysagers",
-          logo: "/landscape.svg"
-        },
-        {
-          title: "Equipements sportifs",
-          logo: "/run.svg"
-        },
-        {
-          title: "Cimetière",
-          logo: "/cemetery.svg"
-        },
-        {
-          title: "Equipements collectifs",
-          logo: "/building.svg"
-        },
-      ],
-      advantages: [
-        {
-          title: "Communication",
-          description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
-          logo: "/communication.svg"
-        },
-        {
-          title: "Vitesse de décision",
-          description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
-          logo: "/decision.svg"
-        },
-        {
-          title: "Flexibilité",
-          description: "Offrir une attention personnalisée, plaçant les clients dans la meilleure position possible pour tirer le meilleur parti de notre logiciel.",
-          logo: "/flexibility.svg"
-        }
-      ]
     };
   },
   methods: {

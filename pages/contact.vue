@@ -1,15 +1,15 @@
 <template>
+  <Head>
+    <Title>Contact • BEL Bureau d'Études Legavre</Title>
+    <Meta name="title" content="Contact • BEL Bureau d'Études Legavre" />
+    <Meta name="description" content="Formulaire de contact et demande de devis pour Bureau d'Études Legavre." />
+    <Meta name="robots" content="index" />
+    <Link rel="canonical" href="https://www.be-legavre.com/contact" />
+  </Head>
   <section
     class="min-h-screen-header max-w-default py-y-default px-x-default mx-auto grid lg:grid-cols-2 grid-cols-1 gap-10">
-    <Head>
-      <Title>Contact • BEL Bureau d'Études Legavre</Title>
-      <Meta name="title" content="Contact • BEL Bureau d'Études Legavre" />
-      <Meta name="description" content="Formulaire de contact et demande de devis pour Bureau d'Études Legavre." />
-      <Meta name="robots" content="index" />
-      <Link rel="canonical" href="https://www.be-legavre.com/contact" />
-    </Head>
     <div v-if="!isFormSend" class="w-full">
-      <h3 class="pb-10">Demander un devis</h3>
+      <h3 class="pb-10">Demande de renseignements</h3>
       <div>
         <div class="w-full flex flex-wrap sm:flex-nowrap gap-4">
           <div class="w-full flex flex-col items-start relative">
@@ -64,7 +64,7 @@
     </div>
     <div class="lg:flex justify-end hidden h-2/3 min-h-[200px] max-h-[450px] self-end -translate-x-4 -translate-y-4">
       <div class="border-image w-8/12 h-full translate-x-4">
-        <img src="/images/architect.jpg" alt="illustration d'architecture"
+        <img src="/images/architect.webp" alt="illustration d'architecture"
           class="rounded-small object-cover w-full h-full" />
       </div>
     </div>
