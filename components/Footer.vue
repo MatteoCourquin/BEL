@@ -30,7 +30,7 @@
                   fill="white" />
               </svg>
             </span>
-            <a href="mailto:etudes@be-legavre.com">etudes@be-legavre.com</a>
+            <a href="mailto:contact@be-legavre.fr">contact@be-legavre.com</a>
           </p>
           <p class="text-white flex items-center mr-8">
             <span class="mr-2">
@@ -50,7 +50,7 @@
                   fill="white" />
               </svg>
             </span>
-            <a href="tel:0297475327">02 97 47 53 27</a>
+            <a href="tel:0606060606">02 97 47 53 27</a>
           </p>
         </div>
         <NuxtLink to="/contact"

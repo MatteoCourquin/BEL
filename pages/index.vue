@@ -69,33 +69,33 @@
     <div class="overflow-hidden">
       <div class="flex flex-nowrap">
         <div ref="partenaireContainerRight1"
-          class="right flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
+          class="right flex flex-nowrap gap-8 md:gap-14 pt-10 min-w-max pr-8 md:pr-14">
           <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
-              :src="'/images/partenaires/' + partenaire.img" alt="logo partenaire" />
+            <img class="w-20 h-20 md:w-28 md:h-28 object-contain" :src="'/images/partenaires/' + partenaire.img"
+              alt="logo partenaire" />
           </div>
         </div>
         <div ref="partenaireContainerRight2"
-          class="right flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
+          class="right flex flex-nowrap gap-8 md:gap-14 pt-10 min-w-max pr-8 md:pr-14">
           <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
-              :src="'/images/partenaires/' + partenaire.img" alt="logo partenaire" />
+            <img class="w-20 h-20 md:w-28 md:h-28 object-contain" :src="'/images/partenaires/' + partenaire.img"
+              alt="logo partenaire" />
           </div>
         </div>
       </div>
       <div class="flex flex-nowrap flex-row-reverse">
         <div ref="partenaireContainerLeft1"
-          class="left flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
+          class="left flex flex-nowrap gap-8 md:gap-14 pt-10 min-w-max pr-8 md:pr-14">
           <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
-              :src="'/images/partenaires/' + partenaire.img" alt="logo partenaire" />
+            <img class="w-20 h-20 md:w-28 md:h-28 object-contain" :src="'/images/partenaires/' + partenaire.img"
+              alt="logo partenaire" />
           </div>
         </div>
         <div ref="partenaireContainerLeft2"
-          class="left flex flex-nowrap gap-8 md:gap-14 md:pt-10 min-w-max pr-8 md:pr-14">
+          class="left flex flex-nowrap gap-8 md:gap-14 pt-10 min-w-max pr-8 md:pr-14">
           <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full"
-              :src="'/images/partenaires/' + partenaire.img" alt="logo partenaire" />
+            <img class="w-20 h-20 md:w-28 md:h-28 object-contain" :src="'/images/partenaires/' + partenaire.img"
+              alt="logo partenaire" />
           </div>
         </div>
       </div>
@@ -124,15 +124,15 @@ export default {
         },
         {
           title: "Zones d’activités et centres techniques",
-          logo: "/landscape.svg"
+          logo: "/building.svg"
         },
         {
           title: "Aménagements paysagers autour d’Equipements Publics",
-          logo: "/run.svg"
+          logo: "/landscape.svg"
         },
         {
           title: "Programmes de voirie communales",
-          logo: "/building.svg"
+          logo: "/road.svg"
         },
       ],
       advantages: [
@@ -154,34 +154,49 @@ export default {
       ],
       partenaires: [
         {
-          img: "/staze.svg",
+          img: "/arzon.svg",
         },
         {
-          img: "/daasity.svg",
+          img: "/nivillac.svg",
         },
         {
-          img: "/photoaid.svg",
+          img: "/erdeven.svg",
         },
         {
-          img: "/promoted.svg",
+          img: "/locoal-mendon.svg",
         },
         {
-          img: "/waydev.svg",
+          img: "/malansac.svg",
         },
         {
-          img: "/staze.svg",
+          img: "/arradon.svg",
         },
         {
-          img: "/daasity.svg",
+          img: "/artz.svg",
         },
         {
-          img: "/photoaid.svg",
+          img: "/peaule.svg",
         },
         {
-          img: "/promoted.svg",
+          img: "/sarzeau.svg",
         },
         {
-          img: "/waydev.svg",
+          img: "/baden.svg",
+        },
+        {
+          img: "/questembert.svg",
+        },
+        {
+          img: "/iut.svg",
+        },
+        {
+          img: "/ministere.svg",
+        },
+        {
+          img: "/port.svg",
+        },
+        {
+          img: "/morbihan.svg",
         },
       ],
     };
@@ -231,7 +246,7 @@ export default {
         x: container.className.includes("right") ? "-100%" : "100%",
         ease: "linear",
         repeat: -1,
-        duration: 20,
+        duration: 40,
       });
     });
   },
