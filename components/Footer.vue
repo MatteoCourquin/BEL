@@ -30,7 +30,7 @@
                   fill="white" />
               </svg>
             </span>
-            <a href="mailto:contact@be-legavre.fr">contact@be-legavre.com</a>
+            <a href="mailto:etudes@be-legavre.fr">etudes@be-legavre.com</a>
           </p>
           <p class="text-white flex items-center mr-8">
             <span class="mr-2">
