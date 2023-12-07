@@ -27,9 +27,9 @@ export default defineNuxtConfig({
     },
   },
   // PROD
-  // ssr: true,
+  ssr: true,
   // DEV
-  ssr: false,
+  // ssr: false,
   devtools: { enabled: true },
   css: ['@/css/main.css'],
   vite: {
