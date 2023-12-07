@@ -104,6 +104,7 @@ export default {
         email: this.$refs.email.value,
         tel: this.$refs.tel.value,
         description: this.$refs.description.value,
+        currentYear: new Date().getFullYear(),
       };
 
       templateParams.firstname ? this.isError.firstname = false : this.isError.firstname = true
