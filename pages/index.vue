@@ -10,11 +10,11 @@
   <section itemscope itemtype="http://schema.org/Organization"
     class="h-screen-header min-h-[800px] max-w-default py-y-default mx-auto px-x-default relative flex sm:block flex-col gap-20 justify-between">
     <div itemprop="additionalProperty">
-      <p itemprop="value" class="font-michroma">Maitres d'oeuvre depuis 1988</p>
+      <p itemprop="value" class="font-michroma">Maitre d'oeuvre VRD depuis 1988</p>
       <h1 itemprop="name" class="uppercase py-8 sm:whitespace-nowrap">Bureau d'études <br>Legavre</h1>
       <p itemprop="description" class="w-full sm:w-2/3 pb-8">Notre bureau d’études n’a de cesse de développer ses
         compétences et d’améliorer sa technicité dans le domaine de la maîtrise d’oeuvre des infrastructures VRD (Voirie
-        et Réseaux Divers) pour l’aménagement des territoires Morbihannais, Breton et limitrophe</p>
+        et Réseaux Divers) pour l’aménagement des territoires Morbihannais, Bretons et limitrophes</p>
       <ButtonScroll />
     </div>
     <div
@@ -131,7 +131,7 @@ export default {
           logo: "/landscape.svg"
         },
         {
-          title: "Programmes de voirie communales",
+          title: "Programmes de voiries communales",
           logo: "/road.svg"
         },
       ],
