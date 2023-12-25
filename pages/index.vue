@@ -8,7 +8,7 @@
     <Link rel="canonical" href="https://www.be-legavre.com/" />
   </Head>
   <section itemscope itemtype="http://schema.org/Organization"
-    class="h-screen-header min-h-[800px] max-w-default py-y-default mx-auto px-x-default relative flex sm:block flex-col gap-20 justify-between">
+    class="min-h-screen-header max-w-default py-y-default mx-auto px-x-default relative flex sm:block flex-col gap-20 justify-between">
     <div itemprop="additionalProperty">
       <p itemprop="value" class="font-michroma">Maitre d'oeuvre VRD depuis 1988</p>
       <h1 itemprop="name" class="uppercase py-8 sm:whitespace-nowrap">Bureau d'études <br>Legavre</h1>
@@ -17,10 +17,12 @@
         et Réseaux Divers) pour l’aménagement des territoires Morbihannais, Bretons et limitrophes</p>
       <ButtonScroll />
     </div>
-    <div
-      class="border-image m-4 relative sm:absolute w-full sm:w-[30vw] h-52 -translate-x-4 min-w-[250px] sm:h-[30vh] min-h-[150px] sm:bottom-[10%] sm:right-x-default">
-      <img src="/images/architect.webp" alt="illustration d'architecture"
-        class="rounded-small object-cover w-full h-full" />
+    <div class="w-full flex justify-end">
+      <div
+        class="border-image m-4 relative w-full sm:w-[30vw] h-52  min-w-[250px] sm:h-[30vh] min-h-[150px]">
+        <img src="/images/architect.webp" alt="illustration d'architecture"
+          class="rounded-small object-cover w-full h-full" />
+      </div>
     </div>
   </section>
   <Section variant="heading3" title="réalisations">
