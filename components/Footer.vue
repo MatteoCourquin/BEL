@@ -3,10 +3,9 @@
     <div class="max-w-default h-fit mx-auto px-x-default">
       <div class="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0">
         <div class="flex flex-col justify-between space-y-8">
-          <NuxtLink to="/contact"
-            class="w-fit bg-white hover:bg-gold !text-black hover:!text-white transition-colors px-10 py-1 rounded-small uppercase font-inter-semi-bold">
+          <h4 class="text-white">
             Contact
-          </NuxtLink>
+          </h4>
           <div class="w-full flex flex-col sm:flex-row items-start space-y-8 sm:space-y-0">
             <div class="flex flex-col space-y-4">
               <p class="text-white flex items-center mr-8">
@@ -43,7 +42,7 @@
             </div>
           </div>
         </div>
-        <div class=" flex justify-start md:justify-end items-end">
+        <div class=" flex flex-col space-y-4 items-start md:items-end justify-end">
           <NuxtLink to="/" aria-label="Logo de l'entreprise BEL">
             <svg width="97" height="40" viewBox="0 0 97 40" fill="none" xmlns="http://www.w3.org/2000/svg"
               class="stroke-white hover:stroke-gold transition-colors">
@@ -56,6 +55,10 @@
               <line x1="11" y1="9" x2="19" y2="9" stroke-width="2" />
               <line x1="11" y1="30" x2="19" y2="30" stroke-width="2" />
             </svg>
+          </NuxtLink>
+          <NuxtLink to="/contact"
+            class="w-fit bg-white hover:bg-gold !text-black hover:!text-white transition-colors px-10 py-1 rounded-small uppercase font-inter-semi-bold">
+            Contact
           </NuxtLink>
         </div>
       </div>

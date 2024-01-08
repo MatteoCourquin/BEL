@@ -3,7 +3,7 @@
     <Title itemprop="name">BEL Bureau d'Études Legavre</Title>
     <Meta name="title" content="BEL Bureau d'Études Legavre" />
     <Meta name="description"
-      content="BEL développe ses compétences et améliore ses moyens techniques dans le domaine de la maîtrise d’oeuvre VRD." />
+      content="BEL Bureau Études Legavre développe ses compétences et améliore ses moyens techniques dans le domaine de la maîtrise d’oeuvre VRD." />
     <Meta name="robots" content="index" />
     <Link rel="canonical" href="https://www.be-legavre.com/" />
   </Head>
