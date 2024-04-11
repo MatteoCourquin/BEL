@@ -81,12 +81,16 @@ fetchProjects($client).then((projects) => {
 
 const fetchArticles = async ($client) => {
   try {
-    const { data: articles } = await useAsyncData('articles', () => $client.getEntries({ content_type: "articles" }));
+    const { data: articles } = await useAsyncData('articles', () => $client.getEntries({
+      content_type: "articles",
+      order: "-fields.date"
+    }));
 
     const formattedData = articles._rawValue.items.map((item) => ({
       title: item.fields.title,
       subtitle: item.fields.subtitle,
       content: formatDescription(item.fields.content.content),
+      date: item.fields.date,
       photo: item.fields.photo.fields.file.url
     }));
 

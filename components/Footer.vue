@@ -18,7 +18,7 @@
         <p class="text-white text-xl  mt-6 md:mt-0">Demande de renseignements</p>
       </div>
       <div class="w-full flex flex-col-reverse md:flex-row justify-between items-start md:items-center my-6">
-        <div class="flex flex-wrap  mt-3 md:mt-0">
+        <div class="flex flex-wrap gap-4 mt-3 md:mt-0">
           <p class="text-white flex items-center mr-8">
             <span class="mr-2">
               <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
