@@ -31,7 +31,7 @@
       </div>
       <div
         :class="['controls-slider overflow-hidden rounded-small max-h-fit max-w-fit absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-transform', isImageOpen ? 'scale-100' : 'scale-0']">
-        <img class="max-w-[90vw] max-h-[90vh]" :src="urlImage" alt="">
+        <img class="max-w-[90vw] max-h-[90vh] select-none" :src="urlImage" alt="">
       </div>
     </div>
 
