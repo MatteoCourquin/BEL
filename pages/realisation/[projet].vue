@@ -10,6 +10,7 @@
       class="md:h-screen-header py-y-default flex flex-col md:flex-row gap-10 overflow-hidden pr-x-default md:px-0 ml-hero-project">
       <div class="md:w-1/2 overflow-y-scroll no-scrollbar">
         <p class="!text-gold pb-2 md:pb-4 !text-sm lowercase font-michroma">#{{ computedProject.tags }}</p>
+        <p class="pb-4 lg:pb-6 text-xs">{{ formatDate(computedProject.date) }}</p>
         <h3 class="pb-10">{{ computedProject.title }}</h3>
         <p v-html="computedProject.description"></p>
       </div>

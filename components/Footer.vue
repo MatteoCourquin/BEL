@@ -61,7 +61,6 @@
       <hr class="text-white my-16">
       <div class="flex flex-col-reverse md:flex-row items-start md:items-center justify-between text-white">
         <p class="text-sm text-white mt-3 md:mt-0">© {{ dateYear }} Bureau Études Legavre. Tous droits réservés.</p>
-        <p class="text-sm text-white mb-3 md:mb-0">Cookie</p>
       </div>
     </div>
   </footer>

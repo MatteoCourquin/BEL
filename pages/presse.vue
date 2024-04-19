@@ -15,7 +15,7 @@
         @slideChange="onSlideChange">
         <SwiperSlide v-for="(article, index) in computedArticles" :key="index"
           class="w-full h-fit rounded-small shadow-lg ">
-          <img class="rounded-small w-full h-[50vh] max-h-96 object-cover" :src="'https:' + article.photo"
+          <img class="rounded-small w-full h-[50vh] max-h-96 object-cover" :src="'https:' + article.photo" @click="openImage(article.photo)"
             :alt="'Illustration de l\'article ' + article.title">
         </SwiperSlide>
         <div class="relative h-16">
@@ -23,6 +23,18 @@
         </div>
       </Swiper>
     </div>
+
+    <div
+      :class="['fixed w-screen h-screen top-0 left-0 transition-all z-[210]', isImageOpen ? 'visible opacity-100' : 'invisible opacity-0']">
+      <div @click="isImageOpen = false"
+        :class="['absolute w-full h-full layer-image transition-all', isImageOpen ? 'visible opacity-100' : 'invisible opacity-0']">
+      </div>
+      <div
+        :class="['controls-slider overflow-hidden rounded-small max-h-fit max-w-fit absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-transform', isImageOpen ? 'scale-100' : 'scale-0']">
+        <img class="max-w-[90vw] max-h-[90vh]" :src="urlImage" alt="">
+      </div>
+    </div>
+
     <div v-if="computedArticles.length != 0"
       class="flex flex-col relative lg:col-start-1 lg:col-end-2 lg:row-end-2 px-x-default lg:px-0">
       <p class="pb-2 font-michroma">{{ computedArticles[currentArticle].subtitle }}</p>
@@ -39,11 +51,17 @@ export default {
   data() {
     return {
       currentArticle: undefined,
+      isImageOpen: false,
+      urlImage: ''
     };
   },
   methods: {
     onSlideChange(swiper) {
       this.currentArticle = swiper.activeIndex;
+    },
+    openImage(urlImage) {
+      this.isImageOpen = true;
+      this.urlImage = urlImage;
     },
   },
   created() {
@@ -57,4 +75,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.layer-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+</style>
