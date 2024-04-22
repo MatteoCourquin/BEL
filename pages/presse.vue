@@ -77,8 +77,6 @@ export default {
       this.currentArticle = swiper.activeIndex;
     },
     nextImage() {
-      const swiper = useSwiper()
-      console.log(swiper)
       const currentIndex = this.galleryImages.findIndex((url) => url === this.urlImage);
       const nextIndex = (currentIndex + 1) % this.galleryImages.length;
       this.urlImage = this.galleryImages[nextIndex]
