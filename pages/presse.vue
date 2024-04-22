@@ -14,9 +14,9 @@
         :modules="[SwiperAutoplay, SwiperEffectCards]" :slides-per-view="1" :loop="false" :effect="'cards'"
         @slideChange="onSlideChange">
         <SwiperSlide v-for="(article, index) in computedArticles" :key="index"
-          class="w-full h-fit rounded-small shadow-lg ">
-          <img class="rounded-small w-full h-[50vh] max-h-96 object-cover" :src="'https:' + article.photo" @click="openImage(article.photo)"
-            :alt="'Illustration de l\'article ' + article.title">
+          class="w-full h-fit rounded-small shadow-lg cursor-pointer">
+          <img class="rounded-small w-full h-[50vh] max-h-96 object-cover" :src="'https:' + article.photo"
+            @click="openImage(article.photo)" :alt="'Illustration de l\'article ' + article.title">
         </SwiperSlide>
         <div class="relative h-16">
           <SwiperControls :currentArticle="currentArticle" />
@@ -31,7 +31,23 @@
       </div>
       <div
         :class="['controls-slider overflow-hidden rounded-small max-h-fit max-w-fit absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-transform', isImageOpen ? 'scale-100' : 'scale-0']">
-        <img class="max-w-[90vw] max-h-[90vh] select-none" :src="urlImage" alt="">
+        <div @click="previousImage()"
+          class="z-10 absolute top-0 left-0 h-full w-20 backdrop-filter bg-transparent hover:bg-[#ffffff6c] transition-colors cursor-pointer flex justify-center items-center">
+          <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="rotate-90">
+            <path stroke="black" d="M12.7335 1.70813L7.20209 7.2396L1.67065 1.70813" stroke-width="1.77796"
+              stroke-linecap="square" />
+          </svg>
+        </div>
+        <img class="max-w-[90vw] max-h-[90vh]" :src="urlImage" alt="">
+        <div @click="nextImage(currentArticle)"
+          class="z-10 absolute top-0 right-0 h-full w-20 backdrop-filter bg-transparent hover:bg-[#ffffff6c] transition-colors cursor-pointer flex justify-center items-center">
+          <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="-rotate-90">
+            <path stroke="black" d="M12.7335 1.70813L7.20209 7.2396L1.67065 1.70813" stroke-width="1.77796"
+              stroke-linecap="square" />
+          </svg>
+        </div>
       </div>
     </div>
 
@@ -52,12 +68,25 @@ export default {
     return {
       currentArticle: undefined,
       isImageOpen: false,
-      urlImage: ''
+      urlImage: '',
+      galleryImages: [],
     };
   },
   methods: {
     onSlideChange(swiper) {
       this.currentArticle = swiper.activeIndex;
+    },
+    nextImage() {
+      const swiper = useSwiper()
+      console.log(swiper)
+      const currentIndex = this.galleryImages.findIndex((url) => url === this.urlImage);
+      const nextIndex = (currentIndex + 1) % this.galleryImages.length;
+      this.urlImage = this.galleryImages[nextIndex]
+    },
+    previousImage() {
+      const currentIndex = this.galleryImages.findIndex((url) => url === this.urlImage);
+      const previousIndex = (currentIndex - 1 + this.galleryImages.length) % this.galleryImages.length;
+      this.urlImage = this.galleryImages[previousIndex];
     },
     openImage(urlImage) {
       this.isImageOpen = true;
@@ -71,7 +100,15 @@ export default {
     computedArticles() {
       return useArticles().value
     }
-  }
+  },
+  watch: {
+    computedArticles: {
+      immediate: true,
+      handler(newProject) {
+        this.galleryImages = newProject ? newProject.map((project) => project.photo)  : [];
+      },
+    },
+  },
 };
 </script>
 

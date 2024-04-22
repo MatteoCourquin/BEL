@@ -16,11 +16,11 @@
       </div>
       <div class="flex-col h-full w-1/2 justify-center md:flex hidden">
         <div class="border-image translate-x-4 h-2/5 pb-5">
-          <img :src="'https:' + computedProject.photos[0]" :alt="'photos du projet' + computedProject.title"
+          <img :src="'https:' + computedProject.photos[1]" :alt="'photos du projet' + computedProject.title"
             class="rounded-small w-full h-full object-cover" />
         </div>
         <div class="h-2/5 pt-5 relative">
-          <img class="object-cover w-full h-full translate-x-4 rounded-small" :src="'https:' + computedProject.photos[1]"
+          <img class="object-cover w-full h-full translate-x-4 rounded-small" :src="'https:' + computedProject.photos[0]"
             :alt="'photos du projet' + computedProject.title">
           <Circle orientation="bottom" @click="scroll"
             className="cursor-pointer bottom-1 left-1 -translate-x-9 translate-y-1/2" variant="photos"></Circle>
