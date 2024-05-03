@@ -10,7 +10,7 @@
     class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-1 max-w-default px-0 lg:px-x-default py-y-default mx-auto min-h-screen-header lg:min-h-fit lg:h-screen-header">
     <div
       class="flex justify-center items-center pb-10 lg:pb-0 lg:col-start-2 lg:col-end-3 lg:row-end-2 overflow-hidden lg:overflow-visible px-0 lg:px-x-default">
-      <Swiper class="w-7/12 md:w-9/12 lg:w-[90%] h-fit flex justify-center items-center"
+      <Swiper class="w-7/12 md:w-9/12 lg:w-[90%] h-fit flex justify-center items-center select-none"
         :modules="[SwiperAutoplay, SwiperEffectCards]" :slides-per-view="1" :loop="false" :effect="'cards'"
         @slideChange="onSlideChange">
         <SwiperSlide v-for="(article, index) in computedArticles" :key="index"
@@ -39,7 +39,7 @@
               stroke-linecap="square" />
           </svg>
         </div>
-        <img class="max-w-[90vw] max-h-[90vh]" :src="urlImage" alt="">
+        <img class="max-w-[90vw] max-h-[90vh] select-none" :src="urlImage" alt="">
         <div @click="nextImage(currentArticle)"
           class="z-10 absolute top-0 right-0 h-full w-20 backdrop-filter bg-transparent hover:bg-[#ffffff6c] transition-colors cursor-pointer flex justify-center items-center">
           <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"
