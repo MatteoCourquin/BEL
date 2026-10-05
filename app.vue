@@ -53,40 +53,45 @@ const wrapInParagraph = (content) => `<p class="pb-4">${content.join('')}</p>`;
 
 const fetchProjects = async ($client) => {
   try {
-    const { data: projects } = await useAsyncData('projects', () => $client.getEntries({
+    const res = await $client.getEntries({
       content_type: "projets",
       order: "-fields.date"
-    }));
+    });
 
-    const formattedData = projects._rawValue.items.map((item) => ({
+    if (!res || !res.items) return [];
+
+    const formattedData = res.items.map((item) => ({
       title: item.fields.name,
       date: item.fields.date,
       tags: item.fields.tags,
       shortdescription: formatShortDescription(item.fields.description.content),
       description: formatDescription(item.fields.description.content),
-      photos: item.fields.photos.map((photo) => photo.fields.file.url).flat(),
+      photos: item.fields.photos ? item.fields.photos.map((photo) => photo.fields.file.url).flat() : [],
       video: item.fields.video ? item.fields.video.fields.file.url : undefined
     }));
 
     return formattedData;
   } catch (error) {
     console.error('Error fetching projects:', error);
+    return [];
   }
 };
 
 const fetchArticles = async ($client) => {
   try {
-    const { data: articles } = await useAsyncData('articles', () => $client.getEntries({
+    const res = await $client.getEntries({
       content_type: "articles",
       order: "-fields.date"
-    }));
+    });
 
-    const formattedData = articles._rawValue.items.map((item) => ({
+    if (!res || !res.items) return [];
+
+    const formattedData = res.items.map((item) => ({
       title: item.fields.title,
       subtitle: item.fields.subtitle,
       content: formatDescription(item.fields.content.content),
       date: item.fields.date,
-      photo: item.fields.photo.fields.file.url
+      photo: item.fields.photo ? item.fields.photo.fields.file.url : ''
     }));
 
     return formattedData;

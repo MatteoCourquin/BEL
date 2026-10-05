@@ -31,6 +31,12 @@ export default defineNuxtConfig({
   // DEV
   // // ssr: false,
   devtools: { enabled: false },
+  runtimeConfig: {
+    public: {
+      contentfulSpaceId: process.env.VITE_CONTENTFUL_SPACE_ID || '',
+      contentfulAccessToken: process.env.VITE_CONTENTFUL_ACCESS_TOKEN || '',
+    },
+  },
   css: ['@/css/main.css'],
   vite: {
     resolve: {
