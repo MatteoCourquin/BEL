@@ -12,23 +12,45 @@
 
 <script>
 export default {
+  props: {
+    modelValue: {
+      type: String,
+      default: 'tous',
+    },
+  },
   data() {
     return {
-      activeTab: 'tous',
+      activeTab: this.modelValue || 'tous',
     };
   },
   watch: {
-    activeItem() {
-      this.scrollToItem();
+    modelValue(newVal) {
+      if (newVal) {
+        this.activeTab = newVal;
+        this.$nextTick(() => {
+          this.scrollToItem(newVal);
+        });
+      }
     },
+  },
+  mounted() {
+    if (this.activeTab && this.activeTab !== 'tous') {
+      this.$nextTick(() => {
+        this.scrollToItem(this.activeTab);
+      });
+    }
   },
   methods: {
     setActiveItem(tab) {
       this.activeTab = tab;
       this.$emit('update:activeTab', tab);
+      this.$emit('update:modelValue', tab);
     },
-    scrollToItem() {
-      const item = this.$refs[this.activeTag][0].getBoundingClientRect();
+    scrollToItem(tab) {
+      const targetSlug = tab || this.activeTab;
+      const refItem = this.$refs[targetSlug];
+      if (!refItem || !refItem[0] || !this.$refs.wrapper) return;
+      const item = refItem[0].getBoundingClientRect();
       const wrapper = this.$refs.wrapper.getBoundingClientRect();
       this.$refs.wrapper.scrollTo({
         left: (item.left - wrapper.left + this.$refs.wrapper.scrollLeft) - window.innerWidth / 2 + item.width / 2,

@@ -16,6 +16,7 @@
         <SwiperSlide v-for="(article, index) in computedArticles" :key="index"
           class="w-full h-fit rounded-small shadow-lg cursor-pointer">
           <img class="rounded-small w-full h-[50vh] max-h-96 object-cover" :src="'https:' + article.photo"
+            :loading="index === 0 ? 'eager' : 'lazy'"
             @click="openImage(article.photo)" :alt="'Illustration de l\'article ' + article.title">
         </SwiperSlide>
         <div class="relative h-16">
@@ -66,7 +67,7 @@ export default {
   name: "Presse",
   data() {
     return {
-      currentArticle: undefined,
+      currentArticle: 0,
       isImageOpen: false,
       urlImage: '',
       galleryImages: [],

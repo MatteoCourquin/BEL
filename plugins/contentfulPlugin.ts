@@ -1,9 +1,5 @@
-// DEV
-// import { createClient } from 'contentful';
-
-// PROD
-import contentful from 'contentful';
-const { createClient } = contentful;
+import * as contentful from 'contentful';
+const createClient = (contentful as any).createClient || (contentful as any).default?.createClient;
 
 export default defineNuxtPlugin(() => {
   return {

@@ -30,7 +30,7 @@ export default defineNuxtConfig({
   ssr: true,
   // DEV
   // // ssr: false,
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   css: ['@/css/main.css'],
   vite: {
     resolve: {

@@ -7,7 +7,7 @@
     <Link rel="canonical" href="https://www.be-legavre.com/projets" />
   </Head>
   <section class="min-h-screen-header">
-    <Tabs @update:activeTab="setActiveTab" />
+    <Tabs v-model="activeTab" @update:activeTab="setActiveTab" />
     <section class="mx-auto max-w-default px-x-default pb-y-default">
       <div v-for="(project, index) in computedProjects" :key="index" class="w-full">
         <div v-if="shouldShowYear(index)" class="flex items-center gap-4 pb-10 pt-16">
@@ -36,9 +36,19 @@
 <script>
 export default {
   data() {
+    const route = useRoute();
     return {
-      activeTab: 'tous',
+      activeTab: route.query.tab || 'tous',
     };
+  },
+  watch: {
+    '$route.query.tab'(newTab) {
+      if (newTab) {
+        this.activeTab = newTab;
+      } else {
+        this.activeTab = 'tous';
+      }
+    },
   },
   methods: {
     setActiveTab(activeTab) {

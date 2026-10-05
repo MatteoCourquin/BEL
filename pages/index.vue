@@ -25,6 +25,21 @@
       </div>
     </div>
   </section>
+  <Section variant="heading3" title="Domaines d'intervention">
+    <div class="px-x-default max-w-default mx-auto grid grid-services gap-8 md:gap-10">
+      <NuxtLink
+        v-for="(service, index) in services"
+        :key="index"
+        :to="{ path: '/realisations', query: { tab: formatSlug(service.title) } }"
+        class="flex gap-2 md:gap-4 items-center group cursor-pointer"
+      >
+        <div class="w-10 shrink-0 flex justify-center items-center">
+          <ServiceIcon :name="service.icon" />
+        </div>
+        <p class="shrink group-hover:text-gold transition-colors duration-200">{{ service.title }}</p>
+      </NuxtLink>
+    </div>
+  </Section>
   <Section variant="heading3" title="réalisations">
     <div ref="slider" class="flex gap-8 md:gap-14 overflow-x-scroll md:pt-10 no-scrollbar">
       <div ref="sliderItem" v-for="(project, index) in computedProjects" :key="index"
@@ -48,15 +63,6 @@
       <Arrow color="black" direction="right" @click="scrollRight" />
     </div>
   </Section>
-  <Section variant="heading3" title="Domaines d'intervention">
-    <div class="px-x-default max-w-default mx-auto grid grid-services gap-8 md:gap-10">
-      <div v-for="(service, index) in services" :key="index" class="flex gap-2 md:gap-4">
-        <div class="w-10 shrink-0 flex justify-center"><img class="h-6" :src="'/icons/' + service.logo"
-            :alt="'icone pour ' + service.title" /></div>
-        <p class="shrink">{{ service.title }}</p>
-      </div>
-    </div>
-  </Section>
   <Section variant="heading3" title="valeurs">
     <div class="px-x-default max-w-default mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 ">
       <div v-for="(advantage, index) in advantages" :key="index"
@@ -68,36 +74,38 @@
     </div>
   </Section>
   <Section variant="heading3" title="Nos clients">
-    <div class="overflow-hidden">
-      <div class="flex flex-nowrap">
-        <div ref="partenaireContainerRight1"
-          class="right flex flex-nowrap gap-8 md:gap-14 pt-10 min-w-max pr-8 md:pr-14">
-          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-20 h-20 md:w-28 md:h-28 object-contain" :src="'/images/partenaires/' + partenaire.img"
-              alt="logo partenaire" />
+    <div class="max-w-default mx-auto px-x-default">
+      <div class="overflow-hidden relative partners-mask">
+        <div class="flex flex-nowrap">
+          <div ref="partenaireContainerRight1"
+            class="right flex flex-nowrap gap-8 md:gap-14 pt-10 min-w-max pr-8 md:pr-14">
+            <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
+              <img class="w-20 h-20 md:w-28 md:h-28 object-contain" :src="'/images/partenaires/' + partenaire.img"
+                alt="logo partenaire" />
+            </div>
+          </div>
+          <div ref="partenaireContainerRight2"
+            class="right flex flex-nowrap gap-8 md:gap-14 pt-10 min-w-max pr-8 md:pr-14">
+            <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
+              <img class="w-20 h-20 md:w-28 md:h-28 object-contain" :src="'/images/partenaires/' + partenaire.img"
+                alt="logo partenaire" />
+            </div>
           </div>
         </div>
-        <div ref="partenaireContainerRight2"
-          class="right flex flex-nowrap gap-8 md:gap-14 pt-10 min-w-max pr-8 md:pr-14">
-          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-20 h-20 md:w-28 md:h-28 object-contain" :src="'/images/partenaires/' + partenaire.img"
-              alt="logo partenaire" />
+        <div class="flex flex-nowrap flex-row-reverse">
+          <div ref="partenaireContainerLeft1"
+            class="left flex flex-nowrap gap-8 md:gap-14 pt-10 min-w-max pr-8 md:pr-14">
+            <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
+              <img class="w-20 h-20 md:w-28 md:h-28 object-contain" :src="'/images/partenaires/' + partenaire.img"
+                alt="logo partenaire" />
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="flex flex-nowrap flex-row-reverse">
-        <div ref="partenaireContainerLeft1"
-          class="left flex flex-nowrap gap-8 md:gap-14 pt-10 min-w-max pr-8 md:pr-14">
-          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-20 h-20 md:w-28 md:h-28 object-contain" :src="'/images/partenaires/' + partenaire.img"
-              alt="logo partenaire" />
-          </div>
-        </div>
-        <div ref="partenaireContainerLeft2"
-          class="left flex flex-nowrap gap-8 md:gap-14 pt-10 min-w-max pr-8 md:pr-14">
-          <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
-            <img class="w-20 h-20 md:w-28 md:h-28 object-contain" :src="'/images/partenaires/' + partenaire.img"
-              alt="logo partenaire" />
+          <div ref="partenaireContainerLeft2"
+            class="left flex flex-nowrap gap-8 md:gap-14 pt-10 min-w-max pr-8 md:pr-14">
+            <div class="shrink-0" v-for="(partenaire, index) in partenaires" :key="index">
+              <img class="w-20 h-20 md:w-28 md:h-28 object-contain" :src="'/images/partenaires/' + partenaire.img"
+                alt="logo partenaire" />
+            </div>
           </div>
         </div>
       </div>
@@ -118,23 +126,28 @@ export default {
       services: [
         {
           title: "Aménagements urbains",
-          logo: "/map.svg"
+          logo: "/map.svg",
+          icon: "map"
         },
         {
           title: "Aménagements autour de l’habitat",
-          logo: "/house.svg"
+          logo: "/house.svg",
+          icon: "house"
         },
         {
           title: "Zones d’activités et centres techniques",
-          logo: "/building.svg"
+          logo: "/building.svg",
+          icon: "building"
         },
         {
           title: "Aménagements paysagers autour d’Equipements Publics",
-          logo: "/landscape.svg"
+          logo: "/landscape.svg",
+          icon: "landscape"
         },
         {
           title: "Programmes de voiries communales",
-          logo: "/road.svg"
+          logo: "/road.svg",
+          icon: "road"
         },
       ],
       advantages: [
@@ -293,5 +306,10 @@ export default {
 
 .grid-services {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.partners-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 </style>

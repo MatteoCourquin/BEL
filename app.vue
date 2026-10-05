@@ -71,13 +71,8 @@ const fetchProjects = async ($client) => {
     return formattedData;
   } catch (error) {
     console.error('Error fetching projects:', error);
-    return [];
   }
 };
-
-fetchProjects($client).then((projects) => {
-  useProjects().value = projects;
-});
 
 const fetchArticles = async ($client) => {
   try {
@@ -101,7 +96,14 @@ const fetchArticles = async ($client) => {
   }
 };
 
-fetchArticles($client).then((articles) => {
-  useArticles().value = articles;
-});
+const projectsState = useProjects();
+const articlesState = useArticles();
+
+const [projects, articles] = await Promise.all([
+  fetchProjects($client),
+  fetchArticles($client)
+]);
+
+projectsState.value = projects;
+articlesState.value = articles;
 </script>
