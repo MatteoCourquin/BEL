@@ -2,7 +2,7 @@
   <section class="pb-y-default">
     <div class="relative mb-y-default overflow-hidden">
       <div class="flex justify-center md:justify-normal max-w-default mx-auto px-x-default">
-        <div class="px-24 py-4 z-10 gradient-white w-fit">
+        <div class="px-12 py-4 z-10 gradient-white w-fit">
           <h1 v-if="variant === 'heading1'" class="uppercase text-center md:text-left inline-block">{{ title }}</h1>
           <h2 v-if="variant === 'heading2'" class="uppercase text-center md:text-left inline-block">{{ title }}</h2>
           <h3 v-if="variant === 'heading3'" class="uppercase text-center md:text-left inline-block">{{ title }}</h3>
