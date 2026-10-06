@@ -19,9 +19,10 @@
           class="w-full h-full object-cover rounded-small"
           controls
           loop
-          muted
           playsinline
-          preload="none"
+          preload="auto"
+          :muted="!isDesktop"
+          :src="'https:' + computedProject.video"
           :poster="computedProject.photos && computedProject.photos.length ? 'https:' + computedProject.photos[0] + '?w=1400&fm=webp&q=80' : undefined"
         ></video>
       </div>
@@ -50,36 +51,21 @@
         </div>
       </div>
     </div>
-    <div
-      :class="['fixed w-screen h-screen top-0 left-0 transition-all z-[210]', isImageOpen ? 'visible opacity-100' : 'invisible opacity-0']">
-      <div @click="isImageOpen = false"
-        :class="['absolute w-full h-full layer-image transition-all', isImageOpen ? 'visible opacity-100' : 'invisible opacity-0']">
-      </div>
-      <div
-        :class="['controls-slider overflow-hidden rounded-small max-h-fit max-w-fit absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-transform', isImageOpen ? 'scale-100' : 'scale-0']">
-        <div @click="previousImage()"
-          class="z-10 absolute top-0 left-0 h-full w-20 backdrop-filter bg-transparent hover:bg-[#ffffff6c] transition-colors cursor-pointer flex justify-center items-center">
-          <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="rotate-90">
-            <path stroke="black" d="M12.7335 1.70813L7.20209 7.2396L1.67065 1.70813" stroke-width="1.77796"
-              stroke-linecap="square" />
-          </svg>
-        </div>
-        <img class="max-w-[90vw] max-h-[90vh]" :src="urlImage" alt="">
-        <div @click="nextImage()"
-          class="z-10 absolute top-0 right-0 h-full w-20 backdrop-filter bg-transparent hover:bg-[#ffffff6c] transition-colors cursor-pointer flex justify-center items-center">
-          <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="-rotate-90">
-            <path stroke="black" d="M12.7335 1.70813L7.20209 7.2396L1.67065 1.70813" stroke-width="1.77796"
-              stroke-linecap="square" />
-          </svg>
-        </div>
-      </div>
-    </div>
+    <ProjectLightbox
+      v-model="isImageOpen"
+      v-model:index="activeImageIndex"
+      :images="galleryImages"
+    />
     <Section variant="heading3" title="Le projet en images">
       <div class="max-w-default mx-auto px-x-default">
         <div class="flex flex-wrap gap-4 gallery">
           <div v-for="(photo, index) in computedProject.photos" :key="index" class="list-none grow h-64">
-            <img @click="openImage(photo)" :src="photo" :alt="'photos du projet' + computedProject.title"
-              class="rounded-small w-full h-full object-cover hover:scale-[1.02] cursor-pointer transition-all">
+            <img
+              @click="openImage(index)"
+              :src="'https:' + photo"
+              :alt="'photos du projet ' + computedProject.title"
+              class="rounded-small w-full h-full object-cover hover:scale-[1.02] cursor-pointer transition-all"
+            >
           </div>
         </div>
       </div>
@@ -93,36 +79,45 @@ export default {
   data() {
     return {
       isImageOpen: false,
-      urlImage: '',
+      activeImageIndex: 0,
       galleryImages: [],
       videoObserver: null,
+      isDesktop: false,
     };
   },
   methods: {
-    nextImage() {
-      const currentIndex = this.galleryImages.findIndex((url) => url === this.urlImage);
-      const nextIndex = (currentIndex + 1) % this.galleryImages.length;
-      this.urlImage = this.galleryImages[nextIndex];
-    },
-    previousImage() {
-      const currentIndex = this.galleryImages.findIndex((url) => url === this.urlImage);
-      const previousIndex = (currentIndex - 1 + this.galleryImages.length) % this.galleryImages.length;
-      this.urlImage = this.galleryImages[previousIndex];
-    },
-    openImage(urlImage) {
+    openImage(index) {
+      this.activeImageIndex = index;
       this.isImageOpen = true;
-      this.urlImage = urlImage;
+    },
+    updateDesktopFlag() {
+      this.isDesktop = window.matchMedia('(min-width: 768px)').matches;
+    },
+    async playVideo(video) {
+      video.muted = !this.isDesktop;
+      try {
+        await video.play();
+      } catch {
+        // Browsers often block unmuted autoplay: fall back to muted so playback still starts.
+        if (!video.muted) {
+          video.muted = true;
+          try {
+            await video.play();
+          } catch {
+            // Ignore: user can still use native controls.
+          }
+        }
+      }
     },
     setupVideoObserver() {
       const video = this.$refs.videoEl;
-      if (!video) return;
+      if (!video || !this.computedProject?.video) return;
 
+      this.videoObserver?.disconnect();
       this.videoObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            video.src = 'https:' + this.computedProject.video;
-            video.load();
-            video.play().catch(() => {});
+            this.playVideo(video);
             this.videoObserver.disconnect();
           }
         });
@@ -149,7 +144,13 @@ export default {
       },
     },
   },
+  mounted() {
+    this.updateDesktopFlag();
+    window.addEventListener('resize', this.updateDesktopFlag);
+    this.setupVideoObserver();
+  },
   beforeUnmount() {
+    window.removeEventListener('resize', this.updateDesktopFlag);
     if (this.videoObserver) {
       this.videoObserver.disconnect();
     }
@@ -159,18 +160,6 @@ export default {
 
 <style scoped lang='scss'>
 @import "@/scss/main.scss";
-
-.layer-image::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(4px);
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-}
 
 .gallery::after {
   content: '';
